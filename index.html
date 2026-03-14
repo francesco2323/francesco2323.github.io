@@ -75,6 +75,9 @@
       margin-bottom: 16px;
       letter-spacing: -.02em;
     }
+    @media (max-width: 480px) {
+      h1.name { font-size: clamp(2.1rem, 10vw, 2.7rem); }
+    }
 
     .role-row { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-bottom: 32px; }
     .role-row span { font-size: 13px; }
@@ -280,7 +283,7 @@
 
       <div class="terminal">
         <p><span class="prompt">›</span><span class="key">role:</span><span>Building reliable, secure &amp; observable platforms</span></p>
-        <p><span class="prompt">›</span><span class="key">stack:</span><span>AWS · EKS · Terraform · ArgoCD · Prometheus · Grafana</span></p>
+        <p><span class="prompt">›</span><span class="key">stack:</span><span>AWS · Kubernetes · Terraform · ArgoCD · Prometheus · Grafana</span></p>
         <p><span class="prompt">›</span><span class="key">method:</span><span>IaC · GitOps · DevSecOps · SRE</span></p>
         <p><span class="prompt">›</span><span class="key">location:</span><span>Berlin — remote-ready</span></p>
         <p><span class="prompt">›</span><span class="key">status:</span><span style="color:var(--accent)">open to opportunities<span id="cur">_</span></span></p>
@@ -303,7 +306,7 @@
       <div>
         <p class="slabel"><span class="slabel-num">00</span> about</p>
         <div class="stats" style="margin-top:28px;grid-template-columns:1fr 1fr">
-          <div class="stat-box"><div class="stat-num">3+</div><div class="stat-lbl">yrs AWS EKS / GitOps</div></div>
+          <div class="stat-box"><div class="stat-num">3+</div><div class="stat-lbl">yrs AWS Kubernetes / GitOps</div></div>
           <div class="stat-box"><div class="stat-num">3</div><div class="stat-lbl">envs managed</div></div>
           <div class="stat-box"><div class="stat-num">0</div><div class="stat-lbl">clickops drift</div></div>
           <div class="stat-box"><div class="stat-num">100%</div><div class="stat-lbl">IaC coverage</div></div>
@@ -320,7 +323,7 @@
           Contributed to a successful <span class="hl">Hetzner → AWS EKS migration</span> delivering full reproducibility via Terraform modules and automated GitOps promotion across dev → staging → prod. Produced audit-ready compliance evidence from Git history, IaC modules, and monitoring dashboards.
         </p>
         <p class="body-text">
-          Strong background in platform security with <span class="hl">RBAC hardening</span>, namespace isolation, network policies, and enforceable tagging standards. Authored platform runbooks, onboarding docs, and best-practice guides for developers and SREs.
+          Strong background in Infrastructure Engineering with focus on IAM security <span class="hl">RBAC hardening</span>, namespace isolation, network policies, and enforceable tagging standards. Authored platform runbooks, onboarding docs, and best-practice guides for developers and SREs.
         </p>
 
         <!-- TOOL LOGOS -->
