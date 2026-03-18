@@ -44,6 +44,18 @@
     .nav-link:hover { color: var(--ink); }
     .nav-link:hover::after, .nav-link.active::after { width: 100%; }
     .nav-link.active { color: var(--accent); }
+    .lang-btn {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--dim);
+      font-size: 10px;
+      letter-spacing: .12em;
+      padding: 4px 10px;
+      cursor: pointer;
+      font-family: inherit;
+      transition: border-color .18s, color .18s;
+    }
+    .lang-btn:hover { border-color: var(--accent); color: var(--accent); }
 
     /* LAYOUT */
     .container { max-width: 1100px; margin: 0 auto; padding: 0 28px; }
@@ -234,24 +246,28 @@
   <div class="nav-inner">
     <span class="nav-logo">~/fe</span>
     <div class="nav-links">
-      <a href="#about"      class="nav-link">about</a>
-      <a href="#experience" class="nav-link">experience</a>
-      <a href="#projects"   class="nav-link">projects</a>
-      <a href="#skills"     class="nav-link">skills</a>
-      <a href="#certifications" class="nav-link">certs</a>
-      <a href="#contact"    class="nav-link">contact</a>
+      <a href="#about"      class="nav-link" data-i18n="nav.about">about</a>
+      <a href="#experience" class="nav-link" data-i18n="nav.experience">experience</a>
+      <a href="#projects"   class="nav-link" data-i18n="nav.projects">projects</a>
+      <a href="#skills"     class="nav-link" data-i18n="nav.skills">skills</a>
+      <a href="#certifications" class="nav-link" data-i18n="nav.certs">certs</a>
+      <a href="#contact"    class="nav-link" data-i18n="nav.contact">contact</a>
     </div>
-    <button id="menuBtn" onclick="document.getElementById('mobile-menu').classList.toggle('open')">
-      <i class="fa-solid fa-bars"></i>
-    </button>
+    <div style="display:flex;align-items:center;gap:10px">
+      <button id="lang-toggle" class="lang-btn" onclick="toggleLanguage()" aria-label="Switch language">DE</button>
+      <button id="menuBtn" onclick="document.getElementById('mobile-menu').classList.toggle('open')">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
   </div>
   <div id="mobile-menu">
-    <a href="#about"          class="nav-link" onclick="document.getElementById('mobile-menu').classList.remove('open')">about</a>
-    <a href="#experience"     class="nav-link" onclick="document.getElementById('mobile-menu').classList.remove('open')">experience</a>
-    <a href="#projects"       class="nav-link" onclick="document.getElementById('mobile-menu').classList.remove('open')">projects</a>
-    <a href="#skills"         class="nav-link" onclick="document.getElementById('mobile-menu').classList.remove('open')">skills</a>
-    <a href="#certifications" class="nav-link" onclick="document.getElementById('mobile-menu').classList.remove('open')">certs</a>
-    <a href="#contact"        class="nav-link" onclick="document.getElementById('mobile-menu').classList.remove('open')">contact</a>
+    <button id="lang-toggle-mobile" class="lang-btn" onclick="toggleLanguage()" style="align-self:flex-start" aria-label="Switch language">DE</button>
+    <a href="#about"          class="nav-link" data-i18n="nav.about" onclick="document.getElementById('mobile-menu').classList.remove('open')">about</a>
+    <a href="#experience"     class="nav-link" data-i18n="nav.experience" onclick="document.getElementById('mobile-menu').classList.remove('open')">experience</a>
+    <a href="#projects"       class="nav-link" data-i18n="nav.projects" onclick="document.getElementById('mobile-menu').classList.remove('open')">projects</a>
+    <a href="#skills"         class="nav-link" data-i18n="nav.skills" onclick="document.getElementById('mobile-menu').classList.remove('open')">skills</a>
+    <a href="#certifications" class="nav-link" data-i18n="nav.certs" onclick="document.getElementById('mobile-menu').classList.remove('open')">certs</a>
+    <a href="#contact"        class="nav-link" data-i18n="nav.contact" onclick="document.getElementById('mobile-menu').classList.remove('open')">contact</a>
   </div>
 </nav>
 
@@ -261,7 +277,7 @@
     <div style="padding: 56px 0 48px">
       <div class="pill">
         <span class="pill-dot"></span>
-        Available for new opportunities &nbsp;·&nbsp; Berlin / Remote
+        <span data-i18n="hero.availability">Available for new opportunities &nbsp;·&nbsp; Berlin / Remote</span>
       </div>
 
       <!-- HERO IDENTITY ROW -->
@@ -272,9 +288,9 @@
         <div>
           <h1 class="name" style="font-size:clamp(2rem,4.5vw,3.4rem);white-space:nowrap;margin-bottom:10px">Francesco Emanuele</h1>
           <div class="role-row" style="margin-bottom:0">
-            <span class="r1">DevOps Engineer</span>
+            <span class="r1" data-i18n="hero.role1">DevOps Engineer</span>
             <span class="sep">/</span>
-            <span class="r2">Platform Engineer</span>
+            <span class="r2" data-i18n="hero.role2">Platform Engineer</span>
             <span class="sep">/</span>
             <span class="r3">AWS · EKS · GitOps · IaC</span>
           </div>
@@ -282,16 +298,16 @@
       </div>
 
       <div class="terminal">
-        <p><span class="prompt">›</span><span class="key">role:</span><span>Building reliable, secure &amp; observable platforms</span></p>
+        <p><span class="prompt">›</span><span class="key" data-i18n="hero.term.roleKey">role:</span><span data-i18n="hero.term.roleValue">Building reliable, secure &amp; observable platforms</span></p>
         <p><span class="prompt">›</span><span class="key">stack:</span><span>AWS · Kubernetes · Terraform · ArgoCD · Prometheus · Grafana</span></p>
-        <p><span class="prompt">›</span><span class="key">method:</span><span>IaC · GitOps · DevSecOps · SRE</span></p>
-        <p><span class="prompt">›</span><span class="key">location:</span><span>Berlin — remote-ready</span></p>
-        <p><span class="prompt">›</span><span class="key">status:</span><span style="color:var(--accent)">open to opportunities<span id="cur">_</span></span></p>
+        <p><span class="prompt">›</span><span class="key" data-i18n="hero.term.methodKey">method:</span><span>IaC · GitOps · DevSecOps · SRE</span></p>
+        <p><span class="prompt">›</span><span class="key" data-i18n="hero.term.locationKey">location:</span><span data-i18n="hero.term.locationValue">Berlin — remote-ready</span></p>
+        <p><span class="prompt">›</span><span class="key" data-i18n="hero.term.statusKey">status:</span><span style="color:var(--accent)"><span data-i18n="hero.term.statusValue">open to opportunities</span><span id="cur">_</span></span></p>
       </div>
 
       <div class="btn-row">
-        <a href="#experience" class="btn-primary"><i class="fa-solid fa-terminal"></i> view work</a>
-        <a href="#contact"    class="btn-outline"><i class="fa-regular fa-envelope"></i> get in touch</a>
+        <a href="#experience" class="btn-primary"><i class="fa-solid fa-terminal"></i> <span data-i18n="hero.btn.work">view work</span></a>
+        <a href="#contact"    class="btn-outline"><i class="fa-regular fa-envelope"></i> <span data-i18n="hero.btn.touch">get in touch</span></a>
         <a href="https://www.linkedin.com/in/francesco-emanuele/" target="_blank" class="btn-outline"><i class="fa-brands fa-linkedin"></i> linkedin</a>
         <a href="https://github.com/francesco2323" target="_blank" class="btn-outline"><i class="fa-brands fa-github"></i> github</a>
       </div>
@@ -304,28 +320,28 @@
   <div class="container">
     <div class="two-col">
       <div>
-        <p class="slabel"><span class="slabel-num">00</span> about</p>
+        <p class="slabel"><span class="slabel-num">00</span> <span data-i18n="about.label">about</span></p>
         <div class="stats" style="margin-top:28px;grid-template-columns:1fr 1fr">
-          <div class="stat-box"><div class="stat-num">3+</div><div class="stat-lbl">yrs AWS Kubernetes / GitOps</div></div>
-          <div class="stat-box"><div class="stat-num">3</div><div class="stat-lbl">envs managed</div></div>
-          <div class="stat-box"><div class="stat-num">8+</div><div class="stat-lbl">yrs in productive IT envs</div></div>
-          <div class="stat-box"><div class="stat-num">100%</div><div class="stat-lbl">IaC coverage</div></div>
+          <div class="stat-box"><div class="stat-num">3+</div><div class="stat-lbl" data-i18n="about.stat1">yrs AWS Kubernetes / GitOps</div></div>
+          <div class="stat-box"><div class="stat-num">3</div><div class="stat-lbl" data-i18n="about.stat2">envs managed</div></div>
+          <div class="stat-box"><div class="stat-num">8+</div><div class="stat-lbl" data-i18n="about.stat3">yrs in productive IT envs</div></div>
+          <div class="stat-box"><div class="stat-num">100%</div><div class="stat-lbl" data-i18n="about.stat4">IaC coverage</div></div>
         </div>
       </div>
       <div>
-        <p class="body-text">
+        <p class="body-text" data-i18n="about.p1" data-i18n-html="true">
           DevOps &amp; Platform Engineer operating a <span class="hl">shared, multi-tenant EKS environment</span> managed end-to-end via Infrastructure as Code. I own the full platform lifecycle — from cluster provisioning to observability to compliance evidence — with zero console/clickops drift.
         </p>
-        <p class="body-text">
+        <p class="body-text" data-i18n="about.p2" data-i18n-html="true">
           I design and operate EKS Kubernetes clusters following <span class="hl">GitOps principles with Argo CD</span>, managing all cloud and platform resources — including observability — via IaC. DevSecOps controls are embedded directly into CI/CD pipelines so security and compliance are default, not afterthoughts.
         </p>
-        <p class="body-text">
+        <p class="body-text" data-i18n="about.p3" data-i18n-html="true">
           Contributed to a successful <span class="hl">Hetzner → AWS EKS migration</span> delivering full reproducibility via Terraform modules and automated GitOps promotion across dev → staging → prod. Produced audit-ready compliance evidence from Git history, IaC modules, and monitoring dashboards.
         </p>
-        <p class="body-text">
+        <p class="body-text" data-i18n="about.p4" data-i18n-html="true">
           Strong background in <span class="hl">Linux, Windows, and AWS infrastructure</span> across both <span class="hl">production environments and experimental local labs</span>, following <span class="hl">Infrastructure as Code and Observability as Code</span> principles throughout and applying <span class="hl">AWS Well-Architected Framework</span> best practices across all workloads. Authored platform runbooks, onboarding docs, and best-practice guides for developers and SREs.
         </p>
-        <p class="body-text">
+        <p class="body-text" data-i18n="about.p5" data-i18n-html="true">
           Currently pursuing <span class="hl">AWS Solutions Architect Associate</span> and <span class="hl">CKA (Certified Kubernetes Administrator)</span> — actively studying and building labs daily to deepen cloud-native and Kubernetes expertise.
         </p>
 
@@ -426,7 +442,7 @@
 <section id="experience">
   <div class="container">
     <div class="two-col">
-      <div><p class="slabel"><span class="slabel-num">01</span> experience</p></div>
+      <div><p class="slabel"><span class="slabel-num">01</span> <span data-i18n="experience.label">experience</span></p></div>
       <div>
         <div class="timeline">
 
@@ -435,24 +451,24 @@
             <div class="tl-dot-active"></div>
             <div class="tl-header">
               <div>
-                <div class="tl-title">Junior DevOps Engineer <span class="sub">— Platform Engineer</span></div>
+                <div class="tl-title"><span data-i18n="experience.job1.title">Junior DevOps Engineer</span> <span class="sub">— <span data-i18n="experience.job1.sub">Platform Engineer</span></span></div>
                 <div class="tl-company">Sonnen GmbH</div>
               </div>
               <div class="tl-date">Apr 2023 → Nov 2025</div>
             </div>
             <div class="zeugnis-badge">
               <i class="fa-solid fa-arrow-trend-up"></i>
-              Internal promotion from IT System Administrator · Apr 2023
+              <span data-i18n="experience.job1.promo">Internal promotion from IT System Administrator · Apr 2023</span>
             </div>
             <div class="tl-bullets">
-              <p><span class="arr">▸</span><span>Provisioned and managed containerised apps with <span class="hl">Docker &amp; Kubernetes</span> for high scalability and availability.</span></p>
-              <p><span class="arr">▸</span><span>Automated IT infrastructure via <span class="hl">IaC (Terraform, Helm, GitOps)</span> — reproducible dev, test and prod environments, zero clickops.</span></p>
-              <p><span class="arr">▸</span><span>Operated and evolved <span class="hl">Monitoring &amp; Observability stack</span> (Prometheus, Grafana) across on-prem and cloud for HA.</span></p>
-              <p><span class="arr">▸</span><span>Implemented modern <span class="hl">CI/CD pipelines</span> with GitHub Actions; built DevSecOps framework automating build, test, security scanning &amp; deployment.</span></p>
-              <p><span class="arr">▸</span><span>Migrated platform <span class="hl">Hetzner → AWS EKS</span> via Terraform + ArgoCD app-of-apps GitOps pattern.</span></p>
-              <p><span class="arr">▸</span><span><span class="hl">RBAC hardening</span>, namespace isolation, network policies and enforceable tagging standards across all environments.</span></p>
-              <p><span class="arr">▸</span><span><span class="hl">IT Asset Management</span>: inventory systems, documentation, lifecycle management and data quality.</span></p>
-              <p><span class="arr">▸</span><span><span class="hl">Compliance program</span>: audit-ready evidence from Git history, IaC modules and monitoring dashboards.</span></p>
+              <p><span class="arr">▸</span><span data-i18n="experience.job1.b1" data-i18n-html="true">Provisioned and managed containerised apps with <span class="hl">Docker &amp; Kubernetes</span> for high scalability and availability.</span></p>
+              <p><span class="arr">▸</span><span data-i18n="experience.job1.b2" data-i18n-html="true">Automated IT infrastructure via <span class="hl">IaC (Terraform, Helm, GitOps)</span> — reproducible dev, test and prod environments, zero clickops.</span></p>
+              <p><span class="arr">▸</span><span data-i18n="experience.job1.b3" data-i18n-html="true">Operated and evolved <span class="hl">Monitoring &amp; Observability stack</span> (Prometheus, Grafana) across on-prem and cloud for HA.</span></p>
+              <p><span class="arr">▸</span><span data-i18n="experience.job1.b4" data-i18n-html="true">Implemented modern <span class="hl">CI/CD pipelines</span> with GitHub Actions; built DevSecOps framework automating build, test, security scanning &amp; deployment.</span></p>
+              <p><span class="arr">▸</span><span data-i18n="experience.job1.b5" data-i18n-html="true">Migrated platform <span class="hl">Hetzner → AWS EKS</span> via Terraform + ArgoCD app-of-apps GitOps pattern.</span></p>
+              <p><span class="arr">▸</span><span data-i18n="experience.job1.b6" data-i18n-html="true"><span class="hl">RBAC hardening</span>, namespace isolation, network policies and enforceable tagging standards across all environments.</span></p>
+              <p><span class="arr">▸</span><span data-i18n="experience.job1.b7" data-i18n-html="true"><span class="hl">IT Asset Management</span>: inventory systems, documentation, lifecycle management and data quality.</span></p>
+              <p><span class="arr">▸</span><span data-i18n="experience.job1.b8" data-i18n-html="true"><span class="hl">Compliance program</span>: audit-ready evidence from Git history, IaC modules and monitoring dashboards.</span></p>
             </div>
 
             <!-- Arbeitszeugnis performance -->
@@ -478,21 +494,21 @@
             <div class="tl-dot-inactive"></div>
             <div class="tl-header">
               <div>
-                <div class="tl-title">IT System Administrator</div>
+                <div class="tl-title" data-i18n="experience.job2.title">IT System Administrator</div>
                 <div class="tl-company">Sonnen GmbH</div>
               </div>
               <div class="tl-date">May 2022 → Apr 2023</div>
             </div>
             <div class="tl-bullets" style="margin-bottom:14px">
-              <p><span class="arr">▸</span><span>L1–L3 IT support across hybrid on-prem / cloud environments — incident intake, triage, resolution and escalation.</span></p>
-              <p><span class="arr">▸</span><span>Managed <span class="hl">Active Directory</span>, Intune, Office 365 — user provisioning, group policies, license management and workstation rollouts.</span></p>
-              <p><span class="arr">▸</span><span>Cloud services &amp; server administration — adjustment and configuration of server systems, cloud workspace management.</span></p>
-              <p><span class="arr">▸</span><span>User rights management — access control, permission reviews, onboarding/offboarding workflows.</span></p>
-              <p><span class="arr">▸</span><span>Backup systems &amp; data recovery — administered backup schedules, tested restore procedures and documented recovery playbooks.</span></p>
-              <p><span class="arr">▸</span><span>Hardware &amp; software maintenance — lifecycle management, patch cycles, inventory tracking and asset documentation.</span></p>
-              <p><span class="arr">▸</span><span>Installation and administration of <span class="hl">terminal devices &amp; end-user hardware</span>; remote maintenance via remote-access tooling.</span></p>
-              <p><span class="arr">▸</span><span>Security hardening, virtualisation upgrades and network improvements across on-prem infrastructure.</span></p>
-              <p><span class="arr">▸</span><span>Onboarded <span class="hl">600+ colleagues</span> across Spain, Germany and Italy — standardised device images, onboarding runbooks and user guides.</span></p>
+              <p><span class="arr">▸</span><span data-i18n="experience.job2.b1">L1–L3 IT support across hybrid on-prem / cloud environments — incident intake, triage, resolution and escalation.</span></p>
+              <p><span class="arr">▸</span><span data-i18n="experience.job2.b2" data-i18n-html="true">Managed <span class="hl">Active Directory</span>, Intune, Office 365 — user provisioning, group policies, license management and workstation rollouts.</span></p>
+              <p><span class="arr">▸</span><span data-i18n="experience.job2.b3">Cloud services &amp; server administration — adjustment and configuration of server systems, cloud workspace management.</span></p>
+              <p><span class="arr">▸</span><span data-i18n="experience.job2.b4">User rights management — access control, permission reviews, onboarding/offboarding workflows.</span></p>
+              <p><span class="arr">▸</span><span data-i18n="experience.job2.b5">Backup systems &amp; data recovery — administered backup schedules, tested restore procedures and documented recovery playbooks.</span></p>
+              <p><span class="arr">▸</span><span data-i18n="experience.job2.b6">Hardware &amp; software maintenance — lifecycle management, patch cycles, inventory tracking and asset documentation.</span></p>
+              <p><span class="arr">▸</span><span data-i18n="experience.job2.b7" data-i18n-html="true">Installation and administration of <span class="hl">terminal devices &amp; end-user hardware</span>; remote maintenance via remote-access tooling.</span></p>
+              <p><span class="arr">▸</span><span data-i18n="experience.job2.b8">Security hardening, virtualisation upgrades and network improvements across on-prem infrastructure.</span></p>
+              <p><span class="arr">▸</span><span data-i18n="experience.job2.b9" data-i18n-html="true">Onboarded <span class="hl">600+ colleagues</span> across Spain, Germany and Italy — standardised device images, onboarding runbooks and user guides.</span></p>
             </div>
 
             <!-- Zwischenzeugnis performance -->
@@ -510,16 +526,16 @@
             <div class="tl-dot-inactive"></div>
             <div class="tl-header">
               <div>
-                <div class="tl-title">System Administrator</div>
+                <div class="tl-title" data-i18n="experience.job3.title">System Administrator</div>
                 <div class="tl-company">Dassys GmbH</div>
               </div>
               <div class="tl-date">2018 → 2022</div>
             </div>
             <div class="tl-bullets" style="margin-bottom:14px">
-              <p><span class="arr">▸</span><span>L2/L3 support and <span class="hl">Cisco field engineer</span> for client networks — VLANs, firewalls, switching, onsite troubleshooting and deployments.</span></p>
-              <p><span class="arr">▸</span><span>Maintained and hardened Cisco-based network infrastructure across multiple client sites; performed upgrades and documented configurations.</span></p>
-              <p><span class="arr">▸</span><span>Deployed <span class="hl">Bitwarden self-hosted</span> password management solution for an architecture firm — full installation, configuration and user onboarding.</span></p>
-              <p><span class="arr">▸</span><span>Server administration, hardware &amp; software maintenance, user rights management and remote maintenance across client environments.</span></p>
+              <p><span class="arr">▸</span><span data-i18n="experience.job3.b1" data-i18n-html="true">L2/L3 support and <span class="hl">Cisco field engineer</span> for client networks — VLANs, firewalls, switching, onsite troubleshooting and deployments.</span></p>
+              <p><span class="arr">▸</span><span data-i18n="experience.job3.b2">Maintained and hardened Cisco-based network infrastructure across multiple client sites; performed upgrades and documented configurations.</span></p>
+              <p><span class="arr">▸</span><span data-i18n="experience.job3.b3" data-i18n-html="true">Deployed <span class="hl">Bitwarden self-hosted</span> password management solution for an architecture firm — full installation, configuration and user onboarding.</span></p>
+              <p><span class="arr">▸</span><span data-i18n="experience.job3.b4">Server administration, hardware &amp; software maintenance, user rights management and remote maintenance across client environments.</span></p>
             </div>
 
             <!-- Dassys performance -->
@@ -542,8 +558,8 @@
   <div class="container">
     <div class="two-col">
       <div>
-        <p class="slabel"><span class="slabel-num">02</span> projects</p>
-        <p style="font-size:10px;color:var(--dim);margin-top:12px;line-height:1.8">Repos from GitHub —<br>scraped &amp; hardcoded<br>for reliability.</p>
+        <p class="slabel"><span class="slabel-num">02</span> <span data-i18n="projects.label">projects</span></p>
+        <p style="font-size:10px;color:var(--dim);margin-top:12px;line-height:1.8" data-i18n="projects.sidebar" data-i18n-html="true">Repos from GitHub —<br>scraped &amp; hardcoded<br>for reliability.</p>
         <div style="margin-top:20px;display:flex;flex-direction:column;gap:8px">
           <a href="https://github.com/francesco2323" target="_blank" class="btn-outline" style="font-size:10px;padding:8px 14px">
             <i class="fa-brands fa-github"></i> francesco2323
@@ -561,7 +577,7 @@
             <i class="fa-brands fa-github" style="margin-right:6px"></i>francesco2323
           </span>
           <div style="flex:1;height:1px;background:var(--border)"></div>
-          <span style="font-size:10px;color:var(--dim)">7 repos</span>
+          <span style="font-size:10px;color:var(--dim)" data-i18n="projects.personalCount">7 repos</span>
         </div>
 
         <div class="cert-grid" style="margin-bottom:40px">
@@ -679,7 +695,7 @@
             <i class="fa-solid fa-building" style="margin-right:6px"></i>skynetops org
           </span>
           <div style="flex:1;height:1px;background:var(--border)"></div>
-          <span style="font-size:10px;color:var(--dim)">2 repos</span>
+          <span style="font-size:10px;color:var(--dim)" data-i18n="projects.orgCount">2 repos</span>
         </div>
 
         <div class="cert-grid">
@@ -728,10 +744,10 @@
 <section id="skills">
   <div class="container">
     <div class="two-col">
-      <div><p class="slabel"><span class="slabel-num">03</span> skills</p></div>
+      <div><p class="slabel"><span class="slabel-num">03</span> <span data-i18n="skills.label">skills</span></p></div>
       <div>
         <div class="skill-group">
-          <div class="skill-cat">Cloud &amp; Orchestration</div>
+          <div class="skill-cat" data-i18n="skills.cat1">Cloud &amp; Orchestration</div>
           <div class="tags">
             <span class="tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg" style="width:12px;height:12px;vertical-align:middle;margin-right:4px" />AWS EKS</span>
             <span class="tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg" style="width:12px;height:12px;vertical-align:middle;margin-right:4px" />IAM / IRSA</span>
@@ -747,7 +763,7 @@
         <div class="thinhr"></div>
 
         <div class="skill-group">
-          <div class="skill-cat">IaC &amp; GitOps</div>
+          <div class="skill-cat" data-i18n="skills.cat2">IaC &amp; GitOps</div>
           <div class="tags">
             <span class="tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/terraform/terraform-original.svg" style="width:12px;height:12px;vertical-align:middle;margin-right:4px" />Terraform</span>
             <span class="tag"><img src="https://www.vectorlogo.zone/logos/helmsh/helmsh-icon.svg" style="width:12px;height:12px;vertical-align:middle;margin-right:4px" />Helm</span>
@@ -761,7 +777,7 @@
         <div class="thinhr"></div>
 
         <div class="skill-group">
-          <div class="skill-cat">Observability</div>
+          <div class="skill-cat" data-i18n="skills.cat3">Observability</div>
           <div class="tags">
             <span class="tag"><img src="https://www.vectorlogo.zone/logos/prometheusio/prometheusio-icon.svg" style="width:12px;height:12px;vertical-align:middle;margin-right:4px" />Prometheus</span>
             <span class="tag"><img src="https://www.vectorlogo.zone/logos/prometheusio/prometheusio-icon.svg" style="width:12px;height:12px;vertical-align:middle;margin-right:4px" />Alertmanager</span>
@@ -776,7 +792,7 @@
         <div class="thinhr"></div>
 
         <div class="skill-group">
-          <div class="skill-cat">CI/CD &amp; DevSecOps</div>
+          <div class="skill-cat" data-i18n="skills.cat4">CI/CD &amp; DevSecOps</div>
           <div class="tags">
             <span class="tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" style="width:12px;height:12px;vertical-align:middle;margin-right:4px" />GitHub Actions</span>
             <span class="tag"><img src="https://www.vectorlogo.zone/logos/aquasec/aquasec-icon.svg" style="width:12px;height:12px;vertical-align:middle;margin-right:4px" />Trivy</span>
@@ -792,7 +808,7 @@
         <div class="thinhr"></div>
 
         <div class="skill-group">
-          <div class="skill-cat">Networking &amp; Security</div>
+          <div class="skill-cat" data-i18n="skills.cat5">Networking &amp; Security</div>
           <div class="tags">
             <span class="tag"><img src="https://www.vectorlogo.zone/logos/cisco/cisco-ar21.svg" style="width:12px;height:12px;vertical-align:middle;margin-right:4px" />Cisco CCNA</span>
             <span class="tag">VLANs</span>
@@ -805,7 +821,7 @@
         <div class="thinhr"></div>
 
         <div class="skill-group">
-          <div class="skill-cat">IT &amp; Systems</div>
+          <div class="skill-cat" data-i18n="skills.cat6">IT &amp; Systems</div>
           <div class="tags">
             <span class="tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" style="width:12px;height:12px;vertical-align:middle;margin-right:4px" />Linux (LPIC-1)</span>
             <span class="tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/windows8/windows8-original.svg" style="width:12px;height:12px;vertical-align:middle;margin-right:4px" />Windows Server</span>
@@ -822,7 +838,7 @@
         <div class="thinhr"></div>
 
         <div class="skill-group">
-          <div class="skill-cat">AI &amp; Emerging</div>
+          <div class="skill-cat" data-i18n="skills.cat7">AI &amp; Emerging</div>
           <div class="tags">
             <span class="tag"><img src="https://www.vectorlogo.zone/logos/openai/openai-icon.svg" style="width:12px;height:12px;vertical-align:middle;margin-right:4px" />RAG (Retrieval-Augmented Generation)</span>
             <span class="tag"><img src="https://www.vectorlogo.zone/logos/openai/openai-icon.svg" style="width:12px;height:12px;vertical-align:middle;margin-right:4px" />LLM Integration</span>
@@ -839,10 +855,10 @@
   <div class="container">
     <div class="two-col">
       <div>
-        <p class="slabel"><span class="slabel-num">04</span> certifications</p>
-        <p style="font-size:10px;color:var(--dim);margin-top:12px;line-height:1.7">Verified credentials<br>&amp; training programs.</p>
+        <p class="slabel"><span class="slabel-num">04</span> <span data-i18n="certs.label">certifications</span></p>
+        <p style="font-size:10px;color:var(--dim);margin-top:12px;line-height:1.7" data-i18n="certs.sidebar" data-i18n-html="true">Verified credentials<br>&amp; training programs.</p>
         <a href="https://www.linkedin.com/in/francesco-emanuele/" target="_blank" class="btn-outline" style="margin-top:20px;font-size:10px;padding:8px 14px">
-          <i class="fa-brands fa-linkedin"></i> verify on LinkedIn
+          <i class="fa-brands fa-linkedin"></i> <span data-i18n="certs.verify">verify on LinkedIn</span>
         </a>
       </div>
       <div>
@@ -861,7 +877,7 @@
             <div>
               <div class="cert-title">AWS Certified Solutions Architect</div>
               <div class="cert-issuer">Amazon Web Services · Associate</div>
-              <span class="cert-badge">IN PROGRESS</span>
+              <span class="cert-badge" data-i18n="certs.inProgress">IN PROGRESS</span>
             </div>
           </div>
 
@@ -878,7 +894,7 @@
             <div>
               <div class="cert-title">Certified Kubernetes Administrator</div>
               <div class="cert-issuer">Cloud Native Computing Foundation</div>
-              <span class="cert-badge">IN PROGRESS</span>
+              <span class="cert-badge" data-i18n="certs.inProgress">IN PROGRESS</span>
             </div>
           </div>
 
@@ -893,7 +909,7 @@
             <div>
               <div class="cert-title">IaC &amp; DevOps Training</div>
               <div class="cert-issuer">Terraform · Argo CD · GitHub Actions</div>
-              <span class="cert-badge done">COMPLETED</span>
+              <span class="cert-badge done" data-i18n="certs.completed">COMPLETED</span>
             </div>
           </div>
 
@@ -908,7 +924,7 @@
             <div>
               <div class="cert-title">DevSecOps Essentials</div>
               <div class="cert-issuer">A Cloud Guru</div>
-              <span class="cert-badge done">COMPLETED</span>
+              <span class="cert-badge done" data-i18n="certs.completed">COMPLETED</span>
             </div>
           </div>
 
@@ -926,7 +942,7 @@
             <div>
               <div class="cert-title">Cisco CCNA Enterprise Networking</div>
               <div class="cert-issuer">Cisco Networking Academy</div>
-              <span class="cert-badge done">COMPLETED</span>
+              <span class="cert-badge done" data-i18n="certs.completed">COMPLETED</span>
             </div>
           </div>
 
@@ -941,7 +957,7 @@
             <div>
               <div class="cert-title">LPIC-1 Linux Administrator</div>
               <div class="cert-issuer">Linux Professional Institute</div>
-              <span class="cert-badge done">COMPLETED</span>
+              <span class="cert-badge done" data-i18n="certs.completed">COMPLETED</span>
             </div>
           </div>
 
@@ -955,7 +971,7 @@
             <div>
               <div class="cert-title">ESET Managed Client Security Specialist</div>
               <div class="cert-issuer">ESET</div>
-              <span class="cert-badge done">COMPLETED</span>
+              <span class="cert-badge done" data-i18n="certs.completed">COMPLETED</span>
             </div>
           </div>
 
@@ -970,7 +986,7 @@
             <div>
               <div class="cert-title">DATTO Deployment Specialist</div>
               <div class="cert-issuer">Datto</div>
-              <span class="cert-badge done">COMPLETED</span>
+              <span class="cert-badge done" data-i18n="certs.completed">COMPLETED</span>
             </div>
           </div>
 
@@ -984,7 +1000,7 @@
             <div>
               <div class="cert-title">Cisco Cybersecurity Essentials</div>
               <div class="cert-issuer">Cisco Networking Academy</div>
-              <span class="cert-badge done">COMPLETED</span>
+              <span class="cert-badge done" data-i18n="certs.completed">COMPLETED</span>
             </div>
           </div>
 
@@ -998,17 +1014,17 @@
 <section id="contact">
   <div class="container">
     <div class="two-col">
-      <div><p class="slabel"><span class="slabel-num">05</span> contact</p></div>
+      <div><p class="slabel"><span class="slabel-num">05</span> <span data-i18n="contact.label">contact</span></p></div>
       <div>
-        <div class="contact-title">Let's build something<br><span class="hl">production-grade.</span></div>
-        <p class="body-text" style="margin-top:14px;margin-bottom:28px">
+        <div class="contact-title" data-i18n="contact.title" data-i18n-html="true">Let's build something<br><span class="hl">production-grade.</span></div>
+        <p class="body-text" style="margin-top:14px;margin-bottom:28px" data-i18n="contact.body">
           Open to  DevOps / Platform / SRE roles. Remote-first, Berlin-based. Immediate availability.
         </p>
         <div class="btn-row">
           <a href="/cdn-cgi/l/email-protection#e88e9a89868b8d9b8b878d8589869d8d848ddbdaa88f85898184c68b8785" class="btn-primary"><i class="fa-regular fa-envelope"></i> <span class="__cf_email__" data-cfemail="8ee8fcefe0edebfdede1ebe3efe0fbebe2ebbdbccee9e3efe7e2a0ede1e3">[email&#160;protected]</span></a>
-          <a href="https://www.linkedin.com/in/francesco-emanuele/" target="_blank" class="btn-outline"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+          <a href="https://www.linkedin.com/in/francesco-emanuele/" target="_blank" class="btn-outline"><i class="fa-brands fa-linkedin"></i> <span data-i18n="contact.linkedin">LinkedIn</span></a>
           <a href="tel:+4917662725812" class="btn-outline"><i class="fa-solid fa-phone"></i> +49 176 627 25812</a>
-          <a href="https://github.com/francesco2323" target="_blank" class="btn-outline"><i class="fa-brands fa-github"></i> GitHub</a>
+          <a href="https://github.com/francesco2323" target="_blank" class="btn-outline"><i class="fa-brands fa-github"></i> <span data-i18n="contact.github">GitHub</span></a>
         </div>
       </div>
     </div>
@@ -1020,13 +1036,228 @@
   <div class="container">
     <div class="footer-inner">
       <span>© 2025 Francesco Emanuele</span>
-      <span style="color:var(--border)">built with iac, not clicks</span>
-      <span style="display:flex;align-items:center;gap:6px"><span class="pill-dot" style="width:6px;height:6px"></span>berlin · remote</span>
+      <span style="color:var(--border)" data-i18n="footer.iac">built with iac, not clicks</span>
+      <span style="display:flex;align-items:center;gap:6px"><span class="pill-dot" style="width:6px;height:6px"></span><span data-i18n="footer.location">berlin · remote</span></span>
     </div>
   </div>
 </footer>
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  const I18N = {
+    en: {
+      'nav.about': 'about',
+      'nav.experience': 'experience',
+      'nav.projects': 'projects',
+      'nav.skills': 'skills',
+      'nav.certs': 'certs',
+      'nav.contact': 'contact',
+      'hero.availability': 'Available for new opportunities · Berlin / Remote',
+      'hero.role1': 'DevOps Engineer',
+      'hero.role2': 'Platform Engineer',
+      'hero.term.roleKey': 'role:',
+      'hero.term.methodKey': 'method:',
+      'hero.term.locationKey': 'location:',
+      'hero.term.statusKey': 'status:',
+      'hero.term.roleValue': 'Building reliable, secure & observable platforms',
+      'hero.term.locationValue': 'Berlin - remote-ready',
+      'hero.term.statusValue': 'open to opportunities',
+      'hero.btn.work': 'view work',
+      'hero.btn.touch': 'get in touch',
+      'about.label': 'about',
+      'about.stat1': 'yrs AWS Kubernetes / GitOps',
+      'about.stat2': 'envs managed',
+      'about.stat3': 'yrs in productive IT envs',
+      'about.stat4': 'IaC coverage',
+      'about.p1': 'DevOps & Platform Engineer operating a <span class="hl">shared, multi-tenant EKS environment</span> managed end-to-end via Infrastructure as Code. I own the full platform lifecycle - from cluster provisioning to observability to compliance evidence - with zero console/clickops drift.',
+      'about.p2': 'I design and operate EKS Kubernetes clusters following <span class="hl">GitOps principles with Argo CD</span>, managing all cloud and platform resources - including observability - via IaC. DevSecOps controls are embedded directly into CI/CD pipelines so security and compliance are default, not afterthoughts.',
+      'about.p3': 'Contributed to a successful <span class="hl">Hetzner -> AWS EKS migration</span> delivering full reproducibility via Terraform modules and automated GitOps promotion across dev -> staging -> prod. Produced audit-ready compliance evidence from Git history, IaC modules, and monitoring dashboards.',
+      'about.p4': 'Strong background in <span class="hl">Linux, Windows, and AWS infrastructure</span> across both <span class="hl">production environments and experimental local labs</span>, following <span class="hl">Infrastructure as Code and Observability as Code</span> principles throughout and applying <span class="hl">AWS Well-Architected Framework</span> best practices across all workloads. Authored platform runbooks, onboarding docs, and best-practice guides for developers and SREs.',
+      'about.p5': 'Currently pursuing <span class="hl">AWS Solutions Architect Associate</span> and <span class="hl">CKA (Certified Kubernetes Administrator)</span> - actively studying and building labs daily to deepen cloud-native and Kubernetes expertise.',
+      'experience.label': 'experience',
+      'experience.job1.title': 'Junior DevOps Engineer',
+      'experience.job1.sub': 'Platform Engineer',
+      'experience.job1.promo': 'Internal promotion from IT System Administrator · Apr 2023',
+      'experience.job1.b1': 'Provisioned and managed containerised apps with <span class="hl">Docker & Kubernetes</span> for high scalability and availability.',
+      'experience.job1.b2': 'Automated IT infrastructure via <span class="hl">IaC (Terraform, Helm, GitOps)</span> - reproducible dev, test and prod environments, zero clickops.',
+      'experience.job1.b3': 'Operated and evolved <span class="hl">Monitoring & Observability stack</span> (Prometheus, Grafana) across on-prem and cloud for HA.',
+      'experience.job1.b4': 'Implemented modern <span class="hl">CI/CD pipelines</span> with GitHub Actions; built DevSecOps framework automating build, test, security scanning & deployment.',
+      'experience.job1.b5': 'Migrated platform <span class="hl">Hetzner -> AWS EKS</span> via Terraform + ArgoCD app-of-apps GitOps pattern.',
+      'experience.job1.b6': '<span class="hl">RBAC hardening</span>, namespace isolation, network policies and enforceable tagging standards across all environments.',
+      'experience.job1.b7': '<span class="hl">IT Asset Management</span>: inventory systems, documentation, lifecycle management and data quality.',
+      'experience.job1.b8': '<span class="hl">Compliance program</span>: audit-ready evidence from Git history, IaC modules and monitoring dashboards.',
+      'experience.job2.title': 'IT System Administrator',
+      'experience.job2.b1': 'L1-L3 IT support across hybrid on-prem / cloud environments - incident intake, triage, resolution and escalation.',
+      'experience.job2.b2': 'Managed <span class="hl">Active Directory</span>, Intune, Office 365 - user provisioning, group policies, license management and workstation rollouts.',
+      'experience.job2.b3': 'Cloud services & server administration - adjustment and configuration of server systems, cloud workspace management.',
+      'experience.job2.b4': 'User rights management - access control, permission reviews, onboarding/offboarding workflows.',
+      'experience.job2.b5': 'Backup systems & data recovery - administered backup schedules, tested restore procedures and documented recovery playbooks.',
+      'experience.job2.b6': 'Hardware & software maintenance - lifecycle management, patch cycles, inventory tracking and asset documentation.',
+      'experience.job2.b7': 'Installation and administration of <span class="hl">terminal devices & end-user hardware</span>; remote maintenance via remote-access tooling.',
+      'experience.job2.b8': 'Security hardening, virtualisation upgrades and network improvements across on-prem infrastructure.',
+      'experience.job2.b9': 'Onboarded <span class="hl">600+ colleagues</span> across Spain, Germany and Italy - standardised device images, onboarding runbooks and user guides.',
+      'experience.job3.title': 'System Administrator',
+      'experience.job3.b1': 'L2/L3 support and <span class="hl">Cisco field engineer</span> for client networks - VLANs, firewalls, switching, onsite troubleshooting and deployments.',
+      'experience.job3.b2': 'Maintained and hardened Cisco-based network infrastructure across multiple client sites; performed upgrades and documented configurations.',
+      'experience.job3.b3': 'Deployed <span class="hl">Bitwarden self-hosted</span> password management solution for an architecture firm - full installation, configuration and user onboarding.',
+      'experience.job3.b4': 'Server administration, hardware & software maintenance, user rights management and remote maintenance across client environments.',
+      'projects.label': 'projects',
+      'projects.sidebar': 'Repos from GitHub -<br>scraped & hardcoded<br>for reliability.',
+      'projects.personalCount': '7 repos',
+      'projects.orgCount': '2 repos',
+      'skills.label': 'skills',
+      'skills.cat1': 'Cloud & Orchestration',
+      'skills.cat2': 'IaC & GitOps',
+      'skills.cat3': 'Observability',
+      'skills.cat4': 'CI/CD & DevSecOps',
+      'skills.cat5': 'Networking & Security',
+      'skills.cat6': 'IT & Systems',
+      'skills.cat7': 'AI & Emerging',
+      'certs.label': 'certifications',
+      'certs.sidebar': 'Verified credentials<br>& training programs.',
+      'certs.verify': 'verify on LinkedIn',
+      'certs.inProgress': 'IN PROGRESS',
+      'certs.completed': 'COMPLETED',
+      'contact.label': 'contact',
+      'contact.title': 'Let\'s build something<br><span class="hl">production-grade.</span>',
+      'contact.body': 'Open to DevOps / Platform / SRE roles. Remote-first, Berlin-based. Immediate availability.',
+      'contact.linkedin': 'LinkedIn',
+      'contact.github': 'GitHub',
+      'footer.iac': 'built with iac, not clicks',
+      'footer.location': 'berlin · remote',
+      'repos.nonePublic': 'No public repositories found.',
+      'repos.apiError': 'GitHub API rate-limited or unavailable. Try again shortly.',
+      'repos.noneOrg': 'No organization repositories found.',
+      'repos.orgUnavailable': 'Organization repositories are currently unavailable.',
+      'repos.noDescription': 'no description',
+      'repos.fork': 'fork'
+    },
+    de: {
+      'nav.about': 'uber mich',
+      'nav.experience': 'erfahrung',
+      'nav.projects': 'projekte',
+      'nav.skills': 'kenntnisse',
+      'nav.certs': 'zertifikate',
+      'nav.contact': 'kontakt',
+      'hero.availability': 'Offen fur neue Moglichkeiten · Berlin / Remote',
+      'hero.role1': 'DevOps-Ingenieur',
+      'hero.role2': 'Plattform-Ingenieur',
+      'hero.term.roleKey': 'rolle:',
+      'hero.term.methodKey': 'methode:',
+      'hero.term.locationKey': 'standort:',
+      'hero.term.statusKey': 'status:',
+      'hero.term.roleValue': 'Aufbau zuverlassiger, sicherer und observabler Plattformen',
+      'hero.term.locationValue': 'Berlin - remote-fahig',
+      'hero.term.statusValue': 'offen fur neue Moglichkeiten',
+      'hero.btn.work': 'projekte ansehen',
+      'hero.btn.touch': 'kontakt aufnehmen',
+      'about.label': 'uber mich',
+      'about.stat1': 'J. AWS Kubernetes / GitOps',
+      'about.stat2': 'Umgebungen betreut',
+      'about.stat3': 'J. in produktiven IT-Umgebungen',
+      'about.stat4': 'IaC-Abdeckung',
+      'about.p1': 'DevOps- und Plattform-Ingenieur mit Betrieb einer <span class="hl">gemeinsam genutzten, mandantenfahigen EKS-Umgebung</span>, die End-to-End uber Infrastructure as Code verwaltet wird. Ich verantworte den gesamten Plattform-Lebenszyklus - von Cluster-Provisionierung uber Observability bis zu Compliance-Nachweisen - ohne Console/ClickOps-Drift.',
+      'about.p2': 'Ich entwerfe und betreibe EKS-Kubernetes-Cluster nach <span class="hl">GitOps-Prinzipien mit Argo CD</span> und verwalte alle Cloud- und Plattform-Ressourcen - inklusive Observability - per IaC. DevSecOps-Kontrollen sind direkt in CI/CD-Pipelines integriert, sodass Sicherheit und Compliance standardmaig mitgeliefert werden.',
+      'about.p3': 'Mitwirkung an einer erfolgreichen <span class="hl">Hetzner -> AWS EKS Migration</span> mit voller Reproduzierbarkeit uber Terraform-Module und automatisierte GitOps-Promotion von Dev -> Staging -> Prod. Audit-fahige Compliance-Nachweise aus Git-Historie, IaC-Modulen und Monitoring-Dashboards erstellt.',
+      'about.p4': 'Fundierter Hintergrund in <span class="hl">Linux-, Windows- und AWS-Infrastruktur</span> sowohl in <span class="hl">Produktivumgebungen als auch lokalen Laboren</span>, mit konsequenter Anwendung von <span class="hl">Infrastructure as Code und Observability as Code</span> sowie Best Practices aus dem <span class="hl">AWS Well-Architected Framework</span>. Erstellung von Plattform-Runbooks, Onboarding-Dokumentation und Best-Practice-Guides fur Entwickler und SREs.',
+      'about.p5': 'Aktuell in Vorbereitung auf <span class="hl">AWS Solutions Architect Associate</span> und <span class="hl">CKA (Certified Kubernetes Administrator)</span> - tagliches Lernen und Lab-Building zur Vertiefung cloud-nativer und Kubernetes-Kompetenzen.',
+      'experience.label': 'erfahrung',
+      'experience.job1.title': 'Junior DevOps Engineer',
+      'experience.job1.sub': 'Plattform-Ingenieur',
+      'experience.job1.promo': 'Interne Beforderung vom IT-Systemadministrator · Apr 2023',
+      'experience.job1.b1': 'Containerisierte Anwendungen mit <span class="hl">Docker & Kubernetes</span> fur hohe Skalierbarkeit und Verfugbarkeit bereitgestellt und betrieben.',
+      'experience.job1.b2': 'IT-Infrastruktur uber <span class="hl">IaC (Terraform, Helm, GitOps)</span> automatisiert - reproduzierbare Dev-, Test- und Prod-Umgebungen ohne ClickOps.',
+      'experience.job1.b3': '<span class="hl">Monitoring- & Observability-Stack</span> (Prometheus, Grafana) fur On-Prem und Cloud betrieben und weiterentwickelt.',
+      'experience.job1.b4': 'Moderne <span class="hl">CI/CD-Pipelines</span> mit GitHub Actions umgesetzt; DevSecOps-Framework fur Build, Test, Security-Scanning und Deployment automatisiert.',
+      'experience.job1.b5': 'Plattform-Migration <span class="hl">Hetzner -> AWS EKS</span> via Terraform + ArgoCD App-of-Apps GitOps-Muster umgesetzt.',
+      'experience.job1.b6': '<span class="hl">RBAC-Hartung</span>, Namespace-Isolation, Network Policies und durchsetzbare Tagging-Standards in allen Umgebungen umgesetzt.',
+      'experience.job1.b7': '<span class="hl">IT-Asset-Management</span>: Inventarsysteme, Dokumentation, Lifecycle-Management und Datenqualitat verantwortet.',
+      'experience.job1.b8': '<span class="hl">Compliance-Programm</span>: audit-fahige Nachweise aus Git-Historie, IaC-Modulen und Monitoring-Dashboards bereitgestellt.',
+      'experience.job2.title': 'IT-Systemadministrator',
+      'experience.job2.b1': 'L1-L3 IT-Support in hybriden On-Prem-/Cloud-Umgebungen - Incident-Aufnahme, Triage, Losung und Eskalation.',
+      'experience.job2.b2': '<span class="hl">Active Directory</span>, Intune und Office 365 verwaltet - User-Provisionierung, Gruppenrichtlinien, Lizenzmanagement und Rollouts.',
+      'experience.job2.b3': 'Cloud-Services und Server-Administration - Anpassung und Konfiguration von Serversystemen sowie Cloud-Workspace-Management.',
+      'experience.job2.b4': 'Benutzer- und Rechteverwaltung - Zugriffskontrolle, Berechtigungsreviews, Onboarding- und Offboarding-Workflows.',
+      'experience.job2.b5': 'Backup-Systeme und Datenwiederherstellung - Backup-Plane betreut, Restore-Verfahren getestet und Recovery-Playbooks dokumentiert.',
+      'experience.job2.b6': 'Hardware- und Software-Wartung - Lifecycle-Management, Patch-Zyklen, Inventarverfolgung und Asset-Dokumentation.',
+      'experience.job2.b7': 'Installation und Administration von <span class="hl">Endgeraten und Benutzer-Hardware</span>; Remote-Wartung uber Fernzugriffstools.',
+      'experience.job2.b8': 'Security-Hardening, Virtualisierungs-Upgrades und Netzwerkverbesserungen in On-Prem-Infrastruktur umgesetzt.',
+      'experience.job2.b9': '<span class="hl">600+ Mitarbeitende</span> in Spanien, Deutschland und Italien onboardet - standardisierte Device-Images, Runbooks und User-Guides.',
+      'experience.job3.title': 'Systemadministrator',
+      'experience.job3.b1': 'L2/L3-Support und <span class="hl">Cisco Field Engineer</span> fur Kundennetzwerke - VLANs, Firewalls, Switching, Onsite-Troubleshooting und Rollouts.',
+      'experience.job3.b2': 'Cisco-basierte Netzwerkinfrastruktur uber mehrere Kundenstandorte gewartet und gehartet; Upgrades durchgefuhrt und Konfigurationen dokumentiert.',
+      'experience.job3.b3': '<span class="hl">Bitwarden self-hosted</span> fur ein Architekturburo eingefuhrt - vollstandige Installation, Konfiguration und User-Onboarding.',
+      'experience.job3.b4': 'Server-Administration, Hardware-/Software-Wartung, Rechteverwaltung und Remote-Wartung in Kundenumgebungen.',
+      'projects.label': 'projekte',
+      'projects.sidebar': 'Repos von GitHub -<br>gescraped & hardcoded<br>fur Zuverlassigkeit.',
+      'projects.personalCount': '7 Repos',
+      'projects.orgCount': '2 Repos',
+      'skills.label': 'kenntnisse',
+      'skills.cat1': 'Cloud & Orchestrierung',
+      'skills.cat2': 'IaC & GitOps',
+      'skills.cat3': 'Observability',
+      'skills.cat4': 'CI/CD & DevSecOps',
+      'skills.cat5': 'Netzwerk & Sicherheit',
+      'skills.cat6': 'IT & Systeme',
+      'skills.cat7': 'KI & Zukunftstechnologien',
+      'certs.label': 'zertifikate',
+      'certs.sidebar': 'Verifizierte Zertifikate<br>& Trainingsprogramme.',
+      'certs.verify': 'auf LinkedIn verifizieren',
+      'certs.inProgress': 'IN ARBEIT',
+      'certs.completed': 'ABGESCHLOSSEN',
+      'contact.label': 'kontakt',
+      'contact.title': 'Lass uns etwas<br><span class="hl">produktionsreifes bauen.</span>',
+      'contact.body': 'Offen fur DevOps / Platform / SRE Rollen. Remote-first, in Berlin ansassig. Sofort verfugbar.',
+      'contact.linkedin': 'LinkedIn',
+      'contact.github': 'GitHub',
+      'footer.iac': 'mit iac gebaut, nicht mit klicks',
+      'footer.location': 'berlin · remote',
+      'repos.nonePublic': 'Keine offentlichen Repositories gefunden.',
+      'repos.apiError': 'GitHub API ist limitiert oder nicht verfugbar. Bitte spater erneut versuchen.',
+      'repos.noneOrg': 'Keine Organisations-Repositories gefunden.',
+      'repos.orgUnavailable': 'Organisations-Repositories sind aktuell nicht verfugbar.',
+      'repos.noDescription': 'keine beschreibung',
+      'repos.fork': 'fork'
+    }
+  };
+
+  let currentLang = localStorage.getItem('lang') === 'de' ? 'de' : 'en';
+  function t(key) { return (I18N[currentLang] && I18N[currentLang][key]) || (I18N.en && I18N.en[key]) || key; }
+  function formatRepoCount(n) { return currentLang === 'de' ? `${n} Repos` : `${n} repos`; }
+
+  function applyTranslations(lang) {
+    currentLang = lang;
+    localStorage.setItem('lang', lang);
+    document.documentElement.lang = lang;
+    const toggleLabel = lang === 'en' ? 'DE' : 'EN';
+    const desktopToggle = document.getElementById('lang-toggle');
+    const mobileToggle = document.getElementById('lang-toggle-mobile');
+    if (desktopToggle) desktopToggle.textContent = toggleLabel;
+    if (mobileToggle) mobileToggle.textContent = toggleLabel;
+
+    document.querySelectorAll('[data-i18n]').forEach((el) => {
+      const key = el.getAttribute('data-i18n');
+      const value = t(key);
+      if (el.hasAttribute('data-i18n-html')) {
+        el.innerHTML = value;
+      } else {
+        el.textContent = value;
+      }
+    });
+
+    if (typeof window._pCount === 'number' && activeTab === 'personal') {
+      document.getElementById('repo-count').textContent = formatRepoCount(window._pCount);
+    }
+    if (typeof window._oCount === 'number' && activeTab === 'org') {
+      document.getElementById('repo-count').textContent = window._oCount ? formatRepoCount(window._oCount) : '';
+    }
+  }
+
+  function toggleLanguage() {
+    applyTranslations(currentLang === 'en' ? 'de' : 'en');
+  }
+
+  applyTranslations(currentLang);
+
   // Cursor blink
   setInterval(() => { const c = document.getElementById('cur'); if(c) c.style.opacity = c.style.opacity === '0' ? '1' : '0'; }, 500);
 
@@ -1042,7 +1273,7 @@
     });
   });
 
-  // Tool logo map — keyed on topics/language/name
+  // Tool logo map - keyed on topics/language/name
   const TOOL_LOGOS = {
     terraform: `<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" title="Terraform"><path d="M7.5 4.3L12.5 7.1v5.8l-5-2.9z" fill="#5C4EE5"/><path d="M13.2 7.1l5-2.9v5.8l-5 2.9z" fill="#4040B2"/><path d="M1.8 7.1l5-2.9v5.8l-5 2.9z" fill="#7B42BC"/><path d="M7.5 13.7l5-2.9v2.9l-5 2.9z" fill="#5C4EE5"/></svg>`,
     kubernetes: `<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" title="Kubernetes"><circle cx="10" cy="10" r="9" fill="#326CE5"/><path d="M10 4.5l-4.7 2.7v5.6L10 15.5l4.7-2.7V7.2z" fill="none" stroke="white" stroke-width="0.8"/><circle cx="10" cy="10" r="1.5" fill="white"/></svg>`,
@@ -1062,10 +1293,9 @@
     dockerfile: `<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" title="Docker"><path d="M10 6h2V4h-2zm-3 0h2V4H7zm-3 0h2V4H4zm0 3h2V7H4zm3 0h2V7H7zm3 0h2V7h-2zm3 0h2V7h-2zm3.5 0c-.3-2-2.5-2.5-2.5-2.5s-.5 1-1 1H5c0 3.5 2 5 6 5 3 0 5-1.5 5.5-3.5h-.5z" fill="#2496ED"/></svg>`,
     makefile: `<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" title="Makefile"><rect width="20" height="20" rx="2" fill="#555"/><text x="3" y="14" font-size="7" fill="white" font-family="monospace">make</text></svg>`,
     yaml: `<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" title="YAML"><rect width="20" height="20" rx="2" fill="#CC1E1E"/><text x="2" y="14" font-size="7" fill="white" font-family="monospace" font-weight="bold">YAML</text></svg>`,
-    github: `<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" title="GitHub Actions"><rect width="20" height="20" rx="3" fill="#2088FF"/><path d="M7 6l6 4-6 4z" fill="white"/></svg>`,
+    github: `<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" title="GitHub Actions"><rect width="20" height="20" rx="3" fill="#2088FF"/><path d="M7 6l6 4-6 4z" fill="white"/></svg>`
   };
 
-  // Topic → logo key mapping
   const TOPIC_MAP = {
     terraform: 'terraform', 'infrastructure-as-code': 'terraform', iac: 'terraform',
     kubernetes: 'kubernetes', k8s: 'kubernetes', eks: 'kubernetes',
@@ -1082,7 +1312,7 @@
     typescript: 'typescript', ts: 'typescript',
     shell: 'shell', bash: 'shell',
     'github-actions': 'github', cicd: 'github',
-    yaml: 'yaml',
+    yaml: 'yaml'
   };
 
   const LANG_MAP = { HCL: 'hcl', Terraform: 'hcl', Shell: 'shell', Dockerfile: 'dockerfile', Python: 'python', Go: 'go', JavaScript: 'javascript', TypeScript: 'typescript', Makefile: 'makefile', YAML: 'yaml' };
@@ -1093,7 +1323,6 @@
     const lang = repo.language || '';
     if (LANG_MAP[lang]) hits.add(LANG_MAP[lang]);
     (repo.topics || []).forEach(t => { const k = TOPIC_MAP[t.toLowerCase()]; if (k) hits.add(k); });
-    // Infer from name/description
     const combined = ((repo.name || '') + ' ' + (repo.description || '')).toLowerCase();
     if (combined.includes('terraform') || combined.includes('iac')) hits.add('terraform');
     if (combined.includes('k8s') || combined.includes('kube') || combined.includes('eks')) hits.add('kubernetes');
@@ -1108,11 +1337,12 @@
 
   const timeAgo = d => {
     const days = Math.floor((Date.now() - new Date(d)) / 86400000);
-    if (!days) return 'today';
-    if (days === 1) return '1d ago';
-    if (days < 30) return days + 'd ago';
+    if (!days) return currentLang === 'de' ? 'heute' : 'today';
+    if (days === 1) return currentLang === 'de' ? '1T' : '1d ago';
+    if (days < 30) return currentLang === 'de' ? `${days}T` : `${days}d ago`;
     const m = Math.floor(days / 30);
-    return m < 12 ? m + 'mo ago' : Math.floor(m / 12) + 'y ago';
+    if (m < 12) return currentLang === 'de' ? `${m}Mon` : `${m}mo ago`;
+    return currentLang === 'de' ? `${Math.floor(m / 12)}J` : `${Math.floor(m / 12)}y ago`;
   };
 
   const buildCard = r => {
@@ -1127,13 +1357,13 @@
           <span class="repo-name">${r.name} <i class="fa-solid fa-arrow-up-right-from-square" style="font-size:9px;opacity:.3"></i></span>
         </div>
         <div class="repo-badges">
-          ${r.fork ? '<span class="repo-badge">fork</span>' : ''}
+          ${r.fork ? `<span class="repo-badge">${t('repos.fork')}</span>` : ''}
           ${r.language ? `<span class="repo-badge">${r.language.toLowerCase()}</span>` : ''}
         </div>
       </div>
-      <div class="repo-desc">${r.description ? (r.description.length > 100 ? r.description.slice(0, 98) + '…' : r.description) : '<em style="color:var(--dim)">no description</em>'}</div>
+      <div class="repo-desc">${r.description ? (r.description.length > 100 ? r.description.slice(0, 98) + '…' : r.description) : `<em style="color:var(--dim)">${t('repos.noDescription')}</em>`}</div>
       ${toolLogos ? `<div style="display:flex;gap:6px;flex-wrap:wrap;align-items:center">${toolLogos}</div>` : ''}
-      ${(r.topics || []).slice(0, 4).length ? `<div class="repo-topics">${(r.topics || []).slice(0, 4).map(t => `<span class="repo-topic">${t}</span>`).join('')}</div>` : ''}
+      ${(r.topics || []).slice(0, 4).length ? `<div class="repo-topics">${(r.topics || []).slice(0, 4).map(topic => `<span class="repo-topic">${topic}</span>`).join('')}</div>` : ''}
       <div class="repo-footer">
         ${r.stargazers_count ? `<span><i class="fa-solid fa-star" style="font-size:9px;margin-right:3px"></i>${r.stargazers_count}</span>` : ''}
         ${r.forks_count ? `<span><i class="fa-solid fa-code-branch" style="font-size:9px;margin-right:3px"></i>${r.forks_count}</span>` : ''}
@@ -1152,7 +1382,7 @@
     document.getElementById('tab-personal').className = 'tab-btn' + (tab === 'personal' ? ' active' : '');
     document.getElementById('tab-org').className = 'tab-btn' + (tab === 'org' ? ' active' : '');
     const cnt = tab === 'personal' ? window._pCount : window._oCount;
-    document.getElementById('repo-count').textContent = cnt ? cnt + ' repos' : '';
+    document.getElementById('repo-count').textContent = cnt ? formatRepoCount(cnt) : '';
   }
 
   (async () => {
@@ -1164,27 +1394,27 @@
 
     const [pr, or] = await Promise.allSettled([
       fetch('https://api.github.com/users/francesco2323/repos?per_page=100&sort=pushed', H).then(r => r.json()),
-      fetch('https://api.github.com/orgs/skynetops/repos?per_page=100&sort=pushed', H).then(r => r.json()),
+      fetch('https://api.github.com/orgs/skynetops/repos?per_page=100&sort=pushed', H).then(r => r.json())
     ]);
 
     if (pr.status === 'fulfilled' && Array.isArray(pr.value)) {
       const repos = sort(pr.value);
-      document.getElementById('grid-personal').innerHTML = repos.length ? repos.map(buildCard).join('') : errCard('No public repositories found.');
+      document.getElementById('grid-personal').innerHTML = repos.length ? repos.map(buildCard).join('') : errCard(t('repos.nonePublic'));
       window._pCount = repos.length;
-      document.getElementById('repo-count').textContent = repos.length + ' repos';
+      document.getElementById('repo-count').textContent = formatRepoCount(repos.length);
     } else {
-      document.getElementById('grid-personal').innerHTML = errCard('GitHub API rate-limited or unavailable. Try again shortly.');
+      document.getElementById('grid-personal').innerHTML = errCard(t('repos.apiError'));
     }
 
     if (or.status === 'fulfilled' && Array.isArray(or.value)) {
       const repos = or.value.sort((a, b) => new Date(b.pushed_at) - new Date(a.pushed_at));
-      document.getElementById('grid-org').innerHTML = repos.length ? repos.map(buildCard).join('') : errCard('No organization repositories found.');
+      document.getElementById('grid-org').innerHTML = repos.length ? repos.map(buildCard).join('') : errCard(t('repos.noneOrg'));
       window._oCount = repos.length;
       if (activeTab === 'org') {
-        document.getElementById('repo-count').textContent = repos.length ? repos.length + ' repos' : '';
+        document.getElementById('repo-count').textContent = repos.length ? formatRepoCount(repos.length) : '';
       }
     } else {
-      document.getElementById('grid-org').innerHTML = errCard('Organization repositories are currently unavailable.');
+      document.getElementById('grid-org').innerHTML = errCard(t('repos.orgUnavailable'));
       window._oCount = 0;
       if (activeTab === 'org') {
         document.getElementById('repo-count').textContent = '';
