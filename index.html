@@ -62,6 +62,251 @@
     section { border-bottom: 1px solid var(--border); padding: 88px 0; }
     section:last-of-type { border-bottom: none; }
 
+    <!--
+  ╔══════════════════════════════════════════════════════════╗
+  ║  WIP TICKER — Drop-in snippet for francesco2323.github.io ║
+  ║                                                            ║
+  ║  HOW TO USE:                                               ║
+  ║  1. Open your index.html in the GitHub repo                ║
+  ║  2. Find the closing </nav> tag (or the end of the hero)   ║
+  ║  3. Paste everything between the ═══ markers right after   ║
+  ║     that tag                                               ║
+  ║  4. Commit & push — GitHub Pages will deploy automatically ║
+  ╚══════════════════════════════════════════════════════════╝
+-->
+
+<!-- ══════════════ PASTE FROM HERE ══════════════ -->
+
+<style>
+/* ─── WIP TICKER BAND ───────────────────────────────── */
+.wip-band {
+  width: 100%;
+  background: #050510;
+  border-top: 1px solid #1a1a3a;
+  border-bottom: 1px solid #1a1a3a;
+  overflow: hidden;
+  position: relative;
+  z-index: 10;
+}
+
+.wip-band-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 28px 8px;
+  border-bottom: 1px solid #111128;
+}
+
+.wip-live-dot {
+  width: 9px;
+  height: 9px;
+  background: #00ff87;
+  border-radius: 50%;
+  flex-shrink: 0;
+  animation: wip-dot-pulse 1.5s ease-in-out infinite;
+  box-shadow: 0 0 6px #00ff87aa;
+}
+
+@keyframes wip-dot-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.35; transform: scale(0.65); }
+}
+
+.wip-live-label {
+  font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #00ff87;
+}
+
+.wip-live-sub {
+  font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+  font-size: 0.58rem;
+  color: #2a2a4a;
+  margin-left: auto;
+  letter-spacing: 1.5px;
+}
+
+/* ─── SCROLL TRACK ──────────────────────────────────── */
+.wip-scroll-track {
+  overflow: hidden;
+  padding: 14px 0 18px;
+  position: relative;
+}
+
+/* Fade edges */
+.wip-scroll-track::before,
+.wip-scroll-track::after {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 80px;
+  z-index: 2;
+  pointer-events: none;
+}
+.wip-scroll-track::before {
+  left: 0;
+  background: linear-gradient(to right, #050510 0%, transparent 100%);
+}
+.wip-scroll-track::after {
+  right: 0;
+  background: linear-gradient(to left, #050510 0%, transparent 100%);
+}
+
+.wip-scroll-inner {
+  display: flex;
+  gap: 18px;
+  width: max-content;
+  padding: 0 40px;
+  animation: wip-scroll 36s linear infinite;
+}
+
+.wip-scroll-inner:hover {
+  animation-play-state: paused;
+}
+
+@keyframes wip-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ─── CARDS ─────────────────────────────────────────── */
+.wip-card {
+  background: #0b0b20;
+  border: 1px solid #1e1e40;
+  border-radius: 10px;
+  padding: 16px 20px;
+  width: 230px;
+  flex-shrink: 0;
+  cursor: default;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  position: relative;
+}
+
+.wip-card:hover {
+  border-color: #5a7af0;
+  box-shadow: 0 0 18px rgba(90, 122, 240, 0.18);
+}
+
+/* Individual float animations — random feel */
+.wip-card:nth-child(1),  .wip-card:nth-child(9)  { animation: wf-a 4.2s ease-in-out infinite; }
+.wip-card:nth-child(2),  .wip-card:nth-child(10) { animation: wf-b 3.8s ease-in-out infinite 0.5s; }
+.wip-card:nth-child(3),  .wip-card:nth-child(11) { animation: wf-c 4.6s ease-in-out infinite 1.0s; }
+.wip-card:nth-child(4),  .wip-card:nth-child(12) { animation: wf-a 3.6s ease-in-out infinite 1.5s; }
+.wip-card:nth-child(5),  .wip-card:nth-child(13) { animation: wf-b 4.4s ease-in-out infinite 0.3s; }
+.wip-card:nth-child(6),  .wip-card:nth-child(14) { animation: wf-c 3.9s ease-in-out infinite 0.8s; }
+.wip-card:nth-child(7),  .wip-card:nth-child(15) { animation: wf-a 4.1s ease-in-out infinite 1.2s; }
+.wip-card:nth-child(8),  .wip-card:nth-child(16) { animation: wf-b 4.5s ease-in-out infinite 0.6s; }
+
+@keyframes wf-a {
+  0%, 100% { transform: translateY(0px) rotate(-0.3deg); }
+  50%       { transform: translateY(-6px) rotate(0.4deg); }
+}
+@keyframes wf-b {
+  0%, 100% { transform: translateY(-4px) rotate(0.2deg); }
+  50%       { transform: translateY(3px) rotate(-0.4deg); }
+}
+@keyframes wf-c {
+  0%, 100% { transform: translateY(2px) rotate(0deg); }
+  33%       { transform: translateY(-5px) rotate(0.5deg); }
+  66%       { transform: translateY(1px) rotate(-0.3deg); }
+}
+
+.wip-card-status {
+  font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+  font-size: 0.58rem;
+  font-weight: 800;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #5a7af0;
+  margin-bottom: 8px;
+}
+
+.wip-card-status.proto { color: #f0a050; }
+.wip-card-status.wip   { color: #c07af0; }
+
+.wip-card-name {
+  font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+  font-size: 0.83rem;
+  font-weight: 700;
+  color: #d0d0f0;
+  margin-bottom: 7px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.wip-card-desc {
+  font-size: 0.72rem;
+  color: #4a4a7a;
+  line-height: 1.45;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.wip-card-lang {
+  margin-top: 12px;
+  font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+  font-size: 0.62rem;
+  font-weight: 600;
+  color: #00cc70;
+  letter-spacing: 1px;
+}
+/* ─────────────────────────────────────────────────────── */
+</style>
+
+<div class="wip-band">
+  <div class="wip-band-header">
+    <span class="wip-live-dot"></span>
+    <span class="wip-live-label">Currently Building</span>
+    <span class="wip-live-sub">hover to pause</span>
+  </div>
+  <div class="wip-scroll-track">
+    <div class="wip-scroll-inner" id="wip-ticker-live">
+      <!-- JS duplicates the cards for seamless loop -->
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  const WIP = [
+    { name: "claude-mcp-gateway",       status: "in_progress", statusLabel: "IN PROGRESS", desc: "Unified MCP server gateway for multi-agent tool routing with auth and rate limiting",        lang: "Python"         },
+    { name: "eks-cost-optimizer",        status: "in_progress", statusLabel: "IN PROGRESS", desc: "Real-time EKS node rightsizing with Karpenter + Spot diversification strategy",              lang: "Go"             },
+    { name: "terraform-ai-modules",      status: "in_progress", statusLabel: "IN PROGRESS", desc: "AI-assisted Terraform module scaffolding with policy-as-code validation",                    lang: "Terraform"      },
+    { name: "gitops-policy-controller",  status: "wip",         statusLabel: "WIP",         desc: "OPA/Kyverno policy-as-code framework with GitOps-native enforcement pipeline",               lang: "YAML / Rego"    },
+    { name: "agentic-eval-harness",      status: "in_progress", statusLabel: "IN PROGRESS", desc: "Evaluation harness for LLM agents: determinism scoring, fallback coverage, retrieval quality", lang: "Python"       },
+    { name: "aws-sre-runbook-gen",       status: "proto",       statusLabel: "PROTOTYPE",   desc: "Auto-generate SRE runbooks from CloudWatch alarms and Terraform resource metadata",          lang: "Python"         },
+    { name: "irsa-least-priv-audit",     status: "wip",         statusLabel: "WIP",         desc: "Static analyser for IRSA policies — detects over-privileged service accounts",               lang: "Go"             },
+    { name: "multi-region-failover-kit", status: "in_progress", statusLabel: "IN PROGRESS", desc: "Automated multi-region DR for EKS with Route53 health checks and ArgoCD sync",              lang: "Terraform"      },
+  ];
+
+  function buildCards(items) {
+    return items.map(r => `
+      <div class="wip-card">
+        <div class="wip-card-status ${r.status}">${r.statusLabel}</div>
+        <div class="wip-card-name">${r.name}</div>
+        <div class="wip-card-desc">${r.desc}</div>
+        <div class="wip-card-lang">${r.lang}</div>
+      </div>
+    `).join('');
+  }
+
+  const ticker = document.getElementById('wip-ticker-live');
+  if (ticker) {
+    // Duplicate for seamless infinite loop
+    ticker.innerHTML = buildCards(WIP) + buildCards(WIP);
+  }
+})();
+</script>
+
+<!-- ══════════════ PASTE UP TO HERE ══════════════ -->
+
+    
     /* HERO */
     #hero {
       min-height: 100vh; display: flex; align-items: center; padding-top: 48px;
