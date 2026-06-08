@@ -1,0 +1,24 @@
+// Folder Sync workspace snapshot — managed automatically.
+// Do not hand-edit. Use "Folder Sync: Open Admin Config" to view, or
+// "Folder Sync: Clear Workspace Snapshot" to discard. This file is
+// regenerated whenever the workspace topology changes; manual edits will
+// be lost on the next topology event.
+//
+// The file lives at the top of workspaceFolders[0] by convention. The
+// pointer in context.globalState.folderSync.snapshotPointer tells the
+// extension where to find it on a cold start.
+{
+  "folders": [
+    {
+      "uri": "file:///Users/fle/francesco2323.github.io",
+      "name": "francesco2323.github.io"
+    }
+  ],
+  "settings": {
+    "files.readonlyInclude": {
+      "**": true
+    }
+  },
+  "placeholders": [],
+  "capturedAt": "2026-06-08T10:11:01.812Z"
+}
