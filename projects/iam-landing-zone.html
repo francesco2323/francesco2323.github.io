@@ -57,15 +57,18 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,
 </head>
 <body>
 <nav>
-  <div class="nl">Francesco<span>.</span></div>
-  <a href="../index.html" class="bb"><i data-lucide="arrow-left" style="width:14px;height:14px;"></i> Back to Portfolio</a>
+  <div class="nl">Francesco Emanuele<span>.</span></div>
+  <div style="display:flex;align-items:center;gap:10px;">
+    <button class="lang-toggle bb" style="cursor:pointer;border:1px solid var(--border);background:var(--sf);">DE</button>
+    <a href="../index.html" class="bb"><i data-lucide="arrow-left" style="width:14px;height:14px;"></i> <span data-i18n="nav-back">Back to Portfolio</span></a>
+  </div>
 </nav>
 
 <div class="hero">
 <div class="hi">
   <div class="badge">AWS · IAM Governance · Landing Zone · SCPs · Terraform</div>
   <h1 class="pt">IAM Governance &amp;<br>AWS Landing Zone</h1>
-  <p class="ps">Designed and implemented the full AWS account governance model for the production AWS platform at Sonnen — OU hierarchy, Service Control Policies, IRSA least-privilege per workload, and a reusable Terraform IAM baseline. Security enforced structurally, not by convention.</p>
+  <p class="ps" data-i18n="iam-hero-sub">Designed and implemented the full AWS account governance model for the production AWS platform at Sonnen — OU hierarchy, Service Control Policies, IRSA least-privilege per workload, and a reusable Terraform IAM baseline. Security enforced structurally, not by convention.</p>
   <div class="mr">
     <span class="mc">AWS Organizations</span>
     <span class="mc">SCPs</span>
@@ -81,83 +84,83 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,
 <div class="cont">
 
   <div class="sb">
-    <p class="bl">The Challenge</p>
-    <h2 class="bt">Security that is structural, not procedural</h2>
+    <p class="bl" data-i18n="iam-s1-label">The Challenge</p>
+    <h2 class="bt" data-i18n="iam-s1-title">Security that is structural, not procedural</h2>
     <div class="prose">
-      <p>As the AWS platform scaled to serve multiple product teams on AWS EKS, the risk of privilege escalation, accidental public exposure, and untracked resource creation grew with it. The fundamental problem: <strong>security enforced by convention breaks the moment a new engineer joins</strong> or someone is under incident pressure.</p>
-      <p>The goal was to build governance at the AWS account and IAM layer so that <strong>bad configurations are structurally impossible</strong> — not just discouraged. No static credentials. No public S3 buckets. No overly broad IAM policies that survive code review. All of it prevented at the infrastructure layer.</p>
+      <p data-i18n="iam-s1-p1">As the AWS platform scaled to serve multiple product teams on AWS EKS, the risk of privilege escalation, accidental public exposure, and untracked resource creation grew with it. The fundamental problem: <strong>security enforced by convention breaks the moment a new engineer joins</strong> or someone is under incident pressure.</p>
+      <p data-i18n="iam-s1-p2">The goal was to build governance at the AWS account and IAM layer so that <strong>bad configurations are structurally impossible</strong> — not just discouraged. No static credentials. No public S3 buckets. No overly broad IAM policies that survive code review. All of it prevented at the infrastructure layer.</p>
     </div>
   </div>
 
   <div class="sb">
-    <p class="bl">Architecture</p>
-    <h2 class="bt">Four governance layers, all IaC-managed</h2>
+    <p class="bl" data-i18n="iam-s2-label">Architecture</p>
+    <h2 class="bt" data-i18n="iam-s2-title">Four governance layers, all IaC-managed</h2>
     <div class="arch-grid">
       <div class="arch-card">
         <div class="arch-card-head">
           <div class="arch-icon"><i data-lucide="building-2" style="width:17px;height:17px;"></i></div>
-          <div class="arch-title">AWS Organizations — OU Hierarchy</div>
+          <div class="arch-title" data-i18n="iam-arch1-title">AWS Organizations — OU Hierarchy</div>
         </div>
-        <div class="arch-desc">Account structure designed around environments and blast radius: Root → Workloads OU → (Dev / Staging / Prod child OUs). Security and logging accounts in dedicated OUs. Account vending via Terraform.</div>
+        <div class="arch-desc" data-i18n="iam-arch1-desc">Account structure designed around environments and blast radius: Root → Workloads OU → (Dev / Staging / Prod child OUs). Security and logging accounts in dedicated OUs. Account vending via Terraform.</div>
       </div>
       <div class="arch-card">
         <div class="arch-card-head">
           <div class="arch-icon"><i data-lucide="shield" style="width:17px;height:17px;"></i></div>
-          <div class="arch-title">SCPs — Guardrails at Org Level</div>
+          <div class="arch-title" data-i18n="iam-arch2-title">SCPs — Guardrails at Org Level</div>
         </div>
-        <div class="arch-desc">Service Control Policies enforced at the OU level: deny public S3 ACLs, deny unencrypted EBS volumes, deny root account usage, deny disabling CloudTrail, restrict services to approved regions only. Structural — not bypassable by any account admin.</div>
+        <div class="arch-desc" data-i18n="iam-arch2-desc">Service Control Policies enforced at the OU level: deny public S3 ACLs, deny unencrypted EBS volumes, deny root account usage, deny disabling CloudTrail, restrict services to approved regions only. Structural — not bypassable by any account admin.</div>
       </div>
       <div class="arch-card">
         <div class="arch-card-head">
           <div class="arch-icon"><i data-lucide="key" style="width:17px;height:17px;"></i></div>
-          <div class="arch-title">IRSA — Pod-Level AWS Permissions</div>
+          <div class="arch-title" data-i18n="iam-arch3-title">IRSA — Pod-Level AWS Permissions</div>
         </div>
-        <div class="arch-desc">Every EKS workload that needs AWS access gets an IAM Role for Service Accounts (IRSA). Scoped to exact resources — specific S3 buckets, specific DynamoDB tables, specific SQS queues. No static credentials anywhere on the platform.</div>
+        <div class="arch-desc" data-i18n="iam-arch3-desc">Every EKS workload that needs AWS access gets an IAM Role for Service Accounts (IRSA). Scoped to exact resources — specific S3 buckets, specific DynamoDB tables, specific SQS queues. No static credentials anywhere on the platform.</div>
       </div>
       <div class="arch-card">
         <div class="arch-card-head">
           <div class="arch-icon"><i data-lucide="file-code" style="width:17px;height:17px;"></i></div>
-          <div class="arch-title">Terraform IAM Baseline Modules</div>
+          <div class="arch-title" data-i18n="iam-arch4-title">Terraform IAM Baseline Modules</div>
         </div>
-        <div class="arch-desc">Reusable Terraform modules for IAM role creation, IRSA binding, and policy management. Teams onboard by calling the module with their service account name and required permissions — the module handles trust policy, boundary, and tagging automatically.</div>
+        <div class="arch-desc" data-i18n="iam-arch4-desc">Reusable Terraform modules for IAM role creation, IRSA binding, and policy management. Teams onboard by calling the module with their service account name and required permissions — the module handles trust policy, boundary, and tagging automatically.</div>
       </div>
     </div>
   </div>
 
   <div class="sb">
-    <p class="bl">Design Principles</p>
-    <h2 class="bt">How we thought about IAM governance</h2>
+    <p class="bl" data-i18n="iam-s3-label">Design Principles</p>
+    <h2 class="bt" data-i18n="iam-s3-title">How we thought about IAM governance</h2>
     <div style="background:var(--w);border:1px solid var(--border);border-radius:14px;padding:1.25rem 1.5rem;">
       <div class="principle-row">
         <div class="pr-dot"><i data-lucide="lock" style="width:16px;height:16px;"></i></div>
-        <div><div class="pr-label">Deny by default, allow explicitly</div><div class="pr-desc">IAM policies are deny-all at the org level. Every permission is an explicit allow, scoped to the minimum required resource. Wildcards are blocked by policy linter in CI.</div></div>
+        <div><div class="pr-label" data-i18n="iam-p1-label">Deny by default, allow explicitly</div><div class="pr-desc" data-i18n="iam-p1-desc">IAM policies are deny-all at the org level. Every permission is an explicit allow, scoped to the minimum required resource. Wildcards are blocked by policy linter in CI.</div></div>
       </div>
       <div class="principle-row">
         <div class="pr-dot"><i data-lucide="layers" style="width:16px;height:16px;"></i></div>
-        <div><div class="pr-label">Blast radius by account, not by tag</div><div class="pr-desc">Dev, staging, and prod are separate AWS accounts — not just separate namespaces. A compromised dev credential cannot touch prod resources. SCPs enforce the boundary at the org layer.</div></div>
+        <div><div class="pr-label" data-i18n="iam-p2-label">Blast radius by account, not by tag</div><div class="pr-desc" data-i18n="iam-p2-desc">Dev, staging, and prod are separate AWS accounts — not just separate namespaces. A compromised dev credential cannot touch prod resources. SCPs enforce the boundary at the org layer.</div></div>
       </div>
       <div class="principle-row">
         <div class="pr-dot"><i data-lucide="git-merge" style="width:16px;height:16px;"></i></div>
-        <div><div class="pr-label">IAM changes go through Git and CI</div><div class="pr-desc">No IAM changes via console. All policies, roles, and IRSA bindings are Terraform — reviewed in PR, validated with tfsec and OPA, applied via the CI/CD pipeline on merge. Full audit trail.</div></div>
+        <div><div class="pr-label" data-i18n="iam-p3-label">IAM changes go through Git and CI</div><div class="pr-desc" data-i18n="iam-p3-desc">No IAM changes via console. All policies, roles, and IRSA bindings are Terraform — reviewed in PR, validated with tfsec and OPA, applied via the CI/CD pipeline on merge. Full audit trail.</div></div>
       </div>
       <div class="principle-row">
         <div class="pr-dot"><i data-lucide="cpu" style="width:16px;height:16px;"></i></div>
-        <div><div class="pr-label">Zero static credentials on the platform</div><div class="pr-desc">IRSA eliminates all long-lived AWS access keys from EKS workloads. GitHub Actions uses OIDC federation. No secrets in environment variables or Kubernetes secrets for AWS access.</div></div>
+        <div><div class="pr-label" data-i18n="iam-p4-label">Zero static credentials on the platform</div><div class="pr-desc" data-i18n="iam-p4-desc">IRSA eliminates all long-lived AWS access keys from EKS workloads. GitHub Actions uses OIDC federation. No secrets in environment variables or Kubernetes secrets for AWS access.</div></div>
       </div>
     </div>
   </div>
 
   <div class="sb">
-    <p class="bl">Standard Operating Procedure</p>
-    <h2 class="bt">Onboarding a new workload to IAM governance</h2>
+    <p class="bl" data-i18n="iam-s4-label">Standard Operating Procedure</p>
+    <h2 class="bt" data-i18n="iam-s4-title">Onboarding a new workload to IAM governance</h2>
     <div class="sop">
       <div class="soph"><i data-lucide="list-checks" style="width:16px;height:16px;color:var(--red);"></i> SOP — Adding IRSA for a new EKS service</div>
       <div class="sopb">
         <div class="step">
           <div class="sn">1</div>
           <div>
-            <div class="st">Define the IAM policy — minimum permissions only</div>
-            <div class="sd">Author a Terraform module call specifying only the exact resources and actions the service needs. No wildcards. Policy validated by tfsec and OPA Conftest in CI before any apply.</div>
+            <div class="st" data-i18n="iam-step1-title">Define the IAM policy — minimum permissions only</div>
+            <div class="sd" data-i18n="iam-step1-desc">Author a Terraform module call specifying only the exact resources and actions the service needs. No wildcards. Policy validated by tfsec and OPA Conftest in CI before any apply.</div>
             <div class="sc">module "my_service_irsa" {
   source  = "terraform-aws-modules/iam/aws//modules/iam-role-for-service-accounts-eks"
   role_name = "my-service-prod"
@@ -179,8 +182,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,
         <div class="step">
           <div class="sn">2</div>
           <div>
-            <div class="st">CI validates the plan against SCP and OPA policies</div>
-            <div class="sd">GitHub Actions runs tfsec (static analysis), tflint (best practices), and Conftest (OPA policy validation on the Terraform plan JSON). Any wildcard resources, missing boundary policies, or missing tags fail the pipeline.</div>
+            <div class="st" data-i18n="iam-step2-title">CI validates the plan against SCP and OPA policies</div>
+            <div class="sd" data-i18n="iam-step2-desc">GitHub Actions runs tfsec (static analysis), tflint (best practices), and Conftest (OPA policy validation on the Terraform plan JSON). Any wildcard resources, missing boundary policies, or missing tags fail the pipeline.</div>
             <div class="sc">tfsec ./iam/
 tflint --recursive
 terraform plan -out plan.tfplan
@@ -190,8 +193,8 @@ terraform show -json plan.tfplan | conftest test - --policy ./opa-policies/iam/<
         <div class="step">
           <div class="sn">3</div>
           <div>
-            <div class="st">Merge to main triggers the deploy pipeline</div>
-            <div class="sd">After CODEOWNERS review and a green CI run, the PR is merged. The CI/CD pipeline applies the Terraform. The IAM role ARN is then referenced in the workload's Helm values for the Kubernetes ServiceAccount annotation, binding the pod to its IRSA role.</div>
+            <div class="st" data-i18n="iam-step3-title">Merge to main triggers the deploy pipeline</div>
+            <div class="sd" data-i18n="iam-step3-desc">After CODEOWNERS review and a green CI run, the PR is merged. The CI/CD pipeline applies the Terraform. The IAM role ARN is then referenced in the workload's Helm values for the Kubernetes ServiceAccount annotation, binding the pod to its IRSA role.</div>
             <div class="sc"># Kubernetes ServiceAccount annotation (in Helm values)
 serviceAccount:
   annotations:
@@ -201,8 +204,8 @@ serviceAccount:
         <div class="step">
           <div class="sn">4</div>
           <div>
-            <div class="st">Verify IRSA is working — no static credentials</div>
-            <div class="sd">Confirm the pod receives temporary STS credentials via the projected service account token. Verify no AWS_ACCESS_KEY_ID environment variable exists. Check CloudTrail for the assumed role events.</div>
+            <div class="st" data-i18n="iam-step4-title">Verify IRSA is working — no static credentials</div>
+            <div class="sd" data-i18n="iam-step4-desc">Confirm the pod receives temporary STS credentials via the projected service account token. Verify no AWS_ACCESS_KEY_ID environment variable exists. Check CloudTrail for the assumed role events.</div>
             <div class="sc">kubectl exec -n my-namespace my-pod -- env | grep AWS
 # Expected: AWS_ROLE_ARN and AWS_WEB_IDENTITY_TOKEN_FILE
 # NOT expected: AWS_ACCESS_KEY_ID
@@ -216,27 +219,28 @@ aws cloudtrail lookup-events \
   </div>
 
   <div class="sb">
-    <p class="bl">Outcomes</p>
-    <h2 class="bt">What this delivered</h2>
+    <p class="bl" data-i18n="iam-s5-label">Outcomes</p>
+    <h2 class="bt" data-i18n="iam-s5-title">What this delivered</h2>
     <div class="og">
-      <div class="oc"><div class="oi"><i data-lucide="shield-check" style="width:18px;height:18px;"></i></div><div class="otit">Zero static credentials on platform</div><div class="od">IRSA + OIDC federation eliminated all long-lived AWS access keys from EKS workloads and GitHub Actions.</div></div>
-      <div class="oc"><div class="oi"><i data-lucide="layers" style="width:18px;height:18px;"></i></div><div class="otit">Blast radius by account</div><div class="od">Dev, staging, prod in separate accounts. SCP guardrails at OU level — structurally impossible to cross environments.</div></div>
-      <div class="oc"><div class="oi"><i data-lucide="git-commit" style="width:18px;height:18px;"></i></div><div class="otit">Full IAM audit trail from Git</div><div class="od">Every IAM change is a reviewed PR with Terraform plan. No console changes. Compliance evidence requires no additional tooling.</div></div>
-      <div class="oc"><div class="oi"><i data-lucide="zap" style="width:18px;height:18px;"></i></div><div class="otit">Self-service onboarding</div><div class="od">Teams call the IRSA Terraform module — IAM role, trust policy, and boundary are handled automatically. No platform team bottleneck.</div></div>
+      <div class="oc"><div class="oi"><i data-lucide="shield-check" style="width:18px;height:18px;"></i></div><div class="otit" data-i18n="iam-o1-title">Zero static credentials on platform</div><div class="od" data-i18n="iam-o1-desc">IRSA + OIDC federation eliminated all long-lived AWS access keys from EKS workloads and GitHub Actions.</div></div>
+      <div class="oc"><div class="oi"><i data-lucide="layers" style="width:18px;height:18px;"></i></div><div class="otit" data-i18n="iam-o2-title">Blast radius by account</div><div class="od" data-i18n="iam-o2-desc">Dev, staging, prod in separate accounts. SCP guardrails at OU level — structurally impossible to cross environments.</div></div>
+      <div class="oc"><div class="oi"><i data-lucide="git-commit" style="width:18px;height:18px;"></i></div><div class="otit" data-i18n="iam-o3-title">Full IAM audit trail from Git</div><div class="od" data-i18n="iam-o3-desc">Every IAM change is a reviewed PR with Terraform plan. No console changes. Compliance evidence requires no additional tooling.</div></div>
+      <div class="oc"><div class="oi"><i data-lucide="zap" style="width:18px;height:18px;"></i></div><div class="otit" data-i18n="iam-o4-title">Self-service onboarding</div><div class="od" data-i18n="iam-o4-desc">Teams call the IRSA Terraform module — IAM role, trust policy, and boundary are handled automatically. No platform team bottleneck.</div></div>
     </div>
   </div>
 
   <div class="ghb">
     <div>
-      <div class="gbt">Terraform IAM modules &amp; SCP policies on GitHub</div>
-      <div class="gbs">IRSA module, OPA policies, SCP definitions, CI pipeline configuration.</div>
+      <div class="gbt" data-i18n="iam-gh-title">Terraform IAM modules &amp; SCP policies on GitHub</div>
+      <div class="gbs" data-i18n="iam-gh-sub">IRSA module, OPA policies, SCP definitions, CI pipeline configuration.</div>
     </div>
     <a href="https://github.com/francesco2323" target="_blank" class="gbtn">
-      <i data-lucide="github" style="width:16px;height:16px;"></i> Open Repository
+      <i data-lucide="github" style="width:16px;height:16px;"></i> <span data-i18n="p-github-btn">Open Repository</span>
     </a>
   </div>
 
 </div>
+<script src="../js/i18n.js"></script>
 <script>lucide.createIcons();</script>
 </body>
 </html>

@@ -46,38 +46,41 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,
 </head>
 <body>
 <nav>
-  <div class="nl">Francesco<span>.</span></div>
-  <a href="../index.html" class="bb"><i data-lucide="arrow-left" style="width:14px;height:14px;"></i> Back to Portfolio</a>
+  <div class="nl">Francesco Emanuele<span>.</span></div>
+  <div style="display:flex;align-items:center;gap:10px;">
+    <button class="lang-toggle bb" style="cursor:pointer;border:1px solid var(--border);background:var(--sf);">DE</button>
+    <a href="../index.html" class="bb"><i data-lucide="arrow-left" style="width:14px;height:14px;"></i> <span data-i18n="nav-back">Back to Portfolio</span></a>
+  </div>
 </nav>
 <div class="hero">
 <div class="hi">
   <div class="tb2">DevSecOps · Trivy · OPA · Compliance · GitHub Actions</div>
   <h1 class="pt">DevSecOps Pipeline — Security as Default</h1>
-  <p class="ps">Security and quality embedded directly into the GitHub Actions CI pipeline — TFLint and Trivy gate every change before Terraform plan runs, CODEOWNERS enforces review, and a self-hosted Renovate bot keeps dependencies current. Security and quality are the default, not an afterthought.</p>
+  <p class="ps" data-i18n="devsec-hero-sub">Security and quality embedded directly into the GitHub Actions CI pipeline — TFLint and Trivy gate every change before Terraform plan runs, CODEOWNERS enforces review, and a self-hosted Renovate bot keeps dependencies current. Security and quality are the default, not an afterthought.</p>
   <div class="mr"><span class="mc">GitHub Actions</span><span class="mc">TFLint</span><span class="mc">Trivy</span><span class="mc">Renovate</span><span class="mc">CODEOWNERS</span><span class="mc">Terraform</span></div>
 </div>
 </div>
 <div class="cont">
-<div class="sb"><p class="bl">The Challenge</p><h2 class="bt">Security that scales without a dedicated security team</h2><div class="prose"><p>In a platform engineering team supporting multiple product teams, <strong>security reviews cannot be a bottleneck</strong>. The goal was to make it structurally impossible to deploy a workload with critical CVEs, overly permissive IAM, or non-compliant Kubernetes configurations — without adding a security gate that slows delivery.</p><p>The approach: <strong>shift security left</strong> and automate it into the pipeline. If the pipeline is green, the security bar has been met. No separate security review required for standard changes.</p></div></div>
-<div class="sb"><p class="bl">The CI Flow</p><h2 class="bt">Branch → PR → checks → plan → merge → deploy</h2>
-<div class="prose"><p>Every change — application or infrastructure — starts on a <strong>new branch</strong> and goes through a Pull Request. The PR cannot merge until the GitHub Actions checks pass and a CODEOWNERS-listed reviewer approves. Only then does it merge to <code>main</code>, and the author deploys their own change.</p></div>
-<div class="sop"><div class="soph"><i data-lucide="shield-check" style="width:16px;height:16px;color:var(--red);"></i> CI pipeline — gates on every Pull Request</div><div class="sopb">
-<div class="step"><div class="sn">1</div><div><div class="st">Open a PR from a feature branch</div><div class="sd">Work happens on a branch, never directly on main. The PR needs a clear title and description, relevant tests, and — per the development workflow — at least one review from a person listed in the repo's CODEOWNERS file.</div><div class="sc">git checkout -b feat/add-network-policy
+<div class="sb"><p class="bl" data-i18n="devsec-s1-label">The Challenge</p><h2 class="bt" data-i18n="devsec-s1-title">Security that scales without a dedicated security team</h2><div class="prose"><p data-i18n="devsec-s1-p1">In a platform engineering team supporting multiple product teams, <strong>security reviews cannot be a bottleneck</strong>. The goal was to make it structurally impossible to deploy a workload with critical CVEs, overly permissive IAM, or non-compliant Kubernetes configurations — without adding a security gate that slows delivery.</p><p data-i18n="devsec-s1-p2">The approach: <strong>shift security left</strong> and automate it into the pipeline. If the pipeline is green, the security bar has been met. No separate security review required for standard changes.</p></div></div>
+<div class="sb"><p class="bl" data-i18n="devsec-s2-label">The CI Flow</p><h2 class="bt" data-i18n="devsec-s2-title">Branch → PR → checks → plan → merge → deploy</h2>
+<div class="prose"><p data-i18n="devsec-s2-p1">Every change — application or infrastructure — starts on a <strong>new branch</strong> and goes through a Pull Request. The PR cannot merge until the GitHub Actions checks pass and a CODEOWNERS-listed reviewer approves. Only then does it merge to <code>main</code>, and the author deploys their own change.</p></div>
+<div class="sop"><div class="soph"><i data-lucide="shield-check" style="width:16px;height:16px;color:var(--red);"></i> <span data-i18n="devsec-s3-title">CI pipeline — gates on every Pull Request</span></div><div class="sopb">
+<div class="step"><div class="sn">1</div><div><div class="st" data-i18n="devsec-step1-title">Open a PR from a feature branch</div><div class="sd" data-i18n="devsec-step1-desc">Work happens on a branch, never directly on main. The PR needs a clear title and description, relevant tests, and — per the development workflow — at least one review from a person listed in the repo's CODEOWNERS file.</div><div class="sc">git checkout -b feat/add-network-policy
 # make changes
 git push origin feat/add-network-policy
 # open PR -> CODEOWNERS auto-requested for review</div></div></div>
-<div class="step"><div class="sn">2</div><div><div class="st">TFLint runs — Terraform best-practice linting</div><div class="sd">For infrastructure changes, TFLint checks the Terraform for errors, deprecated syntax, and provider-specific best practices before anything is planned. A lint failure blocks the PR.</div><div class="sc">tflint --recursive</div></div></div>
-<div class="step"><div class="sn">3</div><div><div class="st">Trivy scans — vulnerabilities &amp; misconfigurations</div><div class="sd">Trivy scans container images and IaC for known CVEs and misconfigurations. This is the security gate: findings above the threshold fail the check and the PR cannot proceed.</div><div class="sc">trivy fs --scanners vuln,misconfig .
+<div class="step"><div class="sn">2</div><div><div class="st" data-i18n="devsec-step2-title">TFLint runs — Terraform best-practice linting</div><div class="sd" data-i18n="devsec-step2-desc">For infrastructure changes, TFLint checks the Terraform for errors, deprecated syntax, and provider-specific best practices before anything is planned. A lint failure blocks the PR.</div><div class="sc">tflint --recursive</div></div></div>
+<div class="step"><div class="sn">3</div><div><div class="st" data-i18n="devsec-step3-title">Trivy scans — vulnerabilities &amp; misconfigurations</div><div class="sd" data-i18n="devsec-step3-desc">Trivy scans container images and IaC for known CVEs and misconfigurations. This is the security gate: findings above the threshold fail the check and the PR cannot proceed.</div><div class="sc">trivy fs --scanners vuln,misconfig .
 trivy image $ECR_REGISTRY/$IMAGE:$SHA</div></div></div>
-<div class="step"><div class="sn">4</div><div><div class="st">Only on success → Terraform plan</div><div class="sd">If — and only if — TFLint and Trivy pass, the pipeline runs <code>terraform plan</code>. The plan output is attached to the PR so the reviewer can see exactly what will change before approving. Nothing is applied at this stage.</div><div class="sc">terraform plan -out=plan.tfplan
+<div class="step"><div class="sn">4</div><div><div class="st" data-i18n="devsec-step4-title">Only on success → Terraform plan</div><div class="sd" data-i18n="devsec-step4-desc">If — and only if — TFLint and Trivy pass, the pipeline runs <code>terraform plan</code>. The plan output is attached to the PR so the reviewer can see exactly what will change before approving. Nothing is applied at this stage.</div><div class="sc">terraform plan -out=plan.tfplan
 # plan output posted to the PR for review</div></div></div>
-<div class="step"><div class="sn">5</div><div><div class="st">CODEOWNERS review → merge → deploy</div><div class="sd">A CODEOWNERS reviewer approves, the PR merges to main, and the CI/CD pipeline applies the change and deploys. The PR author owns the deploy and monitors it through the platform's observability tools.</div></div></div>
+<div class="step"><div class="sn">5</div><div><div class="st" data-i18n="devsec-step5-title">CODEOWNERS review → merge → deploy</div><div class="sd" data-i18n="devsec-step5-desc">A CODEOWNERS reviewer approves, the PR merges to main, and the CI/CD pipeline applies the change and deploys. The PR author owns the deploy and monitors it through the platform's observability tools.</div></div></div>
 </div></div></div>
 
-<div class="sb"><p class="bl">Keeping Dependencies Current</p><h2 class="bt">Self-hosted Renovate bot</h2>
-<div class="prose"><p>A <strong>self-hosted Renovate bot</strong> runs as a GitHub Action on a schedule (hourly), scanning every repo it has access to and opening PRs for outdated dependencies. It groups updates into non-major and major batches, assigns reviewers from CODEOWNERS, and labels everything <code>dependencies</code> — so dependency hygiene is continuous and automated, not a quarterly scramble.</p></div>
+<div class="sb"><p class="bl" data-i18n="devsec-s4-label">Keeping Dependencies Current</p><h2 class="bt" data-i18n="devsec-s4-title">Self-hosted Renovate bot</h2>
+<div class="prose"><p data-i18n="devsec-s4-p1">A <strong>self-hosted Renovate bot</strong> runs as a GitHub Action on a schedule (hourly), scanning every repo it has access to and opening PRs for outdated dependencies. It groups updates into non-major and major batches, assigns reviewers from CODEOWNERS, and labels everything <code>dependencies</code> — so dependency hygiene is continuous and automated, not a quarterly scramble.</p></div>
 <div class="sop"><div class="soph"><i data-lucide="refresh-cw" style="width:16px;height:16px;color:var(--red);"></i> Renovate — central config</div><div class="sopb">
-<div class="step"><div class="sn">·</div><div><div class="st">renovate.json — grouped, owner-assigned updates</div><div class="sc">{
+<div class="step"><div class="sn">·</div><div><div class="st" data-i18n="devsec-step6-title">renovate.json — grouped, owner-assigned updates</div><div class="sc">{
   "assigneesFromCodeOwners": true,
   "baseBranches": ["main", "dev"],
   "labels": ["dependencies"],
@@ -87,20 +90,21 @@ trivy image $ECR_REGISTRY/$IMAGE:$SHA</div></div></div>
     { "groupName": "all major dependencies",
       "matchUpdateTypes": ["major"] }
   ]
-}</div><div class="sd">First run on a repo opens an onboarding PR. Merge it and Renovate starts proposing dependency updates as reviewable PRs — each one going through the same TFLint + Trivy gates as any other change.</div></div></div>
+}</div><div class="sd" data-i18n="devsec-step6-desc">First run on a repo opens an onboarding PR. Merge it and Renovate starts proposing dependency updates as reviewable PRs — each one going through the same TFLint + Trivy gates as any other change.</div></div></div>
 </div></div></div>
 
-<div class="sb"><p class="bl">Outcomes</p><h2 class="bt">What this delivered</h2><div class="og"><div class="oc"><div class="oi"><i data-lucide="shield" style="width:18px;height:18px;"></i></div><div class="otit">Vulnerabilities caught pre-merge</div><div class="od">Trivy gates the PR. A change with findings above threshold cannot merge, so issues are fixed before they ship.</div></div><div class="oc"><div class="oi"><i data-lucide="file-check" style="width:18px;height:18px;"></i></div><div class="otit">Review enforced by CODEOWNERS</div><div class="od">No change reaches main without a code-owner approval and a green pipeline. The Git history is the audit trail.</div></div><div class="oc"><div class="oi"><i data-lucide="lock" style="width:18px;height:18px;"></i></div><div class="otit">Dependencies stay current</div><div class="od">Self-hosted Renovate opens grouped update PRs hourly, auto-assigned to code owners — no stale, vulnerable dependencies.</div></div><div class="oc"><div class="oi"><i data-lucide="zap" style="width:18px;height:18px;"></i></div><div class="otit">Quality without slowdown</div><div class="od">TFLint + Trivy run automatically on every PR. Plan only runs if they pass — fast feedback, no manual security review for standard changes.</div></div></div></div>
+<div class="sb"><p class="bl" data-i18n="devsec-s5-label">Outcomes</p><h2 class="bt" data-i18n="devsec-s5-title">What this delivered</h2><div class="og"><div class="oc"><div class="oi"><i data-lucide="shield" style="width:18px;height:18px;"></i></div><div class="otit" data-i18n="devsec-o1-title">Vulnerabilities caught pre-merge</div><div class="od" data-i18n="devsec-o1-desc">Trivy gates the PR. A change with findings above threshold cannot merge, so issues are fixed before they ship.</div></div><div class="oc"><div class="oi"><i data-lucide="file-check" style="width:18px;height:18px;"></i></div><div class="otit" data-i18n="devsec-o2-title">Review enforced by CODEOWNERS</div><div class="od" data-i18n="devsec-o2-desc">No change reaches main without a code-owner approval and a green pipeline. The Git history is the audit trail.</div></div><div class="oc"><div class="oi"><i data-lucide="lock" style="width:18px;height:18px;"></i></div><div class="otit" data-i18n="devsec-o3-title">Dependencies stay current</div><div class="od" data-i18n="devsec-o3-desc">Self-hosted Renovate opens grouped update PRs hourly, auto-assigned to code owners — no stale, vulnerable dependencies.</div></div><div class="oc"><div class="oi"><i data-lucide="zap" style="width:18px;height:18px;"></i></div><div class="otit" data-i18n="devsec-o4-title">Quality without slowdown</div><div class="od" data-i18n="devsec-o4-desc">TFLint + Trivy run automatically on every PR. Plan only runs if they pass — fast feedback, no manual security review for standard changes.</div></div></div></div>
 <div class="ghb">
   <div>
-    <div class="gbt">View the code &amp; docs on GitHub</div>
-    <div class="gbs">Configs, manifests, runbooks — all in Git.</div>
+    <div class="gbt" data-i18n="devsec-gh-title">View the code &amp; docs on GitHub</div>
+    <div class="gbs" data-i18n="devsec-gh-sub">Configs, manifests, runbooks — all in Git.</div>
   </div>
   <a href="https://github.com/francesco2323" target="_blank" class="gbtn">
-    <i data-lucide="github" style="width:16px;height:16px;"></i> Open Repository
+    <i data-lucide="github" style="width:16px;height:16px;"></i> <span data-i18n="p-github-btn">Open Repository</span>
   </a>
 </div>
 </div>
+<script src="../js/i18n.js"></script>
 <script>lucide.createIcons();</script>
 </body>
 </html>

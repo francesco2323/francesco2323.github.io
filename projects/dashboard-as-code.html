@@ -60,15 +60,18 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,
 </head>
 <body>
 <nav>
-  <div class="nl">Francesco<span>.</span></div>
-  <a href="../index.html" class="bb"><i data-lucide="arrow-left" style="width:14px;height:14px;"></i> Back to Portfolio</a>
+  <div class="nl">Francesco Emanuele<span>.</span></div>
+  <div style="display:flex;align-items:center;gap:10px;">
+    <button class="lang-toggle bb" style="cursor:pointer;border:1px solid var(--border);background:var(--sf);">DE</button>
+    <a href="../index.html" class="bb"><i data-lucide="arrow-left" style="width:14px;height:14px;"></i> <span data-i18n="nav-back">Back to Portfolio</span></a>
+  </div>
 </nav>
 
 <div class="hero">
 <div class="hi">
   <div class="badge">Grafana · Jsonnet · Grafonnet · Dashboard as Code · GitOps</div>
   <h1 class="pt">Dashboard as Code —<br>Grafana + Jsonnet</h1>
-  <p class="ps">All Grafana dashboards for the AWS platform generated from Jsonnet using Grafonnet, version-controlled in Git, and deployed via ArgoCD as Kubernetes ConfigMaps. No manual dashboard editing. No dashboard drift. Full review process for every change.</p>
+  <p class="ps" data-i18n="dashcode-hero-sub">All Grafana dashboards for the AWS platform generated from Jsonnet using Grafonnet, version-controlled in Git, and deployed via ArgoCD as Kubernetes ConfigMaps. No manual dashboard editing. No dashboard drift. Full review process for every change.</p>
   <div class="mr">
     <span class="mc">Grafana</span><span class="mc">Tanka</span><span class="mc">Grafonnet</span><span class="mc">Jsonnet</span><span class="mc">Prometheus</span><span class="mc">PromQL</span>
   </div>
@@ -78,62 +81,62 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,
 <div class="cont">
 
   <div class="sb">
-    <p class="bl">The Problem</p>
-    <h2 class="bt">Grafana dashboards are config too — treat them like it</h2>
+    <p class="bl" data-i18n="dashcode-s1-label">The Problem</p>
+    <h2 class="bt" data-i18n="dashcode-s1-title">Grafana dashboards are config too — treat them like it</h2>
     <div class="prose">
-      <p>Grafana dashboards created via the UI have a fundamental problem: <strong>they live outside of Git</strong>. They can be edited by anyone with access. There is no review process. They drift between environments — the prod dashboard looks different from staging. When someone deletes a panel "just to try something," it is gone.</p>
-      <p>The platform treated dashboards the same way it treated everything else: <strong>as code</strong>. Jsonnet + Grafonnet generates the dashboard JSON. That JSON lives in Git. ArgoCD deploys it as a Grafana provisioning ConfigMap. The Grafana UI becomes read-only for dashboards that matter.</p>
+      <p data-i18n="dashcode-s1-p1">Grafana dashboards created via the UI have a fundamental problem: <strong>they live outside of Git</strong>. They can be edited by anyone with access. There is no review process. They drift between environments — the prod dashboard looks different from staging. When someone deletes a panel "just to try something," it is gone.</p>
+      <p data-i18n="dashcode-s1-p2">The platform treated dashboards the same way it treated everything else: <strong>as code</strong>. Jsonnet + Grafonnet generates the dashboard JSON. That JSON lives in Git. ArgoCD deploys it as a Grafana provisioning ConfigMap. The Grafana UI becomes read-only for dashboards that matter.</p>
     </div>
 
     <div class="compare">
       <div class="compare-card">
-        <div class="compare-head bad">Before — ClickOps Dashboards</div>
-        <div class="compare-row"><i data-lucide="x" style="width:14px;height:14px;color:#DC2626;"></i>Dashboard differs between dev, staging, prod</div>
-        <div class="compare-row"><i data-lucide="x" style="width:14px;height:14px;color:#DC2626;"></i>Anyone with editor access can modify</div>
-        <div class="compare-row"><i data-lucide="x" style="width:14px;height:14px;color:#DC2626;"></i>No review. No audit trail. No rollback.</div>
-        <div class="compare-row"><i data-lucide="x" style="width:14px;height:14px;color:#DC2626;"></i>Panels disappear. Queries break silently.</div>
+        <div class="compare-head bad" data-i18n="dashcode-before-head">Before — ClickOps Dashboards</div>
+        <div class="compare-row"><i data-lucide="x" style="width:14px;height:14px;color:#DC2626;"></i><span data-i18n="dashcode-before-1">Dashboard differs between dev, staging, prod</span></div>
+        <div class="compare-row"><i data-lucide="x" style="width:14px;height:14px;color:#DC2626;"></i><span data-i18n="dashcode-before-2">Anyone with editor access can modify</span></div>
+        <div class="compare-row"><i data-lucide="x" style="width:14px;height:14px;color:#DC2626;"></i><span data-i18n="dashcode-before-3">No review. No audit trail. No rollback.</span></div>
+        <div class="compare-row"><i data-lucide="x" style="width:14px;height:14px;color:#DC2626;"></i><span data-i18n="dashcode-before-4">Panels disappear. Queries break silently.</span></div>
       </div>
       <div class="compare-card">
-        <div class="compare-head good">After — Dashboard as Code</div>
-        <div class="compare-row"><i data-lucide="check" style="width:14px;height:14px;color:#16A34A;"></i>Identical dashboards across all environments</div>
-        <div class="compare-row"><i data-lucide="check" style="width:14px;height:14px;color:#16A34A;"></i>Changes via PR — reviewed and approved</div>
-        <div class="compare-row"><i data-lucide="check" style="width:14px;height:14px;color:#16A34A;"></i>Full Git history. Rollback in seconds.</div>
-        <div class="compare-row"><i data-lucide="check" style="width:14px;height:14px;color:#16A34A;"></i>Reusable panels &amp; queries shared across teams.</div>
+        <div class="compare-head good" data-i18n="dashcode-after-head">After — Dashboard as Code</div>
+        <div class="compare-row"><i data-lucide="check" style="width:14px;height:14px;color:#16A34A;"></i><span data-i18n="dashcode-after-1">Identical dashboards across all environments</span></div>
+        <div class="compare-row"><i data-lucide="check" style="width:14px;height:14px;color:#16A34A;"></i><span data-i18n="dashcode-after-2">Changes via PR — reviewed and approved</span></div>
+        <div class="compare-row"><i data-lucide="check" style="width:14px;height:14px;color:#16A34A;"></i><span data-i18n="dashcode-after-3">Full Git history. Rollback in seconds.</span></div>
+        <div class="compare-row"><i data-lucide="check" style="width:14px;height:14px;color:#16A34A;"></i><span data-i18n="dashcode-after-4">Reusable panels &amp; queries shared across teams.</span></div>
       </div>
     </div>
   </div>
 
   <div class="sb">
-    <p class="bl">Dashboards Built</p>
-    <h2 class="bt">The dashboard library</h2>
+    <p class="bl" data-i18n="dashcode-s2-label">Dashboards Built</p>
+    <h2 class="bt" data-i18n="dashcode-s2-title">The dashboard library</h2>
     <div class="dashboard-index">
-      <div class="db-row"><div class="db-icon"><i data-lucide="activity" style="width:15px;height:15px;"></i></div><div class="db-name">Platform Overview — Cluster Health</div><div class="db-tags"><span class="db-tag">nodes</span><span class="db-tag">SLO</span><span class="db-tag">capacity</span></div></div>
-      <div class="db-row"><div class="db-icon"><i data-lucide="zap" style="width:15px;height:15px;"></i></div><div class="db-name">EnergyService — Request Rate, Latency, Errors</div><div class="db-tags"><span class="db-tag">RED method</span><span class="db-tag">SLO</span></div></div>
-      <div class="db-row"><div class="db-icon"><i data-lucide="trending-down" style="width:15px;height:15px;"></i></div><div class="db-name">AWS Cost by Team &amp; Environment</div><div class="db-tags"><span class="db-tag">FinOps</span><span class="db-tag">Cost Explorer</span></div></div>
-      <div class="db-row"><div class="db-icon"><i data-lucide="box" style="width:15px;height:15px;"></i></div><div class="db-name">Kubernetes Workload Resource Usage</div><div class="db-tags"><span class="db-tag">CPU</span><span class="db-tag">memory</span><span class="db-tag">limits</span></div></div>
-      <div class="db-row"><div class="db-icon"><i data-lucide="shield" style="width:15px;height:15px;"></i></div><div class="db-name">ArgoCD Sync Status &amp; Deployment History</div><div class="db-tags"><span class="db-tag">GitOps</span><span class="db-tag">delivery</span></div></div>
-      <div class="db-row"><div class="db-icon"><i data-lucide="git-commit" style="width:15px;height:15px;"></i></div><div class="db-name">SLO Burn Rate — Error Budget Consumption</div><div class="db-tags"><span class="db-tag">SLO</span><span class="db-tag">burn rate</span></div></div>
+      <div class="db-row"><div class="db-icon"><i data-lucide="activity" style="width:15px;height:15px;"></i></div><div class="db-name" data-i18n="dashcode-db1-name">Platform Overview — Cluster Health</div><div class="db-tags"><span class="db-tag">nodes</span><span class="db-tag">SLO</span><span class="db-tag">capacity</span></div></div>
+      <div class="db-row"><div class="db-icon"><i data-lucide="zap" style="width:15px;height:15px;"></i></div><div class="db-name" data-i18n="dashcode-db2-name">EnergyService — Request Rate, Latency, Errors</div><div class="db-tags"><span class="db-tag">RED method</span><span class="db-tag">SLO</span></div></div>
+      <div class="db-row"><div class="db-icon"><i data-lucide="trending-down" style="width:15px;height:15px;"></i></div><div class="db-name" data-i18n="dashcode-db3-name">AWS Cost by Team &amp; Environment</div><div class="db-tags"><span class="db-tag">FinOps</span><span class="db-tag">Cost Explorer</span></div></div>
+      <div class="db-row"><div class="db-icon"><i data-lucide="box" style="width:15px;height:15px;"></i></div><div class="db-name" data-i18n="dashcode-db4-name">Kubernetes Workload Resource Usage</div><div class="db-tags"><span class="db-tag">CPU</span><span class="db-tag">memory</span><span class="db-tag">limits</span></div></div>
+      <div class="db-row"><div class="db-icon"><i data-lucide="shield" style="width:15px;height:15px;"></i></div><div class="db-name" data-i18n="dashcode-db5-name">ArgoCD Sync Status &amp; Deployment History</div><div class="db-tags"><span class="db-tag">GitOps</span><span class="db-tag">delivery</span></div></div>
+      <div class="db-row"><div class="db-icon"><i data-lucide="git-commit" style="width:15px;height:15px;"></i></div><div class="db-name" data-i18n="dashcode-db6-name">SLO Burn Rate — Error Budget Consumption</div><div class="db-tags"><span class="db-tag">SLO</span><span class="db-tag">burn rate</span></div></div>
     </div>
   </div>
 
   <div class="sb">
-    <p class="bl">How It Works</p>
-    <h2 class="bt">Tanka + Grafonnet — dashboards as reusable code</h2>
+    <p class="bl" data-i18n="dashcode-s3-label">How It Works</p>
+    <h2 class="bt" data-i18n="dashcode-s3-title">Tanka + Grafonnet — dashboards as reusable code</h2>
     <div class="sop">
-      <div class="soph"><i data-lucide="list-checks" style="width:16px;height:16px;color:var(--red);"></i> SOP — Create a Grafana dashboard with Grafonnet</div>
+      <div class="soph"><i data-lucide="list-checks" style="width:16px;height:16px;color:var(--red);"></i> <span data-i18n="dashcode-s3-sop-title">SOP — Create a Grafana dashboard with Grafonnet</span></div>
       <div class="sopb">
         <div class="step">
           <div class="sn">1</div>
           <div>
-            <div class="st">Scaffold the team folder</div>
-            <div class="sd">Each team gets a folder in the iac-grafana repo, e.g. <code>/tanka/team/skynet/dashboards</code>, holding three template files: <code>dashboards.libsonnet</code>, <code>overrides.libsonnet</code>, and <code>queries.libsonnet</code>. Separating dashboards, queries, and overrides keeps everything reusable.</div>
+            <div class="st" data-i18n="dashcode-step1-title">Scaffold the team folder</div>
+            <div class="sd" data-i18n="dashcode-step1-desc">Each team gets a folder in the iac-grafana repo, e.g. <code>/tanka/team/skynet/dashboards</code>, holding three template files: <code>dashboards.libsonnet</code>, <code>overrides.libsonnet</code>, and <code>queries.libsonnet</code>. Separating dashboards, queries, and overrides keeps everything reusable.</div>
           </div>
         </div>
         <div class="step">
           <div class="sn">2</div>
           <div>
-            <div class="st">Define the dashboard with Grafonnet</div>
-            <div class="sd">Import Grafonnet and declare the dashboard. This creates the dashboard in the team's Grafana folder — empty, ready for variables and panels.</div>
+            <div class="st" data-i18n="dashcode-step2-title">Define the dashboard with Grafonnet</div>
+            <div class="sd" data-i18n="dashcode-step2-desc">Import Grafonnet and declare the dashboard. This creates the dashboard in the team's Grafana folder — empty, ready for variables and panels.</div>
             <div class="sc">local g = import 'github.com/grafana/grafonnet/gen/grafonnet-latest/main.libsonnet';
 local dashboard = g.dashboard;
 {
@@ -145,8 +148,8 @@ local dashboard = g.dashboard;
         <div class="step">
           <div class="sn">3</div>
           <div>
-            <div class="st">Add shared variables</div>
-            <div class="sd">Global variables like <code>datasource</code>, <code>project</code>, and <code>application</code> are defined once in <code>variables.libsonnet</code> and imported into every dashboard — so all dashboards share the same filters and behave consistently.</div>
+            <div class="st" data-i18n="dashcode-step3-title">Add shared variables</div>
+            <div class="sd" data-i18n="dashcode-step3-desc">Global variables like <code>datasource</code>, <code>project</code>, and <code>application</code> are defined once in <code>variables.libsonnet</code> and imported into every dashboard — so all dashboards share the same filters and behave consistently.</div>
             <div class="sc">+ dashboard.withVariables([
     variables.datasource,
     variables.project,
@@ -157,8 +160,8 @@ local dashboard = g.dashboard;
         <div class="step">
           <div class="sn">4</div>
           <div>
-            <div class="st">Add panels backed by reusable queries</div>
-            <div class="sd">Panels are placed on a grid (height, width, x, y) and pull from queries defined in <code>queries.libsonnet</code>. Here, an ArgoCD applications table driven by a PromQL query over <code>argocd_app_info</code>.</div>
+            <div class="st" data-i18n="dashcode-step4-title">Add panels backed by reusable queries</div>
+            <div class="sd" data-i18n="dashcode-step4-desc">Panels are placed on a grid (height, width, x, y) and pull from queries defined in <code>queries.libsonnet</code>. Here, an ArgoCD applications table driven by a PromQL query over <code>argocd_app_info</code>.</div>
             <div class="sc">// queries.libsonnet
 {
   applications:
@@ -177,8 +180,8 @@ local dashboard = g.dashboard;
         <div class="step">
           <div class="sn">5</div>
           <div>
-            <div class="st">Tip: prototype in the UI, then codify</div>
-            <div class="sd">A practical workflow: build the dashboard in the Grafana UI first, use the export function to inspect the JSON, then translate it into Grafonnet — extracting reusable panels and queries into the right library files.</div>
+            <div class="st" data-i18n="dashcode-step5-title">Tip: prototype in the UI, then codify</div>
+            <div class="sd" data-i18n="dashcode-step5-desc">A practical workflow: build the dashboard in the Grafana UI first, use the export function to inspect the JSON, then translate it into Grafonnet — extracting reusable panels and queries into the right library files.</div>
           </div>
         </div>
       </div>
@@ -186,27 +189,28 @@ local dashboard = g.dashboard;
   </div>
 
   <div class="sb">
-    <p class="bl">Outcomes</p>
-    <h2 class="bt">What Dashboard as Code delivered</h2>
+    <p class="bl" data-i18n="dashcode-s4-label">Outcomes</p>
+    <h2 class="bt" data-i18n="dashcode-s4-title">What Dashboard as Code delivered</h2>
     <div class="og">
-      <div class="oc"><div class="oi"><i data-lucide="git-commit" style="width:18px;height:18px;"></i></div><div class="otit">100% dashboards in Git</div><div class="od">Every dashboard is version-controlled. Rollback to any previous state in seconds via ArgoCD history.</div></div>
-      <div class="oc"><div class="oi"><i data-lucide="layers" style="width:18px;height:18px;"></i></div><div class="otit">Identical across environments</div><div class="od">Dev, staging, and prod show identical dashboards — the code is the same. No more "works on my Grafana."</div></div>
-      <div class="oc"><div class="oi"><i data-lucide="eye" style="width:18px;height:18px;"></i></div><div class="otit">PR-reviewed changes</div><div class="od">Dashboard changes go through the same review process as code. PromQL correctness checked before it reaches production.</div></div>
-      <div class="oc"><div class="oi"><i data-lucide="zap" style="width:18px;height:18px;"></i></div><div class="otit">Reusable building blocks</div><div class="od">Panels and queries are written once in shared libraries and reused across every dashboard and environment.</div></div>
+      <div class="oc"><div class="oi"><i data-lucide="git-commit" style="width:18px;height:18px;"></i></div><div class="otit" data-i18n="dashcode-o1-title">100% dashboards in Git</div><div class="od" data-i18n="dashcode-o1-desc">Every dashboard is version-controlled. Rollback to any previous state in seconds via ArgoCD history.</div></div>
+      <div class="oc"><div class="oi"><i data-lucide="layers" style="width:18px;height:18px;"></i></div><div class="otit" data-i18n="dashcode-o2-title">Identical across environments</div><div class="od" data-i18n="dashcode-o2-desc">Dev, staging, and prod show identical dashboards — the code is the same. No more "works on my Grafana."</div></div>
+      <div class="oc"><div class="oi"><i data-lucide="eye" style="width:18px;height:18px;"></i></div><div class="otit" data-i18n="dashcode-o3-title">PR-reviewed changes</div><div class="od" data-i18n="dashcode-o3-desc">Dashboard changes go through the same review process as code. PromQL correctness checked before it reaches production.</div></div>
+      <div class="oc"><div class="oi"><i data-lucide="zap" style="width:18px;height:18px;"></i></div><div class="otit" data-i18n="dashcode-o4-title">Reusable building blocks</div><div class="od" data-i18n="dashcode-o4-desc">Panels and queries are written once in shared libraries and reused across every dashboard and environment.</div></div>
     </div>
   </div>
 
   <div class="ghb">
     <div>
-      <div class="gbt">Jsonnet dashboards &amp; Grafonnet library on GitHub</div>
-      <div class="gbs">Dashboard source in Jsonnet, generated JSON, ConfigMap templates, CI validation script.</div>
+      <div class="gbt" data-i18n="dashcode-gh-title">Jsonnet dashboards &amp; Grafonnet library on GitHub</div>
+      <div class="gbs" data-i18n="dashcode-gh-sub">Dashboard source in Jsonnet, generated JSON, ConfigMap templates, CI validation script.</div>
     </div>
     <a href="https://github.com/francesco2323" target="_blank" class="gbtn">
-      <i data-lucide="github" style="width:16px;height:16px;"></i> Open Repository
+      <i data-lucide="github" style="width:16px;height:16px;"></i> <span data-i18n="p-github-btn">Open Repository</span>
     </a>
   </div>
 
 </div>
+<script src="../js/i18n.js"></script>
 <script>lucide.createIcons();</script>
 </body>
 </html>

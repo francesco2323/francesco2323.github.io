@@ -59,15 +59,18 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,
 </head>
 <body>
 <nav>
-  <div class="nl">Francesco<span>.</span></div>
-  <a href="../index.html" class="bb"><i data-lucide="arrow-left" style="width:14px;height:14px;"></i> Back to Portfolio</a>
+  <div class="nl">Francesco Emanuele<span>.</span></div>
+  <div style="display:flex;align-items:center;gap:10px;">
+    <button class="lang-toggle bb" style="cursor:pointer;border:1px solid var(--border);background:var(--sf);">DE</button>
+    <a href="../index.html" class="bb"><i data-lucide="arrow-left" style="width:14px;height:14px;"></i> <span data-i18n="nav-back">Back to Portfolio</span></a>
+  </div>
 </nav>
 
 <div class="hero">
 <div class="hi">
   <div class="badge">AI Agent · Platform Ops · AWS · Kubernetes · LLM</div>
   <h1 class="pt">Cerebro —<br><span>AI Platform Operations Agent</span></h1>
-  <p class="ps">An AI agent that orchestrates platform operations tasks across AWS and Kubernetes — automating infra queries, alert triage, and operational decisions that previously required manual intervention or deep platform expertise.</p>
+  <p class="ps" data-i18n="cerebro-hero-sub">An AI agent that orchestrates platform operations tasks across AWS and Kubernetes — automating infra queries, alert triage, and operational decisions that previously required manual intervention or deep platform expertise.</p>
   <div class="mr">
     <span class="mc">AI Agent</span>
     <span class="mc">Python</span>
@@ -83,39 +86,39 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,
 <div class="cont">
 
   <div class="sb">
-    <p class="bl">The Problem</p>
-    <h2 class="bt">Platform expertise shouldn't be a bottleneck</h2>
+    <p class="bl" data-i18n="cerebro-s1-label">The Problem</p>
+    <h2 class="bt" data-i18n="cerebro-s1-title">Platform expertise shouldn't be a bottleneck</h2>
     <div class="prose">
-      <p>In any platform team, there is a constant pull: engineers with deep expertise get interrupted constantly by questions that <strong>sound simple but require knowing a lot to answer correctly</strong>. "Is the cluster healthy?" "Why is this alert firing?" "What's the cost of this namespace?" "Which pods are consuming the most memory?"</p>
-      <p>Cerebro encodes that platform expertise into an AI agent with <strong>direct tool access to AWS, Kubernetes, and the observability stack</strong>. The agent can answer operational questions, run diagnostics, and surface insights — without paging an expert at 2AM or interrupting the platform team during a release.</p>
-      <p>The architecture follows <strong>deterministic orchestration principles</strong>: the agent has explicit tools, explicit guardrails, and well-defined scope. It does not have write access by default — it operates in read + recommend mode, with escalation paths for actions that require human approval.</p>
+      <p data-i18n="cerebro-s1-p1">In any platform team, there is a constant pull: engineers with deep expertise get interrupted constantly by questions that <strong>sound simple but require knowing a lot to answer correctly</strong>. "Is the cluster healthy?" "Why is this alert firing?" "What's the cost of this namespace?" "Which pods are consuming the most memory?"</p>
+      <p data-i18n="cerebro-s1-p2">Cerebro encodes that platform expertise into an AI agent with <strong>direct tool access to AWS, Kubernetes, and the observability stack</strong>. The agent can answer operational questions, run diagnostics, and surface insights — without paging an expert at 2AM or interrupting the platform team during a release.</p>
+      <p data-i18n="cerebro-s1-p3">The architecture follows <strong>deterministic orchestration principles</strong>: the agent has explicit tools, explicit guardrails, and well-defined scope. It does not have write access by default — it operates in read + recommend mode, with escalation paths for actions that require human approval.</p>
     </div>
   </div>
 
   <div class="sb">
-    <p class="bl">Agent Architecture</p>
-    <h2 class="bt">Tools, reasoning loop, and guardrails</h2>
+    <p class="bl" data-i18n="cerebro-s2-label">Agent Architecture</p>
+    <h2 class="bt" data-i18n="cerebro-s2-title">Tools, reasoning loop, and guardrails</h2>
     <div class="flow-box">
-      <div class="flow-title">Cerebro — Reasoning &amp; Tool Execution Loop</div>
+      <div class="flow-title" data-i18n="cerebro-flow-title">Cerebro — Reasoning &amp; Tool Execution Loop</div>
       <div class="flow-step">
         <div class="flow-arrow">01 →</div>
-        <div class="flow-content"><strong>User query arrives</strong> via Slack or CLI — "Why is the energy-service latency high?" or "Show me pod restarts in prod for the last hour"</div>
+        <div class="flow-content" data-i18n="cerebro-flow1"><strong>User query arrives</strong> via Slack or CLI — "Why is the energy-service latency high?" or "Show me pod restarts in prod for the last hour"</div>
       </div>
       <div class="flow-step">
         <div class="flow-arrow">02 →</div>
-        <div class="flow-content"><strong>LLM reasons</strong> over the query and selects the appropriate tool(s): Prometheus query, kubectl describe, AWS Cost Explorer call, CloudTrail lookup, or Grafana annotation API</div>
+        <div class="flow-content" data-i18n="cerebro-flow2"><strong>LLM reasons</strong> over the query and selects the appropriate tool(s): Prometheus query, kubectl describe, AWS Cost Explorer call, CloudTrail lookup, or Grafana annotation API</div>
       </div>
       <div class="flow-step">
         <div class="flow-arrow">03 →</div>
-        <div class="flow-content"><strong>Tools execute</strong> with scoped read-only credentials. Results returned to the reasoning loop. Multiple tool calls chained if needed — e.g., get pod name → get its metrics → get its IAM role → check recent AWS API calls</div>
+        <div class="flow-content" data-i18n="cerebro-flow3"><strong>Tools execute</strong> with scoped read-only credentials. Results returned to the reasoning loop. Multiple tool calls chained if needed — e.g., get pod name → get its metrics → get its IAM role → check recent AWS API calls</div>
       </div>
       <div class="flow-step">
         <div class="flow-arrow">04 →</div>
-        <div class="flow-content"><strong>Guardrails check</strong>: Is this a write action? Does it affect prod? If yes → format as a recommendation with the exact command to run, escalate for human approval. Cerebro does not self-approve destructive actions.</div>
+        <div class="flow-content" data-i18n="cerebro-flow4"><strong>Guardrails check</strong>: Is this a write action? Does it affect prod? If yes → format as a recommendation with the exact command to run, escalate for human approval. Cerebro does not self-approve destructive actions.</div>
       </div>
       <div class="flow-step">
         <div class="flow-arrow">05 →</div>
-        <div class="flow-content"><strong>Response surfaced</strong> with structured output: diagnosis, supporting evidence from tool calls, recommended remediation steps, and relevant runbook links</div>
+        <div class="flow-content" data-i18n="cerebro-flow5"><strong>Response surfaced</strong> with structured output: diagnosis, supporting evidence from tool calls, recommended remediation steps, and relevant runbook links</div>
       </div>
     </div>
 
@@ -140,22 +143,22 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,
   </div>
 
   <div class="sb">
-    <p class="bl">Example Interaction</p>
-    <h2 class="bt">Cerebro in action — alert triage</h2>
+    <p class="bl" data-i18n="cerebro-s3-label">Example Interaction</p>
+    <h2 class="bt" data-i18n="cerebro-s3-title">Cerebro in action — alert triage</h2>
     <div class="sop">
       <div class="soph"><i data-lucide="terminal" style="width:16px;height:16px;color:var(--red);"></i> Real interaction — EnergyService high latency alert</div>
       <div class="sopb">
         <div class="step">
           <div class="sn">Q</div>
           <div>
-            <div class="st">User query via Slack</div>
+            <div class="st" data-i18n="cerebro-step1-title">User query via Slack</div>
             <div class="sc">@cerebro EnergyServiceHighLatency alert is firing in prod. What's happening?</div>
           </div>
         </div>
         <div class="step">
           <div class="sn">1</div>
           <div>
-            <div class="st">Cerebro queries Prometheus for latency + error rate</div>
+            <div class="st" data-i18n="cerebro-step2-title">Cerebro queries Prometheus for latency + error rate</div>
             <div class="sc">Tool: prometheus_query
   query: histogram_quantile(0.99, rate(http_request_duration_seconds_bucket{job="energy-svc",env="prod"}[5m]))
 Result: p99 latency = 4.2s (threshold: 1.0s)</div>
@@ -164,7 +167,7 @@ Result: p99 latency = 4.2s (threshold: 1.0s)</div>
         <div class="step">
           <div class="sn">2</div>
           <div>
-            <div class="st">Cerebro checks pod health and recent events</div>
+            <div class="st" data-i18n="cerebro-step3-title">Cerebro checks pod health and recent events</div>
             <div class="sc">Tool: kubernetes_get_events
   namespace: energy-prod
   reason: [BackOff, OOMKilled, Failed]
@@ -174,7 +177,7 @@ Result: 3x OOMKilled events on energy-svc-7d9f8 in last 15min</div>
         <div class="step">
           <div class="sn">3</div>
           <div>
-            <div class="st">Cerebro retrieves the matching runbook</div>
+            <div class="st" data-i18n="cerebro-step4-title">Cerebro retrieves the matching runbook</div>
             <div class="sc">Tool: runbook_search
   query: "OOMKilled high latency energy service"
 Result: runbooks/energy-service/oom-remediation.md</div>
@@ -183,7 +186,7 @@ Result: runbooks/energy-service/oom-remediation.md</div>
         <div class="step">
           <div class="sn">✓</div>
           <div>
-            <div class="st">Cerebro response to Slack</div>
+            <div class="st" data-i18n="cerebro-step5-title">Cerebro response to Slack</div>
             <div class="sc">🔴 EnergyService latency alert — Root Cause Identified
 
 Diagnosis: 3 pods in energy-prod OOMKilled in last 15min.
@@ -204,27 +207,28 @@ Grafana: https://grafana.internal/d/energy-svc?orgId=1</div>
   </div>
 
   <div class="sb">
-    <p class="bl">Outcomes</p>
-    <h2 class="bt">What Cerebro delivers</h2>
+    <p class="bl" data-i18n="cerebro-s4-label">Outcomes</p>
+    <h2 class="bt" data-i18n="cerebro-s4-title">What Cerebro delivers</h2>
     <div class="og">
-      <div class="oc"><div class="oi"><i data-lucide="clock" style="width:18px;height:18px;"></i></div><div class="otit">Faster incident triage</div><div class="od">Alert diagnosis that previously took 15–30 min of expert investigation surfaced in seconds with supporting evidence.</div></div>
-      <div class="oc"><div class="oi"><i data-lucide="users" style="width:18px;height:18px;"></i></div><div class="otit">Platform ops democratised</div><div class="od">Any engineer can ask operational questions without interrupting the platform team. Expert knowledge is now a tool call.</div></div>
-      <div class="oc"><div class="oi"><i data-lucide="shield" style="width:18px;height:18px;"></i></div><div class="otit">Guardrails prevent accidents</div><div class="od">Write actions are recommendations, not executions. Human approval required for anything touching prod. Read-only by default.</div></div>
-      <div class="oc"><div class="oi"><i data-lucide="book-open" style="width:18px;height:18px;"></i></div><div class="otit">Runbooks embedded in triage</div><div class="od">Relevant runbook retrieved and surfaced with every alert response — no hunting through wikis at 2AM.</div></div>
+      <div class="oc"><div class="oi"><i data-lucide="clock" style="width:18px;height:18px;"></i></div><div class="otit" data-i18n="cerebro-o1-title">Faster incident triage</div><div class="od" data-i18n="cerebro-o1-desc">Alert diagnosis that previously took 15–30 min of expert investigation surfaced in seconds with supporting evidence.</div></div>
+      <div class="oc"><div class="oi"><i data-lucide="users" style="width:18px;height:18px;"></i></div><div class="otit" data-i18n="cerebro-o2-title">Platform ops democratised</div><div class="od" data-i18n="cerebro-o2-desc">Any engineer can ask operational questions without interrupting the platform team. Expert knowledge is now a tool call.</div></div>
+      <div class="oc"><div class="oi"><i data-lucide="shield" style="width:18px;height:18px;"></i></div><div class="otit" data-i18n="cerebro-o3-title">Guardrails prevent accidents</div><div class="od" data-i18n="cerebro-o3-desc">Write actions are recommendations, not executions. Human approval required for anything touching prod. Read-only by default.</div></div>
+      <div class="oc"><div class="oi"><i data-lucide="book-open" style="width:18px;height:18px;"></i></div><div class="otit" data-i18n="cerebro-o4-title">Runbooks embedded in triage</div><div class="od" data-i18n="cerebro-o4-desc">Relevant runbook retrieved and surfaced with every alert response — no hunting through wikis at 2AM.</div></div>
     </div>
   </div>
 
   <div class="ghb">
     <div>
-      <div class="gbt">Cerebro agent code on GitHub</div>
-      <div class="gbs">Agent architecture, tool definitions, guardrail logic, Slack integration.</div>
+      <div class="gbt" data-i18n="cerebro-gh-title">Cerebro agent code on GitHub</div>
+      <div class="gbs" data-i18n="cerebro-gh-sub">Agent architecture, tool definitions, guardrail logic, Slack integration.</div>
     </div>
     <a href="https://github.com/francesco2323" target="_blank" class="gbtn">
-      <i data-lucide="github" style="width:16px;height:16px;"></i> Open Repository
+      <i data-lucide="github" style="width:16px;height:16px;"></i> <span data-i18n="p-github-btn">Open Repository</span>
     </a>
   </div>
 
 </div>
+<script src="../js/i18n.js"></script>
 <script>lucide.createIcons();</script>
 </body>
 </html>

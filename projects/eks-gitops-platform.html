@@ -51,15 +51,18 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,
 </head>
 <body>
 <nav>
-  <div class="nl">Francesco<span>.</span></div>
-  <a href="../index.html" class="bb"><i data-lucide="arrow-left" style="width:14px;height:14px;"></i> Back to Portfolio</a>
+  <div class="nl">Francesco Emanuele<span>.</span></div>
+  <div style="display:flex;align-items:center;gap:10px;">
+    <button class="lang-toggle bb" style="cursor:pointer;border:1px solid var(--border);background:var(--sf);">DE</button>
+    <a href="../index.html" class="bb"><i data-lucide="arrow-left" style="width:14px;height:14px;"></i> <span data-i18n="nav-back">Back to Portfolio</span></a>
+  </div>
 </nav>
 
 <div class="hero">
 <div class="hi">
   <div class="badge">AWS · EKS · ArgoCD · GitOps · Helm · ECR</div>
   <h1 class="pt">EKS GitOps Platform<br>with ArgoCD</h1>
-  <p class="ps">A shared, multi-tenant Kubernetes platform on AWS EKS where ArgoCD is the GitOps engine — syncing application and platform manifests from GitHub into the cluster, and rolling out container images from ECR to EKS without a single manual <code>kubectl apply</code>.</p>
+  <p class="ps" data-i18n="eks-hero-sub">A shared, multi-tenant Kubernetes platform on AWS EKS where ArgoCD is the GitOps engine — syncing application and platform manifests from GitHub into the cluster, and rolling out container images from ECR to EKS without a single manual <code>kubectl apply</code>.</p>
   <div class="mr">
     <span class="mc">AWS EKS</span><span class="mc">ArgoCD</span><span class="mc">Helm</span><span class="mc">Terraform</span><span class="mc">AWS ECR</span><span class="mc">GitHub Actions</span><span class="mc">app-of-apps</span>
   </div>
@@ -69,61 +72,61 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,
 <div class="cont">
 
   <div class="sb">
-    <p class="bl">The Approach</p>
-    <h2 class="bt">ArgoCD as the single GitOps engine</h2>
+    <p class="bl" data-i18n="eks-s1-label">The Approach</p>
+    <h2 class="bt" data-i18n="eks-s1-title">ArgoCD as the single GitOps engine</h2>
     <div class="prose">
-      <p>On the AWS platform, <strong>ArgoCD is the preferred GitOps solution</strong> — it syncs changes from GitHub (and GitLab) into the EKS clusters. ArgoCD itself is deployed via Terraform as a Helm release when the cluster is provisioned, so even the GitOps engine is infrastructure-as-code.</p>
-      <p>The whole platform is built on ArgoCD's <strong>app-of-apps pattern</strong>. A single global "app of apps" points at a directory of other ArgoCD Applications and makes them available for sync. One ArgoCD instance runs per EKS cluster, and a strict directory structure keeps manifests organised per environment and per cluster — <code>argocd-manifests/{env}/{cluster}/</code>.</p>
-      <p>The key design decision: <strong>in-house workload apps keep their Helm chart and their ArgoCD App in their own source repo</strong>, while cluster-wide components and community charts live in a central manifests repo. This means teams own their own deployment definitions while the platform team owns the shared baseline.</p>
+      <p data-i18n="eks-s1-p1">On the AWS platform, <strong>ArgoCD is the preferred GitOps solution</strong> — it syncs changes from GitHub (and GitLab) into the EKS clusters. ArgoCD itself is deployed via Terraform as a Helm release when the cluster is provisioned, so even the GitOps engine is infrastructure-as-code.</p>
+      <p data-i18n="eks-s1-p2">The whole platform is built on ArgoCD's <strong>app-of-apps pattern</strong>. A single global "app of apps" points at a directory of other ArgoCD Applications and makes them available for sync. One ArgoCD instance runs per EKS cluster, and a strict directory structure keeps manifests organised per environment and per cluster — <code>argocd-manifests/{env}/{cluster}/</code>.</p>
+      <p data-i18n="eks-s1-p3">The key design decision: <strong>in-house workload apps keep their Helm chart and their ArgoCD App in their own source repo</strong>, while cluster-wide components and community charts live in a central manifests repo. This means teams own their own deployment definitions while the platform team owns the shared baseline.</p>
     </div>
   </div>
 
   <div class="sb">
-    <p class="bl">How an image gets from ECR to EKS</p>
-    <h2 class="bt">The deployment flow, end to end</h2>
+    <p class="bl" data-i18n="eks-s2-label">How an image gets from ECR to EKS</p>
+    <h2 class="bt" data-i18n="eks-s2-title">The deployment flow, end to end</h2>
     <div class="flow-box">
-      <div class="flow-title">Container image → running pod in EKS</div>
+      <div class="flow-title" data-i18n="eks-flow-title">Container image → running pod in EKS</div>
       <div class="flow-step">
         <div class="flow-arrow">01 →</div>
-        <div class="flow-content"><strong>CI builds and pushes to ECR.</strong> On merge to main, the GitHub Actions pipeline builds the container image and pushes it to the private AWS ECR registry (a dedicated <code>Registry</code> account). The image is tagged with the commit SHA.</div>
+        <div class="flow-content" data-i18n="eks-flow1"><strong>CI builds and pushes to ECR.</strong> On merge to main, the GitHub Actions pipeline builds the container image and pushes it to the private AWS ECR registry (a dedicated <code>Registry</code> account). The image is tagged with the commit SHA.</div>
       </div>
       <div class="flow-step">
         <div class="flow-arrow">02 →</div>
-        <div class="flow-content"><strong>Image tag updated in the Helm chart.</strong> The new image tag is written into the workload's Helm values in its own repo — the source of truth for what should be running.</div>
+        <div class="flow-content" data-i18n="eks-flow2"><strong>Image tag updated in the Helm chart.</strong> The new image tag is written into the workload's Helm values in its own repo — the source of truth for what should be running.</div>
       </div>
       <div class="flow-step">
         <div class="flow-arrow">03 →</div>
-        <div class="flow-content"><strong>ArgoCD detects the change.</strong> ArgoCD watches the repo via a GitHub App connection. It sees the Helm values changed and computes the diff between desired Git state and live cluster state.</div>
+        <div class="flow-content" data-i18n="eks-flow3"><strong>ArgoCD detects the change.</strong> ArgoCD watches the repo via a GitHub App connection. It sees the Helm values changed and computes the diff between desired Git state and live cluster state.</div>
       </div>
       <div class="flow-step">
         <div class="flow-arrow">04 →</div>
-        <div class="flow-content"><strong>ArgoCD syncs to EKS.</strong> The ArgoCD App — scoped to its Project and deployed in the <code>argocd-workload-apps</code> namespace — renders the Helm chart and applies it. EKS pulls the image from ECR (nodes have ECR pull permissions via their IAM role) and rolls out the new pods.</div>
+        <div class="flow-content" data-i18n="eks-flow4"><strong>ArgoCD syncs to EKS.</strong> The ArgoCD App — scoped to its Project and deployed in the <code>argocd-workload-apps</code> namespace — renders the Helm chart and applies it. EKS pulls the image from ECR (nodes have ECR pull permissions via their IAM role) and rolls out the new pods.</div>
       </div>
       <div class="flow-step">
         <div class="flow-arrow">05 →</div>
-        <div class="flow-content"><strong>Health + sync status visible in ArgoCD.</strong> ArgoCD reports sync and health status. The same state is surfaced in a Grafana dashboard built from the <code>argocd_app_info</code> metric, so anyone can see what's deployed where.</div>
+        <div class="flow-content" data-i18n="eks-flow5"><strong>Health + sync status visible in ArgoCD.</strong> ArgoCD reports sync and health status. The same state is surfaced in a Grafana dashboard built from the <code>argocd_app_info</code> metric, so anyone can see what's deployed where.</div>
       </div>
     </div>
   </div>
 
   <div class="sb">
-    <p class="bl">Standard Operating Procedure</p>
-    <h2 class="bt">Onboarding a new in-house workload to ArgoCD</h2>
+    <p class="bl" data-i18n="eks-s3-label">Standard Operating Procedure</p>
+    <h2 class="bt" data-i18n="eks-s3-title">Onboarding a new in-house workload to ArgoCD</h2>
     <div class="sop">
       <div class="soph"><i data-lucide="list-checks" style="width:16px;height:16px;color:var(--red);"></i> SOP — Deploy an in-house service via ArgoCD + Helm</div>
       <div class="sopb">
         <div class="step">
           <div class="sn">1</div>
           <div>
-            <div class="st">Create the ArgoCD Project (admin)</div>
-            <div class="sd">Project definitions live centrally in the kubernetes-manifests repo under <code>argocd-manifests/{env}/workloads/projects/</code>. The Project scopes what the app is allowed to deploy and where.</div>
+            <div class="st" data-i18n="eks-step1-title">Create the ArgoCD Project (admin)</div>
+            <div class="sd" data-i18n="eks-step1-desc">Project definitions live centrally in the kubernetes-manifests repo under <code>argocd-manifests/{env}/workloads/projects/</code>. The Project scopes what the app is allowed to deploy and where.</div>
           </div>
         </div>
         <div class="step">
           <div class="sn">2</div>
           <div>
-            <div class="st">Connect the source repository (admin)</div>
-            <div class="sd">Repository config lives as a Kubernetes secret labelled <code>argocd.argoproj.io/secret-type: repository</code>. Authentication uses a repository credential template (GitHub App), so no per-repo credentials are stored.</div>
+            <div class="st" data-i18n="eks-step2-title">Connect the source repository (admin)</div>
+            <div class="sd" data-i18n="eks-step2-desc">Repository config lives as a Kubernetes secret labelled <code>argocd.argoproj.io/secret-type: repository</code>. Authentication uses a repository credential template (GitHub App), so no per-repo credentials are stored.</div>
             <div class="sc">apiVersion: v1
 kind: Secret
 metadata:
@@ -137,15 +140,15 @@ stringData:
         <div class="step">
           <div class="sn">3</div>
           <div>
-            <div class="st">Add an app-of-apps namespace for the team</div>
-            <div class="sd">Each team gets an app-of-apps namespace so their ArgoCD Applications are grouped and isolated from other teams. This keeps multi-tenancy clean.</div>
+            <div class="st" data-i18n="eks-step3-title">Add an app-of-apps namespace for the team</div>
+            <div class="sd" data-i18n="eks-step3-desc">Each team gets an app-of-apps namespace so their ArgoCD Applications are grouped and isolated from other teams. This keeps multi-tenancy clean.</div>
           </div>
         </div>
         <div class="step">
           <div class="sn">4</div>
           <div>
-            <div class="st">Create the ArgoCD App pointing at the Helm chart</div>
-            <div class="sd">The workload's ArgoCD App lives in the service's own repo under <code>argocd-apps/{env}/app.yaml</code>. It belongs to the Project from step 1 and is deployed into the <code>argocd-workload-apps</code> namespace. It points at the Helm chart in the same repo.</div>
+            <div class="st" data-i18n="eks-step4-title">Create the ArgoCD App pointing at the Helm chart</div>
+            <div class="sd" data-i18n="eks-step4-desc">The workload's ArgoCD App lives in the service's own repo under <code>argocd-apps/{env}/app.yaml</code>. It belongs to the Project from step 1 and is deployed into the <code>argocd-workload-apps</code> namespace. It points at the Helm chart in the same repo.</div>
             <div class="sc">apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
@@ -169,8 +172,8 @@ spec:
         <div class="step">
           <div class="sn">5</div>
           <div>
-            <div class="st">ArgoCD syncs — verify health</div>
-            <div class="sd">ArgoCD picks up the App, renders the Helm chart, pulls the image from ECR, and deploys. Confirm sync + health in the ArgoCD UI (SSO via Azure) and on the ArgoCD Grafana dashboard.</div>
+            <div class="st" data-i18n="eks-step5-title">ArgoCD syncs — verify health</div>
+            <div class="sd" data-i18n="eks-step5-desc">ArgoCD picks up the App, renders the Helm chart, pulls the image from ECR, and deploys. Confirm sync + health in the ArgoCD UI (SSO via Azure) and on the ArgoCD Grafana dashboard.</div>
           </div>
         </div>
       </div>
@@ -178,27 +181,28 @@ spec:
   </div>
 
   <div class="sb">
-    <p class="bl">Outcomes</p>
-    <h2 class="bt">What this delivered</h2>
+    <p class="bl" data-i18n="eks-s4-label">Outcomes</p>
+    <h2 class="bt" data-i18n="eks-s4-title">What this delivered</h2>
     <div class="og">
-      <div class="oc"><div class="oi"><i data-lucide="git-commit" style="width:18px;height:18px;"></i></div><div class="otit">Git is the source of truth</div><div class="od">No manual kubectl apply. ArgoCD reconciles desired Git state against the live cluster and self-heals drift.</div></div>
-      <div class="oc"><div class="oi"><i data-lucide="users" style="width:18px;height:18px;"></i></div><div class="otit">Clean multi-tenancy</div><div class="od">Teams own their Helm chart + ArgoCD App in their own repo; the platform team owns Projects and the shared baseline.</div></div>
-      <div class="oc"><div class="oi"><i data-lucide="package" style="width:18px;height:18px;"></i></div><div class="otit">ECR → EKS, automated</div><div class="od">Image built and pushed to ECR by CI, tag updated in Helm values, ArgoCD rolls it out. No human in the deploy path.</div></div>
-      <div class="oc"><div class="oi"><i data-lucide="eye" style="width:18px;height:18px;"></i></div><div class="otit">Deploy state is observable</div><div class="od">ArgoCD sync/health surfaced in a Grafana dashboard from argocd_app_info — single pane of glass for what's live.</div></div>
+      <div class="oc"><div class="oi"><i data-lucide="git-commit" style="width:18px;height:18px;"></i></div><div class="otit" data-i18n="eks-o1-title">Git is the source of truth</div><div class="od" data-i18n="eks-o1-desc">No manual kubectl apply. ArgoCD reconciles desired Git state against the live cluster and self-heals drift.</div></div>
+      <div class="oc"><div class="oi"><i data-lucide="users" style="width:18px;height:18px;"></i></div><div class="otit" data-i18n="eks-o2-title">Clean multi-tenancy</div><div class="od" data-i18n="eks-o2-desc">Teams own their Helm chart + ArgoCD App in their own repo; the platform team owns Projects and the shared baseline.</div></div>
+      <div class="oc"><div class="oi"><i data-lucide="package" style="width:18px;height:18px;"></i></div><div class="otit" data-i18n="eks-o3-title">ECR → EKS, automated</div><div class="od" data-i18n="eks-o3-desc">Image built and pushed to ECR by CI, tag updated in Helm values, ArgoCD rolls it out. No human in the deploy path.</div></div>
+      <div class="oc"><div class="oi"><i data-lucide="eye" style="width:18px;height:18px;"></i></div><div class="otit" data-i18n="eks-o4-title">Deploy state is observable</div><div class="od" data-i18n="eks-o4-desc">ArgoCD sync/health surfaced in a Grafana dashboard from argocd_app_info — single pane of glass for what's live.</div></div>
     </div>
   </div>
 
   <div class="ghb">
     <div>
-      <div class="gbt">ArgoCD manifests &amp; Helm charts on GitHub</div>
-      <div class="gbs">app-of-apps configs, ArgoCD Projects, repository secrets, workload Helm charts.</div>
+      <div class="gbt" data-i18n="eks-gh-title">ArgoCD manifests &amp; Helm charts on GitHub</div>
+      <div class="gbs" data-i18n="eks-gh-sub">app-of-apps configs, ArgoCD Projects, repository secrets, workload Helm charts.</div>
     </div>
     <a href="https://github.com/francesco2323" target="_blank" class="gbtn">
-      <i data-lucide="github" style="width:16px;height:16px;"></i> Open Repository
+      <i data-lucide="github" style="width:16px;height:16px;"></i> <span data-i18n="p-github-btn">Open Repository</span>
     </a>
   </div>
 
 </div>
+<script src="../js/i18n.js"></script>
 <script>lucide.createIcons();</script>
 </body>
 </html>

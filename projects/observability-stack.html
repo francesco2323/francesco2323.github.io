@@ -46,22 +46,25 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,
 </head>
 <body>
 <nav>
-  <div class="nl">Francesco<span>.</span></div>
-  <a href="../index.html" class="bb"><i data-lucide="arrow-left" style="width:14px;height:14px;"></i> Back to Portfolio</a>
+  <div class="nl">Francesco Emanuele<span>.</span></div>
+  <div style="display:flex;align-items:center;gap:10px;">
+    <button class="lang-toggle bb" style="cursor:pointer;border:1px solid var(--border);background:var(--sf);">DE</button>
+    <a href="../index.html" class="bb"><i data-lucide="arrow-left" style="width:14px;height:14px;"></i> <span data-i18n="nav-back">Back to Portfolio</span></a>
+  </div>
 </nav>
 <div class="hero">
 <div class="hi">
   <div class="tb2">Observability · SRE · SLI/SLO · GitOps</div>
   <h1 class="pt">Observability as Code — Prometheus + Grafana Stack</h1>
-  <p class="ps">A full Observability as Code platform — Prometheus, Grafana, and AlertManager deployed and versioned via GitOps, with SLI/SLO definitions for critical IoT energy services.</p>
+  <p class="ps" data-i18n="obs-hero-sub">A full Observability as Code platform — Prometheus, Grafana, and AlertManager deployed and versioned via GitOps, with SLI/SLO definitions for critical IoT energy services.</p>
   <div class="mr"><span class="mc">Prometheus</span><span class="mc">Grafana</span><span class="mc">AlertManager</span><span class="mc">Loki</span><span class="mc">kube-state-metrics</span><span class="mc">SLI/SLO</span></div>
 </div>
 </div>
 <div class="cont">
-<div class="sb"><p class="bl">The Challenge</p><h2 class="bt">Visibility without ClickOps — observable by default</h2><div class="prose"><p>Running a platform serving IoT-connected energy devices across Europe means incidents have <strong>real-world consequences</strong> — not just degraded UX. The team needed a monitoring stack that was itself treated as code: versioned, reviewable, and deployed through the same GitOps pipeline as everything else.</p><p>The goal was <strong>Observability as Code</strong>: no manually-configured Grafana dashboards, no hand-edited Prometheus rules, no alert configs only one person understood. Everything declarative. Everything in Git.</p></div></div>
-<div class="sb"><p class="bl">Implementation</p><h2 class="bt">Stack deployed via Helm + ArgoCD</h2><div class="prose"><p>The <strong>kube-prometheus-stack</strong> Helm chart is deployed via ArgoCD — including Prometheus Operator, Alertmanager, and the Grafana instance. All Grafana dashboards are provisioned as ConfigMaps from Git. All alert rules are defined as <code>PrometheusRule</code> CRDs. Nothing is configured in the UI.</p><p>SLI/SLO definitions are authored as recording rules — error budget burn rates trigger tiered alerting (page immediately vs. ticket for next sprint). On-call runbooks are linked directly inside alert annotations.</p></div>
-<div class="sop"><div class="soph"><i data-lucide="list-checks" style="width:16px;height:16px;color:var(--red);"></i> SOP — Adding a new alert rule</div><div class="sopb">
-<div class="step"><div class="sn">1</div><div><div class="st">Author PrometheusRule CRD in Git</div><div class="sd">Create a new PrometheusRule manifest in the monitoring/rules/ directory. Define the expr, labels, and annotations including a runbook_url pointing to the team runbook.</div><div class="sc">apiVersion: monitoring.coreos.com/v1
+<div class="sb"><p class="bl" data-i18n="obs-s1-label">The Challenge</p><h2 class="bt" data-i18n="obs-s1-title">Visibility without ClickOps — observable by default</h2><div class="prose"><p data-i18n="obs-s1-p1">Running a platform serving IoT-connected energy devices across Europe means incidents have <strong>real-world consequences</strong> — not just degraded UX. The team needed a monitoring stack that was itself treated as code: versioned, reviewable, and deployed through the same GitOps pipeline as everything else.</p><p data-i18n="obs-s1-p2">The goal was <strong>Observability as Code</strong>: no manually-configured Grafana dashboards, no hand-edited Prometheus rules, no alert configs only one person understood. Everything declarative. Everything in Git.</p></div></div>
+<div class="sb"><p class="bl" data-i18n="obs-s2-label">Implementation</p><h2 class="bt" data-i18n="obs-s2-title">Stack deployed via Helm + ArgoCD</h2><div class="prose"><p data-i18n="obs-s2-p1">The <strong>kube-prometheus-stack</strong> Helm chart is deployed via ArgoCD — including Prometheus Operator, Alertmanager, and the Grafana instance. All Grafana dashboards are provisioned as ConfigMaps from Git. All alert rules are defined as <code>PrometheusRule</code> CRDs. Nothing is configured in the UI.</p><p data-i18n="obs-s2-p2">SLI/SLO definitions are authored as recording rules — error budget burn rates trigger tiered alerting (page immediately vs. ticket for next sprint). On-call runbooks are linked directly inside alert annotations.</p></div>
+<div class="sop"><div class="soph"><i data-lucide="list-checks" style="width:16px;height:16px;color:var(--red);"></i> <span data-i18n="obs-s3-title">SOP — Adding a new alert rule</span></div><div class="sopb">
+<div class="step"><div class="sn">1</div><div><div class="st" data-i18n="obs-step1-title">Author PrometheusRule CRD in Git</div><div class="sd" data-i18n="obs-step1-desc">Create a new PrometheusRule manifest in the monitoring/rules/ directory. Define the expr, labels, and annotations including a runbook_url pointing to the team runbook.</div><div class="sc">apiVersion: monitoring.coreos.com/v1
 kind: PrometheusRule
 metadata:
   name: energy-service-slo
@@ -79,20 +82,21 @@ spec:
         severity: page
       annotations:
         runbook_url: https://wiki.internal/runbooks/energy-service</div></div></div>
-<div class="step"><div class="sn">2</div><div><div class="st">PR + CI validation</div><div class="sd">GitHub Actions runs promtool check rules against all PrometheusRule files. Syntax errors fail the PR before review.</div><div class="sc">promtool check rules monitoring/rules/*.yaml</div></div></div>
-<div class="step"><div class="sn">3</div><div><div class="st">Merge → ArgoCD syncs → Prometheus picks up rule</div><div class="sd">ArgoCD detects the new CRD, applies it to the cluster. Prometheus Operator reconciles within 30s. No restart required.</div></div></div>
+<div class="step"><div class="sn">2</div><div><div class="st" data-i18n="obs-step2-title">PR + CI validation</div><div class="sd" data-i18n="obs-step2-desc">GitHub Actions runs promtool check rules against all PrometheusRule files. Syntax errors fail the PR before review.</div><div class="sc">promtool check rules monitoring/rules/*.yaml</div></div></div>
+<div class="step"><div class="sn">3</div><div><div class="st" data-i18n="obs-step3-title">Merge → ArgoCD syncs → Prometheus picks up rule</div><div class="sd" data-i18n="obs-step3-desc">ArgoCD detects the new CRD, applies it to the cluster. Prometheus Operator reconciles within 30s. No restart required.</div></div></div>
 </div></div></div>
-<div class="sb"><p class="bl">Outcomes</p><h2 class="bt">What this delivered</h2><div class="og"><div class="oc"><div class="oi"><i data-lucide="eye" style="width:18px;height:18px;"></i></div><div class="otit">Single pane of glass</div><div class="od">All clusters, all environments, all services — unified in Grafana with consistent tagging and drill-down.</div></div><div class="oc"><div class="oi"><i data-lucide="clock" style="width:18px;height:18px;"></i></div><div class="otit">MTTD reduced significantly</div><div class="od">SLO-based burn-rate alerting replaced noisy threshold alerts — fewer pages, higher signal quality.</div></div><div class="oc"><div class="oi"><i data-lucide="git-commit" style="width:18px;height:18px;"></i></div><div class="otit">Observability as Code</div><div class="od">Every dashboard, rule, and alert is in Git. Reviewed, versioned, and rollback-safe.</div></div><div class="oc"><div class="oi"><i data-lucide="bell-off" style="width:18px;height:18px;"></i></div><div class="otit">On-call runbooks embedded</div><div class="od">Alert annotations include direct links to runbooks — reducing cognitive load at 2AM.</div></div></div></div>
+<div class="sb"><p class="bl" data-i18n="obs-s4-label">Outcomes</p><h2 class="bt" data-i18n="obs-s4-title">What this delivered</h2><div class="og"><div class="oc"><div class="oi"><i data-lucide="eye" style="width:18px;height:18px;"></i></div><div class="otit" data-i18n="obs-o1-title">Single pane of glass</div><div class="od" data-i18n="obs-o1-desc">All clusters, all environments, all services — unified in Grafana with consistent tagging and drill-down.</div></div><div class="oc"><div class="oi"><i data-lucide="clock" style="width:18px;height:18px;"></i></div><div class="otit" data-i18n="obs-o2-title">MTTD reduced significantly</div><div class="od" data-i18n="obs-o2-desc">SLO-based burn-rate alerting replaced noisy threshold alerts — fewer pages, higher signal quality.</div></div><div class="oc"><div class="oi"><i data-lucide="git-commit" style="width:18px;height:18px;"></i></div><div class="otit" data-i18n="obs-o3-title">Observability as Code</div><div class="od" data-i18n="obs-o3-desc">Every dashboard, rule, and alert is in Git. Reviewed, versioned, and rollback-safe.</div></div><div class="oc"><div class="oi"><i data-lucide="bell-off" style="width:18px;height:18px;"></i></div><div class="otit" data-i18n="obs-o4-title">On-call runbooks embedded</div><div class="od" data-i18n="obs-o4-desc">Alert annotations include direct links to runbooks — reducing cognitive load at 2AM.</div></div></div></div>
 <div class="ghb">
   <div>
-    <div class="gbt">View the code &amp; docs on GitHub</div>
-    <div class="gbs">Configs, manifests, runbooks — all in Git.</div>
+    <div class="gbt" data-i18n="obs-gh-title">View the code &amp; docs on GitHub</div>
+    <div class="gbs" data-i18n="obs-gh-sub">Configs, manifests, runbooks — all in Git.</div>
   </div>
   <a href="https://github.com/francesco2323" target="_blank" class="gbtn">
-    <i data-lucide="github" style="width:16px;height:16px;"></i> Open Repository
+    <i data-lucide="github" style="width:16px;height:16px;"></i> <span data-i18n="p-github-btn">Open Repository</span>
   </a>
 </div>
 </div>
+<script src="../js/i18n.js"></script>
 <script>lucide.createIcons();</script>
 </body>
 </html>

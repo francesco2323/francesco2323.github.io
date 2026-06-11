@@ -185,10 +185,12 @@ footer a:hover{text-decoration:underline;}
       <li><a href="#skills" data-i18n="nav-skills">Skills</a></li>
       <li><a href="#certifications" data-i18n="nav-certs">Certifications</a></li>
   </ul>
-  <a href="mailto:francescoemanuele32@gmail.com" class="nav-cta">
-    <i data-lucide="mail" style="width:14px;height:14px;"></i> Contact me
-  </a>
-<button id="lang-toggle" class="nav-cta btn-outline" style="margin-left:10px;">DE</button>
+  <div style="display:flex;align-items:center;gap:10px;">
+    <a href="mailto:francescoemanuele32@gmail.com" class="nav-cta">
+      <i data-lucide="mail" style="width:14px;height:14px;"></i> <span data-i18n="nav-contact">Contact me</span>
+    </a>
+    <button class="lang-toggle nav-cta btn-outline">DE</button>
+  </div>
 </nav>
 
 <!-- HERO -->
@@ -197,7 +199,7 @@ footer a:hover{text-decoration:underline;}
   <div>
     <div class="hero-eyebrow">
       <i data-lucide="map-pin" style="width:11px;height:11px;"></i>
-      Berlin, Germany · Open to new roles
+      <span data-i18n="hero-eyebrow">Berlin, Germany · Open to new roles</span>
     </div>
     <h1 data-i18n="hero-title">Cloud <span class="accent">Platform</span><br>Engineer</h1>
     <p class="hero-bio" data-i18n="hero-bio">
@@ -215,7 +217,7 @@ footer a:hover{text-decoration:underline;}
     </div>
     <div class="hero-actions">
       <a href="#projects" class="btn-red">
-        <i data-lucide="layers" style="width:15px;height:15px;"></i> View Case Studies
+        <i data-lucide="layers" style="width:15px;height:15px;"></i> <span data-i18n="hero-btn-cases">View Case Studies</span>
       </a>
       <a href="https://github.com/francesco2323" target="_blank" class="btn-outline">
         <i data-lucide="github" style="width:15px;height:15px;"></i> GitHub
@@ -239,24 +241,24 @@ footer a:hover{text-decoration:underline;}
     <div class="hero-stat-row">
       <div class="hero-stat">
         <div class="hero-stat-n">8<span>+</span></div>
-        <div class="hero-stat-l">Years in IT</div>
+        <div class="hero-stat-l" data-i18n="hero-stat-l1">Years in IT</div>
       </div>
       <div class="hero-stat">
         <div class="hero-stat-n">3<span>+</span></div>
-        <div class="hero-stat-l">Years cloud/DevOps</div>
+        <div class="hero-stat-l" data-i18n="hero-stat-l2">Years cloud/DevOps</div>
       </div>
       <div class="hero-stat">
         <div class="hero-stat-n">1</div>
-        <div class="hero-stat-l">Successful migration</div>
+        <div class="hero-stat-l" data-i18n="hero-stat-l3">Successful migration</div>
       </div>
       <div class="hero-stat">
         <div class="hero-stat-n">0</div>
-        <div class="hero-stat-l">ClickOps. Ever.</div>
+        <div class="hero-stat-l" data-i18n="hero-stat-l4">ClickOps. Ever.</div>
       </div>
     </div>
     <hr class="hero-card-divider"/>
     <div>
-      <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin-bottom:8px;">Languages</div>
+      <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin-bottom:8px;" data-i18n="hero-lang-label">Languages</div>
       <div class="hero-badges">
         <span class="badge-red">🇮🇹 Italian — Native</span>
         <span class="badge-gray">🇩🇪 German — C1</span>
@@ -270,29 +272,29 @@ footer a:hover{text-decoration:underline;}
 <!-- WHAT I OFFER -->
 <section class="section" id="offer" style="background:var(--surface);">
 <div class="container">
-  <p class="sec-label">What I Offer</p>
-  <h2 class="sec-title">Platform engineering, end-to-end</h2>
-  <p class="sec-sub">From cluster provisioning to compliance evidence — I own the full platform lifecycle with IaC, GitOps, and DevSecOps embedded by default.</p>
+  <p class="sec-label" data-i18n="offer-sec-label">What I Offer</p>
+  <h2 class="sec-title" data-i18n="offer-sec-title">Platform engineering, end-to-end</h2>
+  <p class="sec-sub" data-i18n="offer-sec-sub">From cluster provisioning to compliance evidence — I own the full platform lifecycle with IaC, GitOps, and DevSecOps embedded by default.</p>
 
   <!-- Row 1: 3 cards -->
   <div class="offer-grid">
     <div class="offer-card">
       <div class="offer-icon"><i data-lucide="server" style="width:24px;height:24px;"></i></div>
-      <div class="offer-title">AWS EKS Platform Engineering</div>
-      <div class="offer-desc">Design and operate production-grade, multi-tenant EKS clusters managed end-to-end via Infrastructure as Code. Full cluster lifecycle ownership — from provisioning to upgrades — with zero console drift.</div>
-      <a href="#projects" class="offer-cta">— Details</a>
+      <div class="offer-title" data-i18n="offer-c1-title">AWS EKS Platform Engineering</div>
+      <div class="offer-desc" data-i18n="offer-c1-desc">Design and operate production-grade, multi-tenant EKS clusters managed end-to-end via Infrastructure as Code. Full cluster lifecycle ownership — from provisioning to upgrades — with zero console drift.</div>
+      <a href="#projects" class="offer-cta" data-i18n="offer-details">— Details</a>
     </div>
     <div class="offer-card">
       <div class="offer-icon"><i data-lucide="git-branch" style="width:24px;height:24px;"></i></div>
-      <div class="offer-title">GitOps &amp; CI/CD Delivery</div>
-      <div class="offer-desc">GitOps-native delivery with ArgoCD — automated promotion across dev → staging → prod. Reusable GitHub Actions pipelines with security gates embedded. Full audit trail from Git history alone.</div>
-      <a href="#projects" class="offer-cta">— Details</a>
+      <div class="offer-title" data-i18n="offer-c2-title">GitOps &amp; CI/CD Delivery</div>
+      <div class="offer-desc" data-i18n="offer-c2-desc">GitOps-native delivery with ArgoCD — automated promotion across dev → staging → prod. Reusable GitHub Actions pipelines with security gates embedded. Full audit trail from Git history alone.</div>
+      <a href="#projects" class="offer-cta" data-i18n="offer-details">— Details</a>
     </div>
     <div class="offer-card">
       <div class="offer-icon"><i data-lucide="activity" style="width:24px;height:24px;"></i></div>
-      <div class="offer-title">Observability as Code</div>
-      <div class="offer-desc">Prometheus metrics, Grafana dashboards, and AlertManager rules defined as code and deployed via GitOps. SLI/SLO frameworks for critical services. Single-pane-of-glass visibility across all environments.</div>
-      <a href="#projects" class="offer-cta">— Details</a>
+      <div class="offer-title" data-i18n="offer-c3-title">Observability as Code</div>
+      <div class="offer-desc" data-i18n="offer-c3-desc">Prometheus metrics, Grafana dashboards, and AlertManager rules defined as code and deployed via GitOps. SLI/SLO frameworks for critical services. Single-pane-of-glass visibility across all environments.</div>
+      <a href="#projects" class="offer-cta" data-i18n="offer-details">— Details</a>
     </div>
   </div>
 
@@ -300,27 +302,27 @@ footer a:hover{text-decoration:underline;}
   <div class="offer-grid-lower">
     <div class="offer-card">
       <div class="offer-icon"><i data-lucide="shield-check" style="width:24px;height:24px;"></i></div>
-      <div class="offer-title">DevSecOps &amp; Compliance</div>
-      <div class="offer-desc">Security embedded directly into pipelines — Trivy CVE scanning, OPA/Gatekeeper policy enforcement, IRSA least privilege. Audit-ready compliance evidence from IaC modules and monitoring dashboards.</div>
-      <a href="#projects" class="offer-cta">— Details</a>
+      <div class="offer-title" data-i18n="offer-c4-title">DevSecOps &amp; Compliance</div>
+      <div class="offer-desc" data-i18n="offer-c4-desc">Security embedded directly into pipelines — Trivy CVE scanning, OPA/Gatekeeper policy enforcement, IRSA least privilege. Audit-ready compliance evidence from IaC modules and monitoring dashboards.</div>
+      <a href="#projects" class="offer-cta" data-i18n="offer-details">— Details</a>
     </div>
     <div class="offer-card">
       <div class="offer-icon"><i data-lucide="rocket" style="width:24px;height:24px;"></i></div>
-      <div class="offer-title">Developer Self-Service</div>
-      <div class="offer-desc">Bootstrap new projects from a standard template — IAM, ECR, ArgoCD app, Helm chart, and CI pipeline wired up automatically. Developers ship their first service on day one without platform-team bottlenecks.</div>
-      <a href="#projects" class="offer-cta">— Details</a>
+      <div class="offer-title" data-i18n="offer-c5-title">Developer Self-Service</div>
+      <div class="offer-desc" data-i18n="offer-c5-desc">Bootstrap new projects from a standard template — IAM, ECR, ArgoCD app, Helm chart, and CI pipeline wired up automatically. Developers ship their first service on day one without platform-team bottlenecks.</div>
+      <a href="#projects" class="offer-cta" data-i18n="offer-details">— Details</a>
     </div>
     <div class="offer-card">
       <div class="offer-icon"><i data-lucide="trending-down" style="width:24px;height:24px;"></i></div>
-      <div class="offer-title">FinOps &amp; Cost Governance</div>
-      <div class="offer-desc">Tagging strategies, AWS Cost Explorer dashboards, Grafana cost visibility per team. Rightsizing analysis and Reserved Instance planning. Turn cloud spend from a mystery into a managed asset.</div>
-      <a href="#projects" class="offer-cta">— Details</a>
+      <div class="offer-title" data-i18n="offer-c6-title">FinOps &amp; Cost Governance</div>
+      <div class="offer-desc" data-i18n="offer-c6-desc">Tagging strategies, AWS Cost Explorer dashboards, Grafana cost visibility per team. Rightsizing analysis and Reserved Instance planning. Turn cloud spend from a mystery into a managed asset.</div>
+      <a href="#projects" class="offer-cta" data-i18n="offer-details">— Details</a>
     </div>
     <div class="offer-card">
       <div class="offer-icon"><i data-lucide="book-open" style="width:24px;height:24px;"></i></div>
-      <div class="offer-title">Platform Documentation</div>
-      <div class="offer-desc">Authored runbooks, onboarding guides, and best-practice documentation for developers and SREs. Follows AWS Well-Architected Framework and Infrastructure as Code principles throughout.</div>
-      <a href="#projects" class="offer-cta">— Details</a>
+      <div class="offer-title" data-i18n="offer-c7-title">Platform Documentation</div>
+      <div class="offer-desc" data-i18n="offer-c7-desc">Authored runbooks, onboarding guides, and best-practice documentation for developers and SREs. Follows AWS Well-Architected Framework and Infrastructure as Code principles throughout.</div>
+      <a href="#projects" class="offer-cta" data-i18n="offer-details">— Details</a>
     </div>
   </div>
 </div>
@@ -329,20 +331,20 @@ footer a:hover{text-decoration:underline;}
 <!-- ABOUT -->
 <section class="section section-white" id="about">
 <div class="container">
-  <p class="sec-label">About Me</p>
-  <h2 class="sec-title">Engineering discipline meets<br>renewable energy mission</h2>
+  <p class="sec-label" data-i18n="about-sec-label">About Me</p>
+  <h2 class="sec-title" data-i18n="about-sec-title">Engineering discipline meets<br>renewable energy mission</h2>
 
   <div class="about-grid">
     <div class="about-body">
-      <p>I am a <strong>DevOps &amp; Platform Engineer</strong> operating a shared, multi-tenant EKS environment managed end-to-end via Infrastructure as Code. I own the full platform lifecycle — from cluster provisioning to observability to compliance evidence — with <strong>zero console/ClickOps drift</strong>.</p>
-      <p>I design and operate EKS Kubernetes clusters following <strong>GitOps principles with Argo CD</strong>, managing all cloud and platform resources — including observability — via IaC. DevSecOps controls are embedded directly into CI/CD pipelines so security and compliance are default, not afterthoughts.</p>
+      <p data-i18n="about-p1">I am a <strong>DevOps &amp; Platform Engineer</strong> operating a shared, multi-tenant EKS environment managed end-to-end via Infrastructure as Code. I own the full platform lifecycle — from cluster provisioning to observability to compliance evidence — with <strong>zero console/ClickOps drift</strong>.</p>
+      <p data-i18n="about-p2">I design and operate EKS Kubernetes clusters following <strong>GitOps principles with Argo CD</strong>, managing all cloud and platform resources — including observability — via IaC. DevSecOps controls are embedded directly into CI/CD pipelines so security and compliance are default, not afterthoughts.</p>
 
       <div class="highlight-block">
-        <p>Built and operated a <strong>production AWS platform</strong> — a shared multi-tenant EKS environment — provisioned via Terraform/Terragrunt and delivered through ArgoCD GitOps. Workloads promote across dev → staging → prod, with audit-ready evidence from Git history, IaC modules, and monitoring dashboards.</p>
+        <p data-i18n="about-highlight">Built and operated a <strong>production AWS platform</strong> — a shared multi-tenant EKS environment — provisioned via Terraform/Terragrunt and delivered through ArgoCD GitOps. Workloads promote across dev → staging → prod, with audit-ready evidence from Git history, IaC modules, and monitoring dashboards.</p>
       </div>
 
-      <p>Strong background in <strong>Linux, Windows, and AWS infrastructure</strong> across both production environments and experimental local labs, following Infrastructure as Code and Observability as Code principles throughout. Applying <strong>AWS Well-Architected Framework</strong> best practices across all workloads. Authored platform runbooks, onboarding docs, and best-practice guides for developers and SREs.</p>
-      <p>Currently pursuing <strong>AWS Solutions Architect Associate</strong> and <strong>CKA (Certified Kubernetes Administrator)</strong> — actively studying and building labs daily to deepen cloud-native and Kubernetes expertise.</p>
+      <p data-i18n="about-p3">Strong background in <strong>Linux, Windows, and AWS infrastructure</strong> across both production environments and experimental local labs, following Infrastructure as Code and Observability as Code principles throughout. Applying <strong>AWS Well-Architected Framework</strong> best practices across all workloads. Authored platform runbooks, onboarding docs, and best-practice guides for developers and SREs.</p>
+      <p data-i18n="about-p4">Currently pursuing <strong>AWS Solutions Architect Associate</strong> and <strong>CKA (Certified Kubernetes Administrator)</strong> — actively studying and building labs daily to deepen cloud-native and Kubernetes expertise.</p>
 
       <!-- Languages -->
       <div class="lang-block">
@@ -367,41 +369,41 @@ footer a:hover{text-decoration:underline;}
 
     <!-- SOFT SKILLS -->
     <div>
-      <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:1.25rem;">What people notice about me</div>
+      <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:1.25rem;" data-i18n="soft-head">What people notice about me</div>
       <div class="soft-skills">
         <div class="soft-skill-row">
           <div class="soft-dot"><i data-lucide="zap" style="width:16px;height:16px;"></i></div>
           <div>
-            <div class="soft-label">High Energy &amp; Drive</div>
-            <div class="soft-desc">I bring full engagement to every challenge — from a critical incident at 2AM to designing next-quarter platform architecture. Energetic, not just available.</div>
+            <div class="soft-label" data-i18n="soft-1-label">High Energy &amp; Drive</div>
+            <div class="soft-desc" data-i18n="soft-1-desc">I bring full engagement to every challenge — from a critical incident at 2AM to designing next-quarter platform architecture. Energetic, not just available.</div>
           </div>
         </div>
         <div class="soft-skill-row">
           <div class="soft-dot"><i data-lucide="target" style="width:16px;height:16px;"></i></div>
           <div>
-            <div class="soft-label">Deeply Motivated</div>
-            <div class="soft-desc">I study for CKA and AWS SA daily, build AI agent systems in my own time, and ship projects because I genuinely love this craft.</div>
+            <div class="soft-label" data-i18n="soft-2-label">Deeply Motivated</div>
+            <div class="soft-desc" data-i18n="soft-2-desc">I study for CKA and AWS SA daily, build AI agent systems in my own time, and ship projects because I genuinely love this craft.</div>
           </div>
         </div>
         <div class="soft-skill-row">
           <div class="soft-dot"><i data-lucide="message-circle" style="width:16px;height:16px;"></i></div>
           <div>
-            <div class="soft-label">Frank &amp; Direct</div>
-            <div class="soft-desc">Like my name Francesco suggests, I am straightforward. I prefer honest technical debate over consensus theater. I will tell you what I think — and explain why.</div>
+            <div class="soft-label" data-i18n="soft-3-label">Frank &amp; Direct</div>
+            <div class="soft-desc" data-i18n="soft-3-desc">Like my name Francesco suggests, I am straightforward. I prefer honest technical debate over consensus theater. I will tell you what I think — and explain why.</div>
           </div>
         </div>
         <div class="soft-skill-row">
           <div class="soft-dot"><i data-lucide="users" style="width:16px;height:16px;"></i></div>
           <div>
-            <div class="soft-label">Collaborative &amp; Engaged</div>
-            <div class="soft-desc">I authored runbooks and onboarding docs because I care about team velocity — not just my own. I mentor, document, and leave systems better than I found them.</div>
+            <div class="soft-label" data-i18n="soft-4-label">Collaborative &amp; Engaged</div>
+            <div class="soft-desc" data-i18n="soft-4-desc">I authored runbooks and onboarding docs because I care about team velocity — not just my own. I mentor, document, and leave systems better than I found them.</div>
           </div>
         </div>
         <div class="soft-skill-row">
           <div class="soft-dot"><i data-lucide="refresh-cw" style="width:16px;height:16px;"></i></div>
           <div>
-            <div class="soft-label">Continuous Learner</div>
-            <div class="soft-desc">Trilingual (Italian native · German C1 · English C1), I adapt fast. Every new AWS service or Kubernetes pattern gets built, tested, and understood — not just read about.</div>
+            <div class="soft-label" data-i18n="soft-5-label">Continuous Learner</div>
+            <div class="soft-desc" data-i18n="soft-5-desc">Trilingual (Italian native · German C1 · English C1), I adapt fast. Every new AWS service or Kubernetes pattern gets built, tested, and understood — not just read about.</div>
           </div>
         </div>
       </div>
@@ -413,29 +415,29 @@ footer a:hover{text-decoration:underline;}
 <!-- PROJECTS / CASE STUDIES -->
 <section class="section" id="projects" style="background:var(--surface);">
 <div class="container">
-  <p class="sec-label">Case Studies</p>
-  <h2 class="sec-title">Production outcomes,<br>documented in full</h2>
-  <p class="sec-sub">Each card links to a full case study page with problem statement, architecture decisions, SOP, and GitHub repository.</p>
+  <p class="sec-label" data-i18n="proj-sec-label">Case Studies</p>
+  <h2 class="sec-title" data-i18n="proj-sec-title">Production outcomes,<br>documented in full</h2>
+  <p class="sec-sub" data-i18n="proj-sec-sub">Each card links to a full case study page with problem statement, architecture decisions, SOP, and GitHub repository.</p>
 
   <div class="projects-grid">
 
     <a class="project-card" href="projects/eks-gitops-platform.html">
       <div class="project-card-top">
         <div class="project-type">AWS · EKS · GitOps · IaC</div>
-        <div class="project-title">EKS GitOps Platform — End-to-End IaC Ownership</div>
+        <div class="project-title" data-i18n="card-eks-title">EKS GitOps Platform — End-to-End IaC Ownership</div>
       </div>
       <div class="project-body">
-        <p class="project-desc">Multi-tenant production EKS cluster managed entirely via Terraform + ArgoCD. Zero ClickOps. Full GitOps promotion across dev → staging → prod with automated rollback gates and IRSA-based least-privilege IAM.</p>
+        <p class="project-desc" data-i18n="card-eks-desc">Multi-tenant production EKS cluster managed entirely via Terraform + ArgoCD. Zero ClickOps. Full GitOps promotion across dev → staging → prod with automated rollback gates and IRSA-based least-privilege IAM.</p>
         <div class="impact-block">
-          <div class="impact-label">Key Outcome</div>
-          <div class="impact-text">Zero deployment drift · Full audit trail from Git history · Rollback in &lt;5 min</div>
+          <div class="impact-label" data-i18n="proj-impact">Key Outcome</div>
+          <div class="impact-text" data-i18n="card-eks-impact">Zero deployment drift · Full audit trail from Git history · Rollback in &lt;5 min</div>
         </div>
         <div class="tech-row">
           <span class="tb">Terraform</span><span class="tb">AWS EKS</span><span class="tb">ArgoCD</span><span class="tb">Helm</span><span class="tb">IRSA</span>
         </div>
       </div>
       <div class="project-footer">
-        <span class="project-read"><i data-lucide="file-text" style="width:13px;height:13px;"></i> Read Case Study</span>
+        <span class="project-read"><i data-lucide="file-text" style="width:13px;height:13px;"></i> <span data-i18n="proj-read">Read Case Study</span></span>
         <i data-lucide="arrow-right" style="width:16px;height:16px;color:var(--muted);"></i>
       </div>
     </a>
@@ -443,20 +445,20 @@ footer a:hover{text-decoration:underline;}
     <a class="project-card" href="projects/observability-stack.html">
       <div class="project-card-top">
         <div class="project-type">Observability · SRE · SLI/SLO</div>
-        <div class="project-title">Observability as Code — Prometheus + Grafana Stack</div>
+        <div class="project-title" data-i18n="card-obs-title">Observability as Code — Prometheus + Grafana Stack</div>
       </div>
       <div class="project-body">
-        <p class="project-desc">Built a full Observability as Code platform — Prometheus, Grafana, and AlertManager deployed and configured via GitOps. SLI/SLO definitions for critical IoT energy services. On-call runbooks embedded in dashboards.</p>
+        <p class="project-desc" data-i18n="card-obs-desc">Built a full Observability as Code platform — Prometheus, Grafana, and AlertManager deployed and configured via GitOps. SLI/SLO definitions for critical IoT energy services. On-call runbooks embedded in dashboards.</p>
         <div class="impact-block">
-          <div class="impact-label">Key Outcome</div>
-          <div class="impact-text">MTTD cut significantly · SLO-based alerting · Single pane of glass across all clusters</div>
+          <div class="impact-label" data-i18n="proj-impact">Key Outcome</div>
+          <div class="impact-text" data-i18n="card-obs-impact">MTTD cut significantly · SLO-based alerting · Single pane of glass across all clusters</div>
         </div>
         <div class="tech-row">
           <span class="tb">Prometheus</span><span class="tb">Grafana</span><span class="tb">AlertManager</span><span class="tb">SLI/SLO</span>
         </div>
       </div>
       <div class="project-footer">
-        <span class="project-read"><i data-lucide="file-text" style="width:13px;height:13px;"></i> Read Case Study</span>
+        <span class="project-read"><i data-lucide="file-text" style="width:13px;height:13px;"></i> <span data-i18n="proj-read">Read Case Study</span></span>
         <i data-lucide="arrow-right" style="width:16px;height:16px;color:var(--muted);"></i>
       </div>
     </a>
@@ -464,20 +466,20 @@ footer a:hover{text-decoration:underline;}
     <a class="project-card" href="projects/devsecops-pipeline.html">
       <div class="project-card-top">
         <div class="project-type">DevSecOps · TFLint · Trivy · Renovate · CODEOWNERS</div>
-        <div class="project-title">DevSecOps CI Pipeline — Gates by Default</div>
+        <div class="project-title" data-i18n="card-devsec-title">DevSecOps CI Pipeline — Gates by Default</div>
       </div>
       <div class="project-body">
-        <p class="project-desc">Security and quality embedded in GitHub Actions: every PR runs TFLint and Trivy, and only on success does Terraform plan run. CODEOWNERS enforces review; a self-hosted Renovate bot keeps dependencies current with grouped, auto-assigned PRs.</p>
+        <p class="project-desc" data-i18n="card-devsec-desc">Security and quality embedded in GitHub Actions: every PR runs TFLint and Trivy, and only on success does Terraform plan run. CODEOWNERS enforces review; a self-hosted Renovate bot keeps dependencies current with grouped, auto-assigned PRs.</p>
         <div class="impact-block">
-          <div class="impact-label">Key Outcome</div>
-          <div class="impact-text">Vulnerabilities caught pre-merge · Review enforced by CODEOWNERS · Dependencies always current</div>
+          <div class="impact-label" data-i18n="proj-impact">Key Outcome</div>
+          <div class="impact-text" data-i18n="card-devsec-impact">Vulnerabilities caught pre-merge · Review enforced by CODEOWNERS · Dependencies always current</div>
         </div>
         <div class="tech-row">
           <span class="tb">GitHub Actions</span><span class="tb">TFLint</span><span class="tb">Trivy</span><span class="tb">Renovate</span>
         </div>
       </div>
       <div class="project-footer">
-        <span class="project-read"><i data-lucide="file-text" style="width:13px;height:13px;"></i> Read Case Study</span>
+        <span class="project-read"><i data-lucide="file-text" style="width:13px;height:13px;"></i> <span data-i18n="proj-read">Read Case Study</span></span>
         <i data-lucide="arrow-right" style="width:16px;height:16px;color:var(--muted);"></i>
       </div>
     </a>
@@ -485,20 +487,20 @@ footer a:hover{text-decoration:underline;}
     <a class="project-card" href="projects/finops.html">
       <div class="project-card-top">
         <div class="project-type">FinOps · AWS Cost · Governance</div>
-        <div class="project-title">AWS FinOps — Cloud Cost Governance Platform</div>
+        <div class="project-title" data-i18n="card-finops-title">AWS FinOps — Cloud Cost Governance Platform</div>
       </div>
       <div class="project-body">
-        <p class="project-desc">Implemented cloud cost governance — tagging strategy, AWS Cost Explorer dashboards, Grafana cost panels per team and environment. Rightsizing analysis and Reserved Instance planning establishing a FinOps culture.</p>
+        <p class="project-desc" data-i18n="card-finops-desc">Implemented cloud cost governance — tagging strategy, AWS Cost Explorer dashboards, Grafana cost panels per team and environment. Rightsizing analysis and Reserved Instance planning establishing a FinOps culture.</p>
         <div class="impact-block">
-          <div class="impact-label">Key Outcome</div>
-          <div class="impact-text">Per-team cost accountability · Idle resource spend eliminated · FinOps culture established</div>
+          <div class="impact-label" data-i18n="proj-impact">Key Outcome</div>
+          <div class="impact-text" data-i18n="card-finops-impact">Per-team cost accountability · Idle resource spend eliminated · FinOps culture established</div>
         </div>
         <div class="tech-row">
           <span class="tb">AWS Cost Explorer</span><span class="tb">Grafana</span><span class="tb">Terraform</span><span class="tb">IAM Tagging</span>
         </div>
       </div>
       <div class="project-footer">
-        <span class="project-read"><i data-lucide="file-text" style="width:13px;height:13px;"></i> Read Case Study</span>
+        <span class="project-read"><i data-lucide="file-text" style="width:13px;height:13px;"></i> <span data-i18n="proj-read">Read Case Study</span></span>
         <i data-lucide="arrow-right" style="width:16px;height:16px;color:var(--muted);"></i>
       </div>
     </a>
@@ -506,20 +508,20 @@ footer a:hover{text-decoration:underline;}
     <a class="project-card" href="projects/iam-landing-zone.html">
       <div class="project-card-top">
         <div class="project-type">AWS · IAM · Landing Zone · SCPs · Terraform</div>
-        <div class="project-title">IAM Governance &amp; AWS Landing Zone</div>
+        <div class="project-title" data-i18n="card-iam-title">IAM Governance &amp; AWS Landing Zone</div>
       </div>
       <div class="project-body">
-        <p class="project-desc">Designed and implemented the full AWS account governance model — OU hierarchy, SCPs, IRSA-based least-privilege IAM per workload, and reusable Terraform modules for the IAM baseline. Security and compliance enforced structurally, not procedurally.</p>
+        <p class="project-desc" data-i18n="card-iam-desc">Designed and implemented the full AWS account governance model — OU hierarchy, SCPs, IRSA-based least-privilege IAM per workload, and reusable Terraform modules for the IAM baseline. Security and compliance enforced structurally, not procedurally.</p>
         <div class="impact-block">
-          <div class="impact-label">Key Outcome</div>
-          <div class="impact-text">Zero static credentials · SCP guardrails enforced at org level · IAM fully IaC-managed</div>
+          <div class="impact-label" data-i18n="proj-impact">Key Outcome</div>
+          <div class="impact-text" data-i18n="card-iam-impact">Zero static credentials · SCP guardrails enforced at org level · IAM fully IaC-managed</div>
         </div>
         <div class="tech-row">
           <span class="tb">AWS Organizations</span><span class="tb">SCPs</span><span class="tb">IRSA</span><span class="tb">Terraform</span><span class="tb">AWS IAM</span>
         </div>
       </div>
       <div class="project-footer">
-        <span class="project-read"><i data-lucide="file-text" style="width:13px;height:13px;"></i> Read Case Study</span>
+        <span class="project-read"><i data-lucide="file-text" style="width:13px;height:13px;"></i> <span data-i18n="proj-read">Read Case Study</span></span>
         <i data-lucide="arrow-right" style="width:16px;height:16px;color:var(--muted);"></i>
       </div>
     </a>
@@ -527,20 +529,20 @@ footer a:hover{text-decoration:underline;}
     <a class="project-card" href="projects/cerebro-agent.html">
       <div class="project-card-top">
         <div class="project-type">AI Agent · Orchestration · AWS · Kubernetes</div>
-        <div class="project-title">Cerebro — AI Platform Operations Agent</div>
+        <div class="project-title" data-i18n="card-cerebro-title">Cerebro — AI Platform Operations Agent</div>
       </div>
       <div class="project-body">
-        <p class="project-desc">Designed and built Cerebro — an AI agent that orchestrates platform operations tasks across AWS and Kubernetes. Automates infra queries, alert triage, and operational decisions that previously required manual intervention or expert knowledge.</p>
+        <p class="project-desc" data-i18n="card-cerebro-desc">Designed and built Cerebro — an AI agent that orchestrates platform operations tasks across AWS and Kubernetes. Automates infra queries, alert triage, and operational decisions that previously required manual intervention or expert knowledge.</p>
         <div class="impact-block">
-          <div class="impact-label">Key Outcome</div>
-          <div class="impact-text">Platform ops toil automated · Expert knowledge encoded as agent tools · Faster incident triage</div>
+          <div class="impact-label" data-i18n="proj-impact">Key Outcome</div>
+          <div class="impact-text" data-i18n="card-cerebro-impact">Platform ops toil automated · Expert knowledge encoded as agent tools · Faster incident triage</div>
         </div>
         <div class="tech-row">
           <span class="tb">AI Agent</span><span class="tb">AWS</span><span class="tb">Kubernetes API</span><span class="tb">Python</span><span class="tb">LLM</span>
         </div>
       </div>
       <div class="project-footer">
-        <span class="project-read"><i data-lucide="file-text" style="width:13px;height:13px;"></i> Read Case Study</span>
+        <span class="project-read"><i data-lucide="file-text" style="width:13px;height:13px;"></i> <span data-i18n="proj-read">Read Case Study</span></span>
         <i data-lucide="arrow-right" style="width:16px;height:16px;color:var(--muted);"></i>
       </div>
     </a>
@@ -548,20 +550,20 @@ footer a:hover{text-decoration:underline;}
     <a class="project-card" href="projects/capstone-aws-saa.html">
       <div class="project-card-top">
         <div class="project-type">AWS SAA · Solutions Architecture · Capstone</div>
-        <div class="project-title">AWS Solutions Architect Capstone Project</div>
+        <div class="project-title" data-i18n="card-capstone-title">AWS Solutions Architect Capstone Project</div>
       </div>
       <div class="project-body">
-        <p class="project-desc">End-to-end AWS solutions architecture design built as part of the AWS Solutions Architect Associate course — multi-tier, highly available, cost-optimised architecture applying the AWS Well-Architected Framework across all five pillars.</p>
+        <p class="project-desc" data-i18n="card-capstone-desc">End-to-end AWS solutions architecture design built as part of the AWS Solutions Architect Associate course — multi-tier, highly available, cost-optimised architecture applying the AWS Well-Architected Framework across all five pillars.</p>
         <div class="impact-block">
-          <div class="impact-label">Key Outcome</div>
-          <div class="impact-text">Well-Architected across all 5 pillars · HA + DR by design · Full IaC implementation</div>
+          <div class="impact-label" data-i18n="proj-impact">Key Outcome</div>
+          <div class="impact-text" data-i18n="card-capstone-impact">Well-Architected across all 5 pillars · HA + DR by design · Full IaC implementation</div>
         </div>
         <div class="tech-row">
           <span class="tb">AWS VPC</span><span class="tb">EC2</span><span class="tb">RDS</span><span class="tb">S3</span><span class="tb">CloudFront</span><span class="tb">Terraform</span>
         </div>
       </div>
       <div class="project-footer">
-        <span class="project-read"><i data-lucide="file-text" style="width:13px;height:13px;"></i> Read Case Study</span>
+        <span class="project-read"><i data-lucide="file-text" style="width:13px;height:13px;"></i> <span data-i18n="proj-read">Read Case Study</span></span>
         <i data-lucide="arrow-right" style="width:16px;height:16px;color:var(--muted);"></i>
       </div>
     </a>
@@ -569,20 +571,20 @@ footer a:hover{text-decoration:underline;}
     <a class="project-card" href="projects/incident-runbooks.html">
       <div class="project-card-top">
         <div class="project-type">SRE · Incident Management · Runbooks</div>
-        <div class="project-title">Incident Management &amp; Operational Runbooks</div>
+        <div class="project-title" data-i18n="card-incident-title">Incident Management &amp; Operational Runbooks</div>
       </div>
       <div class="project-body">
-        <p class="project-desc">Authored the incident management process, the SEV-1→SEV-5 severity model, and the per-service runbook library for the AWS platform — detection, triage, escalation, and resolution with named roles, plus runbooks for ALB, EC2, RDS, and ElastiCache.</p>
+        <p class="project-desc" data-i18n="card-incident-desc">Authored the incident management process, the SEV-1→SEV-5 severity model, and the per-service runbook library for the AWS platform — detection, triage, escalation, and resolution with named roles, plus runbooks for ALB, EC2, RDS, and ElastiCache.</p>
         <div class="impact-block">
-          <div class="impact-label">Key Outcome</div>
-          <div class="impact-text">A repeatable response under pressure · Severity drives the response · Runbooks any on-call can follow</div>
+          <div class="impact-label" data-i18n="proj-impact">Key Outcome</div>
+          <div class="impact-text" data-i18n="card-incident-impact">A repeatable response under pressure · Severity drives the response · Runbooks any on-call can follow</div>
         </div>
         <div class="tech-row">
           <span class="tb">Runbooks</span><span class="tb">Severity Model</span><span class="tb">Grafana</span><span class="tb">Statuspage</span><span class="tb">MS Teams</span>
         </div>
       </div>
       <div class="project-footer">
-        <span class="project-read"><i data-lucide="file-text" style="width:13px;height:13px;"></i> Read Case Study</span>
+        <span class="project-read"><i data-lucide="file-text" style="width:13px;height:13px;"></i> <span data-i18n="proj-read">Read Case Study</span></span>
         <i data-lucide="arrow-right" style="width:16px;height:16px;color:var(--muted);"></i>
       </div>
     </a>
@@ -590,20 +592,20 @@ footer a:hover{text-decoration:underline;}
     <a class="project-card" href="projects/dashboard-as-code.html">
       <div class="project-card-top">
         <div class="project-type">Grafana · Jsonnet · Dashboard as Code</div>
-        <div class="project-title">Dashboard as Code — Grafana + Jsonnet</div>
+        <div class="project-title" data-i18n="card-dashcode-title">Dashboard as Code — Grafana + Jsonnet</div>
       </div>
       <div class="project-body">
-        <p class="project-desc">Implemented Dashboard as Code for the AWS platform using Tanka and Grafonnet — Grafana dashboards written as code with reusable panels and queries, version-controlled in a dedicated iac-grafana repo, consistent across all environments.</p>
+        <p class="project-desc" data-i18n="card-dashcode-desc">Implemented Dashboard as Code for the AWS platform using Tanka and Grafonnet — Grafana dashboards written as code with reusable panels and queries, version-controlled in a dedicated iac-grafana repo, consistent across all environments.</p>
         <div class="impact-block">
-          <div class="impact-label">Key Outcome</div>
-          <div class="impact-text">100% dashboards-in-Git · Reproducible across environments · PR-reviewed dashboard changes</div>
+          <div class="impact-label" data-i18n="proj-impact">Key Outcome</div>
+          <div class="impact-text" data-i18n="card-dashcode-impact">100% dashboards-in-Git · Reproducible across environments · PR-reviewed dashboard changes</div>
         </div>
         <div class="tech-row">
           <span class="tb">Grafana</span><span class="tb">Tanka</span><span class="tb">Grafonnet</span><span class="tb">Jsonnet</span><span class="tb">PromQL</span>
         </div>
       </div>
       <div class="project-footer">
-        <span class="project-read"><i data-lucide="file-text" style="width:13px;height:13px;"></i> Read Case Study</span>
+        <span class="project-read"><i data-lucide="file-text" style="width:13px;height:13px;"></i> <span data-i18n="proj-read">Read Case Study</span></span>
         <i data-lucide="arrow-right" style="width:16px;height:16px;color:var(--muted);"></i>
       </div>
     </a>
@@ -615,48 +617,48 @@ footer a:hover{text-decoration:underline;}
 <!-- EXPERIENCE -->
 <section class="section section-white" id="experience">
 <div class="container">
-  <p class="sec-label">Work Experience</p>
-  <h2 class="sec-title">From IT foundations<br>to platform ownership</h2>
-  <p class="sec-sub">Internally promoted from System Administrator to DevOps/Platform Engineer — a trajectory built on real production ownership.</p>
+  <p class="sec-label" data-i18n="exp-sec-label">Work Experience</p>
+  <h2 class="sec-title" data-i18n="exp-sec-title">From IT foundations<br>to platform ownership</h2>
+  <p class="sec-sub" data-i18n="exp-sec-sub">Internally promoted from System Administrator to DevOps/Platform Engineer — a trajectory built on real production ownership.</p>
 
   <div class="tl">
     <div class="tl-item">
       <div class="tl-dot"></div>
-      <div class="tl-period">2022 – Present</div>
-      <div class="tl-role">DevOps / Platform Engineer <span class="tl-promo">↑ Internal Promotion</span></div>
-      <div class="tl-company">Sonnen GmbH · Berlin, Germany · Renewable Energy</div>
+      <div class="tl-period" data-i18n="exp-1-period">2022 – Present</div>
+      <div class="tl-role" data-i18n="exp-1-role">DevOps / Platform Engineer <span class="tl-promo" data-i18n="exp-promo">↑ Internal Promotion</span></div>
+      <div class="tl-company" data-i18n="exp-1-company">Sonnen GmbH · Berlin, Germany · Renewable Energy</div>
       <ul class="tl-list">
-        <li>Operate a shared, multi-tenant EKS environment managed end-to-end via IaC — zero console/ClickOps drift across all environments</li>
-        <li>Design and run GitOps delivery with ArgoCD — automated promotion dev → staging → prod with rollback gates</li>
-        <li>Built and operated the AWS platform on AWS EKS: Terraform/Terragrunt IaC, ArgoCD app-of-apps GitOps delivery, audit-ready evidence from Git history</li>
-        <li>Built Observability as Code platform: Prometheus + Grafana + AlertManager deployed via GitOps; SLI/SLO for critical IoT energy services</li>
-        <li>Embedded DevSecOps into pipelines: Trivy CVE gates, OPA/Gatekeeper policy enforcement, IRSA least-privilege IAM, SBOM generation</li>
-        <li>Implemented FinOps governance: tagging strategy, cost dashboards per team, rightsizing analysis, Reserved Instance planning</li>
-        <li>Authored platform runbooks, onboarding documentation, and best-practice guides for developers and SREs</li>
+        <li data-i18n="exp-1-li1">Operate a shared, multi-tenant EKS environment managed end-to-end via IaC — zero console/ClickOps drift across all environments</li>
+        <li data-i18n="exp-1-li2">Design and run GitOps delivery with ArgoCD — automated promotion dev → staging → prod with rollback gates</li>
+        <li data-i18n="exp-1-li3">Built and operated the AWS platform on AWS EKS: Terraform/Terragrunt IaC, ArgoCD app-of-apps GitOps delivery, audit-ready evidence from Git history</li>
+        <li data-i18n="exp-1-li4">Built Observability as Code platform: Prometheus + Grafana + AlertManager deployed via GitOps; SLI/SLO for critical IoT energy services</li>
+        <li data-i18n="exp-1-li5">Embedded DevSecOps into pipelines: Trivy CVE gates, OPA/Gatekeeper policy enforcement, IRSA least-privilege IAM, SBOM generation</li>
+        <li data-i18n="exp-1-li6">Implemented FinOps governance: tagging strategy, cost dashboards per team, rightsizing analysis, Reserved Instance planning</li>
+        <li data-i18n="exp-1-li7">Authored platform runbooks, onboarding documentation, and best-practice guides for developers and SREs</li>
       </ul>
     </div>
 
     <div class="tl-item">
       <div class="tl-dot gray"></div>
-      <div class="tl-period">2019 – 2022</div>
-      <div class="tl-role">IT System Administrator</div>
-      <div class="tl-company">Sonnen GmbH · Berlin, Germany</div>
+      <div class="tl-period" data-i18n="exp-2-period">2019 – 2022</div>
+      <div class="tl-role" data-i18n="exp-2-role">IT System Administrator</div>
+      <div class="tl-company" data-i18n="exp-2-company">Sonnen GmbH · Berlin, Germany</div>
       <ul class="tl-list">
-        <li>Managed on-premises and hybrid infrastructure for a fast-growing renewable energy company</li>
-        <li>Owned identity management, network segmentation, endpoint security, and IT operations</li>
-        <li>Drove automation and standardisation initiatives that reduced toil and laid the cloud migration foundation</li>
-        <li>Collaborated with engineering teams to support AWS adoption and early containerisation efforts</li>
+        <li data-i18n="exp-2-li1">Managed on-premises and hybrid infrastructure for a fast-growing renewable energy company</li>
+        <li data-i18n="exp-2-li2">Owned identity management, network segmentation, endpoint security, and IT operations</li>
+        <li data-i18n="exp-2-li3">Drove automation and standardisation initiatives that reduced toil and laid the cloud migration foundation</li>
+        <li data-i18n="exp-2-li4">Collaborated with engineering teams to support AWS adoption and early containerisation efforts</li>
       </ul>
     </div>
 
     <div class="tl-item">
       <div class="tl-dot gray"></div>
-      <div class="tl-period">Before 2019</div>
-      <div class="tl-role">IT Support &amp; Systems Administration</div>
-      <div class="tl-company">Various roles · Italy &amp; Germany</div>
+      <div class="tl-period" data-i18n="exp-3-period">Before 2019</div>
+      <div class="tl-role" data-i18n="exp-3-role">IT Support &amp; Systems Administration</div>
+      <div class="tl-company" data-i18n="exp-3-company">Various roles · Italy &amp; Germany</div>
       <ul class="tl-list">
-        <li>5+ years building IT foundations across networking, Windows/Linux server administration, and user support</li>
-        <li>Developed the systematic, operational discipline and infrastructure ownership mindset that underpins all later DevOps work</li>
+        <li data-i18n="exp-3-li1">5+ years building IT foundations across networking, Windows/Linux server administration, and user support</li>
+        <li data-i18n="exp-3-li2">Developed the systematic, operational discipline and infrastructure ownership mindset that underpins all later DevOps work</li>
       </ul>
     </div>
   </div>
@@ -666,9 +668,9 @@ footer a:hover{text-decoration:underline;}
 <!-- SKILLS -->
 <section class="section" id="skills" style="background:var(--surface);">
 <div class="container">
-  <p class="sec-label">Technical Skills</p>
-  <h2 class="sec-title">Full platform lifecycle<br>capabilities</h2>
-  <p class="sec-sub">Production-proven from provisioning to compliance — IaC-first, GitOps-native, security-embedded.</p>
+  <p class="sec-label" data-i18n="skills-sec-label">Technical Skills</p>
+  <h2 class="sec-title" data-i18n="skills-sec-title">Full platform lifecycle<br>capabilities</h2>
+  <p class="sec-sub" data-i18n="skills-sec-sub">Production-proven from provisioning to compliance — IaC-first, GitOps-native, security-embedded.</p>
 
   <div class="skills-grid">
     <div class="skill-group">
@@ -724,69 +726,69 @@ footer a:hover{text-decoration:underline;}
 <!-- CERTS -->
 <section class="section section-white" id="certifications">
 <div class="container">
-  <p class="sec-label">Certifications</p>
-  <h2 class="sec-title">Active learning path &amp;<br>validated expertise</h2>
-  <p class="sec-sub">Structured certification roadmap aligned with production AWS EKS and Kubernetes engineering roles. Studying and building labs daily.</p>
+  <p class="sec-label" data-i18n="certs-sec-label">Certifications</p>
+  <h2 class="sec-title" data-i18n="certs-sec-title">Active learning path &amp;<br>validated expertise</h2>
+  <p class="sec-sub" data-i18n="certs-sec-sub">Structured certification roadmap aligned with production AWS EKS and Kubernetes engineering roles. Studying and building labs daily.</p>
 
   <div class="certs-grid">
     <div class="cert-card">
       <div class="cert-icon" style="background:#FFF0F2;">☁️</div>
       <div class="cert-body">
-        <div class="cert-title">AWS Certified Solutions Architect – Associate</div>
-        <div class="cert-issuer">Amazon Web Services · In active study</div>
-        <span class="cert-status cs-progress"><i data-lucide="loader" style="width:10px;height:10px;"></i> In Progress</span>
+        <div class="cert-title" data-i18n="cert-1-title">AWS Certified Solutions Architect – Associate</div>
+        <div class="cert-issuer" data-i18n="cert-1-issuer">Amazon Web Services · In active study</div>
+        <span class="cert-status cs-progress"><i data-lucide="loader" style="width:10px;height:10px;"></i> <span data-i18n="cert-status-progress">In Progress</span></span>
       </div>
     </div>
     <div class="cert-card">
       <div class="cert-icon" style="background:#EFF6FF;">⎈</div>
       <div class="cert-body">
-        <div class="cert-title">Certified Kubernetes Administrator (CKA)</div>
-        <div class="cert-issuer">CNCF · Active labs &amp; exam preparation</div>
-        <span class="cert-status cs-progress"><i data-lucide="loader" style="width:10px;height:10px;"></i> In Progress</span>
+        <div class="cert-title" data-i18n="cert-2-title">Certified Kubernetes Administrator (CKA)</div>
+        <div class="cert-issuer" data-i18n="cert-2-issuer">CNCF · Active labs &amp; exam preparation</div>
+        <span class="cert-status cs-progress"><i data-lucide="loader" style="width:10px;height:10px;"></i> <span data-i18n="cert-status-progress">In Progress</span></span>
       </div>
     </div>
     <div class="cert-card">
       <div class="cert-icon" style="background:#F0FDF4;">🐧</div>
       <div class="cert-body">
-        <div class="cert-title">Linux System Administration</div>
-        <div class="cert-issuer">Professional Certification · LinkedIn Verified</div>
-        <span class="cert-status cs-active"><i data-lucide="check-circle" style="width:10px;height:10px;"></i> Active</span>
+        <div class="cert-title" data-i18n="cert-3-title">Linux System Administration</div>
+        <div class="cert-issuer" data-i18n="cert-3-issuer">Professional Certification · LinkedIn Verified</div>
+        <span class="cert-status cs-active"><i data-lucide="check-circle" style="width:10px;height:10px;"></i> <span data-i18n="cert-status-active">Active</span></span>
       </div>
     </div>
     <div class="cert-card">
       <div class="cert-icon" style="background:#FFF0F2;">🏗️</div>
       <div class="cert-body">
-        <div class="cert-title">HashiCorp Terraform Associate</div>
-        <div class="cert-issuer">HashiCorp · LinkedIn Verified</div>
-        <span class="cert-status cs-active"><i data-lucide="check-circle" style="width:10px;height:10px;"></i> Active</span>
+        <div class="cert-title" data-i18n="cert-4-title">HashiCorp Terraform Associate</div>
+        <div class="cert-issuer" data-i18n="cert-4-issuer">HashiCorp · LinkedIn Verified</div>
+        <span class="cert-status cs-active"><i data-lucide="check-circle" style="width:10px;height:10px;"></i> <span data-i18n="cert-status-active">Active</span></span>
       </div>
     </div>
     <div class="cert-card">
       <div class="cert-icon" style="background:#F0F9FF;">🔧</div>
       <div class="cert-body">
-        <div class="cert-title">IT Infrastructure &amp; Networking Fundamentals</div>
-        <div class="cert-issuer">LinkedIn Learning · Verified</div>
-        <span class="cert-status cs-active"><i data-lucide="check-circle" style="width:10px;height:10px;"></i> Active</span>
+        <div class="cert-title" data-i18n="cert-5-title">IT Infrastructure &amp; Networking Fundamentals</div>
+        <div class="cert-issuer" data-i18n="cert-5-issuer">LinkedIn Learning · Verified</div>
+        <span class="cert-status cs-active"><i data-lucide="check-circle" style="width:10px;height:10px;"></i> <span data-i18n="cert-status-active">Active</span></span>
       </div>
     </div>
     <div class="cert-card" style="border:1.5px dashed var(--border);opacity:.7;">
       <div class="cert-icon" style="background:var(--surface);">🎯</div>
       <div class="cert-body">
-        <div class="cert-title" style="color:var(--muted);">AWS Solutions Architect Professional</div>
-        <div class="cert-issuer">Roadmap 2026</div>
-        <span class="cert-status" style="background:var(--surface);color:var(--muted);"><i data-lucide="clock" style="width:10px;height:10px;"></i> Planned</span>
+        <div class="cert-title" style="color:var(--muted);" data-i18n="cert-6-title">AWS Solutions Architect Professional</div>
+        <div class="cert-issuer" data-i18n="cert-6-issuer">Roadmap 2026</div>
+        <span class="cert-status" style="background:var(--surface);color:var(--muted);"><i data-lucide="clock" style="width:10px;height:10px;"></i> <span data-i18n="cert-status-planned">Planned</span></span>
       </div>
     </div>
   </div>
 
   <div style="margin-top:2.5rem;background:var(--red-light);border:1px solid #FECDD3;border-radius:16px;padding:1.75rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;">
     <div>
-      <p style="font-size:15px;font-weight:700;color:var(--dark);margin-bottom:4px;">Verify all certifications on LinkedIn</p>
-      <p style="font-size:13px;color:#9F1239;">Active certifications are linked and badge-verified on my LinkedIn profile.</p>
+      <p style="font-size:15px;font-weight:700;color:var(--dark);margin-bottom:4px;" data-i18n="cert-linkedin-title">Verify all certifications on LinkedIn</p>
+      <p style="font-size:13px;color:#9F1239;" data-i18n="cert-linkedin-sub">Active certifications are linked and badge-verified on my LinkedIn profile.</p>
     </div>
     <a href="https://www.linkedin.com/in/q
     emanuele" target="_blank" class="btn-red">
-      <i data-lucide="linkedin" style="width:15px;height:15px;"></i> View LinkedIn Profile
+      <i data-lucide="linkedin" style="width:15px;height:15px;"></i> <span data-i18n="cert-linkedin-btn">View LinkedIn Profile</span>
     </a>
   </div>
 </div>
@@ -795,53 +797,16 @@ footer a:hover{text-decoration:underline;}
 <footer>
   <div style="max-width:600px;margin:0 auto;">
     <p style="font-size:1.1rem;font-weight:700;color:#E5E7EB;margin-bottom:6px;letter-spacing:-0.01em;">Francesco Emanuele</p>
-    <p style="margin-bottom:1.25rem;">Cloud &amp; Platform Engineer · Berlin, Germany · Trilingual</p>
+    <p style="margin-bottom:1.25rem;" data-i18n="footer-role">Cloud &amp; Platform Engineer · Berlin, Germany · Trilingual</p>
     <div style="display:flex;justify-content:center;gap:1.5rem;margin-bottom:1.5rem;flex-wrap:wrap;">
       <a href="https://github.com/francesco2323" target="_blank">GitHub</a>
       <a href="https://www.linkedin.com/in/francescoemanuele" target="_blank">LinkedIn</a>
       <a href="mailto:emanuele.francescoit@gmail.com">Email</a>
     </div>
-    <p style="font-size:12px;color:#374151;">IaC-first · GitOps-native · Zero ClickOps · &copy; 2025 Francesco Emanuele</p>
+    <p style="font-size:12px;color:#374151;" data-i18n="footer-copy">IaC-first · GitOps-native · Zero ClickOps · © 2025 Francesco Emanuele</p>
   </div>
 </footer>
-<script>
-const translations = {
-  en: {
-    'nav-offer': 'What I Offer',
-    'nav-about': 'About',
-    'nav-projects': 'Case Studies',
-    'nav-experience': 'Experience',
-    'nav-skills': 'Skills',
-    'nav-certs': 'Certifications',
-    'hero-title': 'Cloud <span class="accent">Platform</span><br>Engineer',
-    'hero-bio': 'I design and operate <strong>production-grade EKS platforms</strong> end-to-end — from cluster provisioning to observability, security, and compliance — with <strong>zero console/ClickOps drift</strong>. GitOps-native. IaC-first. SRE-minded.'
-  },
-  de: {
-    'nav-offer': 'Was ich anbiete',
-    'nav-about': 'Über mich',
-    'nav-projects': 'Fallstudien',
-    'nav-experience': 'Erfahrung',
-    'nav-skills': 'Fähigkeiten',
-    'nav-certs': 'Zertifikate',
-    'hero-title': 'Cloud <span class="accent">Plattform</span><br>Ingenieur',
-    'hero-bio': 'Ich entwerfe und betreibe <strong>produktionsreife EKS-Plattformen</strong> von Anfang bis Ende — vom Cluster-Provisioning über Beobachtbarkeit, Sicherheit und Compliance — mit <strong>keinem Console/ClickOps Drift</strong>. GitOps-nativ. IaC-first. SRE-orientiert.'
-  }
-};
-let currentLang = 'en';
-function setLanguage(lang) {
-  currentLang = lang;
-  const t = translations[lang];
-  document.querySelectorAll('[data-i18n]').forEach(el => {
-    const key = el.getAttribute('data-i18n');
-    if (t[key]) el.innerHTML = t[key];
-  });
-  document.getElementById('lang-toggle').innerText = lang === 'en' ? 'DE' : 'EN';
-}
-document.getElementById('lang-toggle').addEventListener('click', () => {
-  setLanguage(currentLang === 'en' ? 'de' : 'en');
-});
-setLanguage('en');
-</script>
+<script src="js/i18n.js"></script>
 <script>lucide.createIcons();</script>
 </body>
 </html>

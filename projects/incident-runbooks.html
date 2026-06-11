@@ -76,15 +76,18 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,
 </head>
 <body>
 <nav>
-  <div class="nl">Francesco<span>.</span></div>
-  <a href="../index.html" class="bb"><i data-lucide="arrow-left" style="width:14px;height:14px;"></i> Back to Portfolio</a>
+  <div class="nl">Francesco Emanuele<span>.</span></div>
+  <div style="display:flex;align-items:center;gap:10px;">
+    <button class="lang-toggle bb" style="cursor:pointer;border:1px solid var(--border);background:var(--sf);">DE</button>
+    <a href="../index.html" class="bb"><i data-lucide="arrow-left" style="width:14px;height:14px;"></i> <span data-i18n="nav-back">Back to Portfolio</span></a>
+  </div>
 </nav>
 
 <div class="hero">
 <div class="hi">
   <div class="badge">SRE · Incident Management · Runbooks · On-Call</div>
   <h1 class="pt">Incident Management<br>&amp; Operational Runbooks</h1>
-  <p class="ps">I authored the incident management process, the severity model, and the operational runbook library for the AWS platform — a structured response system covering detection, triage, escalation, and resolution, backed by per-service runbooks that any on-call engineer can follow under pressure.</p>
+  <p class="ps" data-i18n="incident-hero-sub">I authored the incident management process, the severity model, and the operational runbook library for the AWS platform — a structured response system covering detection, triage, escalation, and resolution, backed by per-service runbooks that any on-call engineer can follow under pressure.</p>
   <div class="mr">
     <span class="mc">Runbooks</span><span class="mc">Incident Process</span><span class="mc">Severity Model</span><span class="mc">Grafana</span><span class="mc">Statuspage</span><span class="mc">MS Teams</span>
   </div>
@@ -94,63 +97,63 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,
 <div class="cont">
 
   <div class="sb">
-    <p class="bl">The Problem</p>
-    <h2 class="bt">A repeatable response, not improvisation</h2>
+    <p class="bl" data-i18n="incident-s1-label">The Problem</p>
+    <h2 class="bt" data-i18n="incident-s1-title">A repeatable response, not improvisation</h2>
     <div class="prose">
-      <p>When something breaks in production, the worst time to decide <em>how</em> to respond is during the incident. The incident management system exists so that response is <strong>structured and repeatable</strong> — a clear severity classification, a defined process with named roles, and per-service runbooks that turn expert knowledge into steps anyone on-call can follow.</p>
-      <p>The guiding principle, written into the severity doc itself: <strong>"Always assume the worst."</strong> If you are unsure whether something is a SEV-2 or a SEV-1, treat it as the higher one. An incident is not the time to litigate severity — assume the highest, then review during the post-mortem.</p>
+      <p data-i18n="incident-s1-p1">When something breaks in production, the worst time to decide <em>how</em> to respond is during the incident. The incident management system exists so that response is <strong>structured and repeatable</strong> — a clear severity classification, a defined process with named roles, and per-service runbooks that turn expert knowledge into steps anyone on-call can follow.</p>
+      <p data-i18n="incident-s1-p2">The guiding principle, written into the severity doc itself: <strong>"Always assume the worst."</strong> If you are unsure whether something is a SEV-2 or a SEV-1, treat it as the higher one. An incident is not the time to litigate severity — assume the highest, then review during the post-mortem.</p>
     </div>
   </div>
 
   <div class="sb">
-    <p class="bl">Severity Model</p>
-    <h2 class="bt">SEV-1 to SEV-5 — classification drives response</h2>
-    <div class="prose"><p>Lower numbers are more urgent. Anything above SEV-3 is automatically a <strong>"major incident"</strong> and triggers the full incident response process.</p></div>
+    <p class="bl" data-i18n="incident-s2-label">Severity Model</p>
+    <h2 class="bt" data-i18n="incident-s2-title">SEV-1 to SEV-5 — classification drives response</h2>
+    <div class="prose"><p data-i18n="incident-s2-p1">Lower numbers are more urgent. Anything above SEV-3 is automatically a <strong>"major incident"</strong> and triggers the full incident response process.</p></div>
     <table class="sev-table">
-      <thead><tr><th>Severity</th><th>When it applies</th><th>Response</th></tr></thead>
+      <thead><tr><th data-i18n="incident-sev-th1">Severity</th><th data-i18n="incident-sev-th2">When it applies</th><th data-i18n="incident-sev-th3">Response</th></tr></thead>
       <tbody>
-        <tr><td><span class="sev-pill s1">SEV-1</span></td><td>Critical, large-scale customer/partner impact; SLA broken for a long time; customer-data security exposure; production blocked from making batteries.</td><td>Major incident response · appoint IC · notify stakeholders · public notification.</td></tr>
-        <tr><td><span class="sev-pill s2">SEV-2</span></td><td>Critical system issue impacting many customers; degraded API reliability; moderate security incident.</td><td>Major incident response · involve BCM.</td></tr>
-        <tr class="major-row"><td colspan="3">⬆ Anything above this line is a Major Incident — full response triggered</td></tr>
-        <tr><td><span class="sev-pill s3">SEV-3</span></td><td>Stability/minor customer impact needing immediate owner attention; partial loss of functionality; could escalate to SEV-2; no redundancy left in a service.</td><td>High-urgency page · top priority · rollback if deploy-related · watch for escalation.</td></tr>
-        <tr><td><span class="sev-pill s4">SEV-4</span></td><td>Minor issues needing action but not blocking customers; performance delays; single host failure in a cluster.</td><td>Low-urgency page · work above normal tasks · monitor.</td></tr>
-        <tr><td><span class="sev-pill s5">SEV-5</span></td><td>Cosmetic issues or bugs not affecting the ability to use the system.</td><td>Create a JIRA ticket, assign to the owning team.</td></tr>
+        <tr><td><span class="sev-pill s1">SEV-1</span></td><td data-i18n="incident-sev1-when">Critical, large-scale customer/partner impact; SLA broken for a long time; customer-data security exposure; production blocked from making batteries.</td><td data-i18n="incident-sev1-resp">Major incident response · appoint IC · notify stakeholders · public notification.</td></tr>
+        <tr><td><span class="sev-pill s2">SEV-2</span></td><td data-i18n="incident-sev2-when">Critical system issue impacting many customers; degraded API reliability; moderate security incident.</td><td data-i18n="incident-sev2-resp">Major incident response · involve BCM.</td></tr>
+        <tr class="major-row"><td colspan="3" data-i18n="incident-major-row">⬆ Anything above this line is a Major Incident — full response triggered</td></tr>
+        <tr><td><span class="sev-pill s3">SEV-3</span></td><td data-i18n="incident-sev3-when">Stability/minor customer impact needing immediate owner attention; partial loss of functionality; could escalate to SEV-2; no redundancy left in a service.</td><td data-i18n="incident-sev3-resp">High-urgency page · top priority · rollback if deploy-related · watch for escalation.</td></tr>
+        <tr><td><span class="sev-pill s4">SEV-4</span></td><td data-i18n="incident-sev4-when">Minor issues needing action but not blocking customers; performance delays; single host failure in a cluster.</td><td data-i18n="incident-sev4-resp">Low-urgency page · work above normal tasks · monitor.</td></tr>
+        <tr><td><span class="sev-pill s5">SEV-5</span></td><td data-i18n="incident-sev5-when">Cosmetic issues or bugs not affecting the ability to use the system.</td><td data-i18n="incident-sev5-resp">Create a JIRA ticket, assign to the owning team.</td></tr>
       </tbody>
     </table>
   </div>
 
   <div class="sb">
-    <p class="bl">The Process</p>
-    <h2 class="bt">Detection → Triage → Escalate → Response</h2>
+    <p class="bl" data-i18n="incident-s3-label">The Process</p>
+    <h2 class="bt" data-i18n="incident-s3-title">Detection → Triage → Escalate → Response</h2>
     <div class="flow-box">
-      <div class="flow-title">Incident management process</div>
+      <div class="flow-title" data-i18n="incident-flow-title">Incident management process</div>
       <div class="flow-step">
         <div class="flow-arrow">1 →</div>
-        <div class="flow-content"><strong>Detection.</strong> Through monitoring &amp; alerting, customer/partner reports, or internal reports. Once detected, an <strong>Incident Commander (IC)</strong> is appointed — automatically via on-call schedules, or manually if needed.</div>
+        <div class="flow-content" data-i18n="incident-flow1"><strong>Detection.</strong> Through monitoring &amp; alerting, customer/partner reports, or internal reports. Once detected, an <strong>Incident Commander (IC)</strong> is appointed — automatically via on-call schedules, or manually if needed.</div>
       </div>
       <div class="flow-step">
         <div class="flow-arrow">2 →</div>
-        <div class="flow-content"><strong>Triage.</strong> The IC answers three questions: Is this actually an incident? What severity is it (assume the worse if unsure)? Is anything urgent to expedite before escalating — e.g. block network access if data is being exfiltrated?</div>
+        <div class="flow-content" data-i18n="incident-flow2"><strong>Triage.</strong> The IC answers three questions: Is this actually an incident? What severity is it (assume the worse if unsure)? Is anything urgent to expedite before escalating — e.g. block network access if data is being exfiltrated?</div>
       </div>
       <div class="flow-step">
         <div class="flow-arrow">3 →</div>
-        <div class="flow-content"><strong>Escalate.</strong> For major incidents (SEV-1/2), involve BCM. Open an incident on <strong>Statuspage</strong>. Spin up a video call in the <strong>MS Teams</strong> Incident Management channel with a clear title like <code>[SEV-1] Firewall down</code>, kicked off with the declaration template. Assign Deputy IC, Scribe, and gather SMEs as available.</div>
+        <div class="flow-content" data-i18n="incident-flow3"><strong>Escalate.</strong> For major incidents (SEV-1/2), involve BCM. Open an incident on <strong>Statuspage</strong>. Spin up a video call in the <strong>MS Teams</strong> Incident Management channel with a clear title like <code>[SEV-1] Firewall down</code>, kicked off with the declaration template. Assign Deputy IC, Scribe, and gather SMEs as available.</div>
       </div>
       <div class="flow-step">
         <div class="flow-arrow">4 →</div>
-        <div class="flow-content"><strong>Response.</strong> The IC leads — delegating tasks to the Deputy, Scribe, and SMEs — and orchestrates the steps needed to resolve. Runbooks for the affected service guide the hands-on remediation.</div>
+        <div class="flow-content" data-i18n="incident-flow4"><strong>Response.</strong> The IC leads — delegating tasks to the Deputy, Scribe, and SMEs — and orchestrates the steps needed to resolve. Runbooks for the affected service guide the hands-on remediation.</div>
       </div>
       <div class="flow-step">
         <div class="flow-arrow">5 →</div>
-        <div class="flow-content"><strong>Resolution &amp; Post-Mortem.</strong> Once resolved, a blameless post-mortem captures root cause and follow-up actions — using the post-mortem template. Real examples in the repo include a SEV-2 firewall deny and a SEV-4 prod resource deletion by terraform apply.</div>
+        <div class="flow-content" data-i18n="incident-flow5"><strong>Resolution &amp; Post-Mortem.</strong> Once resolved, a blameless post-mortem captures root cause and follow-up actions — using the post-mortem template. Real examples in the repo include a SEV-2 firewall deny and a SEV-4 prod resource deletion by terraform apply.</div>
       </div>
     </div>
   </div>
 
   <div class="sb">
-    <p class="bl">Runbook Library</p>
-    <h2 class="bt">Per-service operational runbooks</h2>
-    <div class="prose"><p>The runbook library covers the AWS services that underpin the platform. Each is grouped by service so on-call can jump straight to the relevant procedure when an alert fires.</p></div>
+    <p class="bl" data-i18n="incident-s4-label">Runbook Library</p>
+    <h2 class="bt" data-i18n="incident-s4-title">Per-service operational runbooks</h2>
+    <div class="prose"><p data-i18n="incident-s4-p1">The runbook library covers the AWS services that underpin the platform. Each is grouped by service so on-call can jump straight to the relevant procedure when an alert fires.</p></div>
     <div class="rb-index">
       <div class="rb-group">
         <div class="rb-group-head"><i data-lucide="network" style="width:15px;height:15px;"></i> Application Load Balancer (AELB)</div>
@@ -172,23 +175,23 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,
   </div>
 
   <div class="sb">
-    <p class="bl">Runbook Anatomy</p>
-    <h2 class="bt">Every runbook follows the same structure</h2>
-    <div class="prose"><p>Consistency is what makes runbooks usable at 2AM. Each one — for example, <strong>RDS High CPU Utilization</strong> — follows the same sections so an engineer always knows where to look.</p></div>
+    <p class="bl" data-i18n="incident-s5-label">Runbook Anatomy</p>
+    <h2 class="bt" data-i18n="incident-s5-title">Every runbook follows the same structure</h2>
+    <div class="prose"><p data-i18n="incident-s5-p1">Consistency is what makes runbooks usable at 2AM. Each one — for example, <strong>RDS High CPU Utilization</strong> — follows the same sections so an engineer always knows where to look.</p></div>
     <div class="sop">
       <div class="soph"><i data-lucide="file-text" style="width:16px;height:16px;color:var(--red);"></i> Runbook: RDS High CPU Utilization</div>
       <div class="sopb">
         <div class="step">
           <div class="sn">Meaning</div>
-          <div><div class="sd">What the alert actually means — high CPU on RDS/Aurora PostgreSQL signals the instance is consuming a large share of its processing resources, often from intensive queries, a surge in connections, inefficient queries, or autovacuum.</div></div>
+          <div><div class="sd" data-i18n="incident-rca1-desc">What the alert actually means — high CPU on RDS/Aurora PostgreSQL signals the instance is consuming a large share of its processing resources, often from intensive queries, a surge in connections, inefficient queries, or autovacuum.</div></div>
         </div>
         <div class="step">
           <div class="sn">Impact</div>
-          <div><div class="sd">Why it matters — performance degradation and higher latency, connection timeouts or failures, and in extreme cases an unresponsive instance.</div></div>
+          <div><div class="sd" data-i18n="incident-rca2-desc">Why it matters — performance degradation and higher latency, connection timeouts or failures, and in extreme cases an unresponsive instance.</div></div>
         </div>
         <div class="step">
           <div class="sn">Diagnosis</div>
-          <div><div class="sd">Where to look and what to run — start from the linked Grafana RDS dashboards (dev / staging / prod), then drill in with Performance Insights and native PostgreSQL queries.</div>
+          <div><div class="sd" data-i18n="incident-rca3-desc">Where to look and what to run — start from the linked Grafana RDS dashboards (dev / staging / prod), then drill in with Performance Insights and native PostgreSQL queries.</div>
             <div class="sc">-- Long-running queries (>5 min)
 SELECT pid, usename, application_name, state, query,
        now() - query_start AS duration
@@ -205,11 +208,11 @@ LIMIT 5;</div>
         </div>
         <div class="step">
           <div class="sn">Mitigation</div>
-          <div><div class="sd">How to bring it back — optimise inefficient queries and add indexes, manage connections with pooling, scale vertically or add read replicas, and keep vacuum/analyze healthy.</div></div>
+          <div><div class="sd" data-i18n="incident-rca4-desc">How to bring it back — optimise inefficient queries and add indexes, manage connections with pooling, scale vertically or add read replicas, and keep vacuum/analyze healthy.</div></div>
         </div>
         <div class="step">
           <div class="sn">Escalation</div>
-          <div><div class="sd">Who to involve and when — a tiered L1 → L2 → L3 path, below.</div></div>
+          <div><div class="sd" data-i18n="incident-rca5-desc">Who to involve and when — a tiered L1 → L2 → L3 path, below.</div></div>
         </div>
       </div>
     </div>
@@ -222,27 +225,28 @@ LIMIT 5;</div>
   </div>
 
   <div class="sb">
-    <p class="bl">Outcomes</p>
-    <h2 class="bt">What this delivered</h2>
+    <p class="bl" data-i18n="incident-s6-label">Outcomes</p>
+    <h2 class="bt" data-i18n="incident-s6-title">What this delivered</h2>
     <div class="og">
-      <div class="oc"><div class="oi"><i data-lucide="compass" style="width:18px;height:18px;"></i></div><div class="otit">A clear process under pressure</div><div class="od">Detection → triage → escalate → response with named roles (IC, Deputy, Scribe, SMEs) — no improvising mid-incident.</div></div>
-      <div class="oc"><div class="oi"><i data-lucide="layers" style="width:18px;height:18px;"></i></div><div class="otit">Severity drives the response</div><div class="od">A SEV-1→SEV-5 matrix that maps each level to a defined response, with "assume the worst" as the tie-breaker.</div></div>
-      <div class="oc"><div class="oi"><i data-lucide="book-open" style="width:18px;height:18px;"></i></div><div class="otit">Runbooks anyone can follow</div><div class="od">Consistent Meaning / Impact / Diagnosis / Mitigation / Escalation structure across every AWS service.</div></div>
-      <div class="oc"><div class="oi"><i data-lucide="repeat" style="width:18px;height:18px;"></i></div><div class="otit">Blameless post-mortems</div><div class="od">A template-driven post-mortem after every incident feeds fixes back into the runbooks and the platform.</div></div>
+      <div class="oc"><div class="oi"><i data-lucide="compass" style="width:18px;height:18px;"></i></div><div class="otit" data-i18n="incident-o1-title">A clear process under pressure</div><div class="od" data-i18n="incident-o1-desc">Detection → triage → escalate → response with named roles (IC, Deputy, Scribe, SMEs) — no improvising mid-incident.</div></div>
+      <div class="oc"><div class="oi"><i data-lucide="layers" style="width:18px;height:18px;"></i></div><div class="otit" data-i18n="incident-o2-title">Severity drives the response</div><div class="od" data-i18n="incident-o2-desc">A SEV-1→SEV-5 matrix that maps each level to a defined response, with "assume the worst" as the tie-breaker.</div></div>
+      <div class="oc"><div class="oi"><i data-lucide="book-open" style="width:18px;height:18px;"></i></div><div class="otit" data-i18n="incident-o3-title">Runbooks anyone can follow</div><div class="od" data-i18n="incident-o3-desc">Consistent Meaning / Impact / Diagnosis / Mitigation / Escalation structure across every AWS service.</div></div>
+      <div class="oc"><div class="oi"><i data-lucide="repeat" style="width:18px;height:18px;"></i></div><div class="otit" data-i18n="incident-o4-title">Blameless post-mortems</div><div class="od" data-i18n="incident-o4-desc">A template-driven post-mortem after every incident feeds fixes back into the runbooks and the platform.</div></div>
     </div>
   </div>
 
   <div class="ghb">
     <div>
-      <div class="gbt">Runbooks &amp; incident docs on GitHub</div>
-      <div class="gbs">Severity model, incident process, role definitions, per-service runbooks, post-mortem template.</div>
+      <div class="gbt" data-i18n="incident-gh-title">Runbooks &amp; incident docs on GitHub</div>
+      <div class="gbs" data-i18n="incident-gh-sub">Severity model, incident process, role definitions, per-service runbooks, post-mortem template.</div>
     </div>
     <a href="https://github.com/francesco2323" target="_blank" class="gbtn">
-      <i data-lucide="github" style="width:16px;height:16px;"></i> Open Repository
+      <i data-lucide="github" style="width:16px;height:16px;"></i> <span data-i18n="p-github-btn">Open Repository</span>
     </a>
   </div>
 
 </div>
+<script src="../js/i18n.js"></script>
 <script>lucide.createIcons();</script>
 </body>
 </html>

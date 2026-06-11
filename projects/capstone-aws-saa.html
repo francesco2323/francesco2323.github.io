@@ -58,15 +58,18 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,
 </head>
 <body>
 <nav>
-  <div class="nl">Francesco<span>.</span></div>
-  <a href="../index.html" class="bb"><i data-lucide="arrow-left" style="width:14px;height:14px;"></i> Back to Portfolio</a>
+  <div class="nl">Francesco Emanuele<span>.</span></div>
+  <div style="display:flex;align-items:center;gap:10px;">
+    <button class="lang-toggle bb" style="cursor:pointer;border:1px solid var(--border);background:var(--sf);">DE</button>
+    <a href="../index.html" class="bb"><i data-lucide="arrow-left" style="width:14px;height:14px;"></i> <span data-i18n="nav-back">Back to Portfolio</span></a>
+  </div>
 </nav>
 
 <div class="hero">
 <div class="hi">
   <div class="badge">AWS SAA · Solutions Architecture · Well-Architected · Capstone</div>
   <h1 class="pt">AWS Solutions Architect<br>Capstone Project</h1>
-  <p class="ps">End-to-end AWS solutions architecture designed as the capstone of the AWS Solutions Architect Associate course — multi-tier, highly available, cost-optimised, and implemented fully in Terraform following the AWS Well-Architected Framework across all five pillars.</p>
+  <p class="ps" data-i18n="capstone-hero-sub">End-to-end AWS solutions architecture designed as the capstone of the AWS Solutions Architect Associate course — multi-tier, highly available, cost-optimised, and implemented fully in Terraform following the AWS Well-Architected Framework across all five pillars.</p>
   <div class="mr">
     <span class="mc">AWS VPC</span><span class="mc">EC2 + ASG</span><span class="mc">RDS Multi-AZ</span><span class="mc">S3</span><span class="mc">CloudFront</span><span class="mc">Route53</span><span class="mc">ALB</span><span class="mc">Terraform</span>
   </div>
@@ -76,89 +79,89 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,
 <div class="cont">
 
   <div class="sb">
-    <p class="bl">Project Scope</p>
-    <h2 class="bt">A production-grade architecture designed from first principles</h2>
+    <p class="bl" data-i18n="capstone-s1-label">Project Scope</p>
+    <h2 class="bt" data-i18n="capstone-s1-title">A production-grade architecture designed from first principles</h2>
     <div class="prose">
-      <p>The capstone challenge: design and implement a <strong>multi-tier web application architecture</strong> on AWS that would be production-ready — highly available across two AZs, auto-scaling under load, secure by default, and cost-optimised for real business constraints.</p>
-      <p>The constraint that made it interesting: every decision had to be justified against the <strong>AWS Well-Architected Framework</strong>. Not just "it works" — but why this service over the alternative, what the failure modes are, and how the architecture recovers from them automatically.</p>
+      <p data-i18n="capstone-s1-p1">The capstone challenge: design and implement a <strong>multi-tier web application architecture</strong> on AWS that would be production-ready — highly available across two AZs, auto-scaling under load, secure by default, and cost-optimised for real business constraints.</p>
+      <p data-i18n="capstone-s1-p2">The constraint that made it interesting: every decision had to be justified against the <strong>AWS Well-Architected Framework</strong>. Not just "it works" — but why this service over the alternative, what the failure modes are, and how the architecture recovers from them automatically.</p>
     </div>
   </div>
 
   <div class="sb">
-    <p class="bl">Well-Architected Pillars Applied</p>
-    <h2 class="bt">Architecture decisions mapped to all 5 pillars</h2>
+    <p class="bl" data-i18n="capstone-s2-label">Well-Architected Pillars Applied</p>
+    <h2 class="bt" data-i18n="capstone-s2-title">Architecture decisions mapped to all 5 pillars</h2>
     <div class="wa-grid">
       <div class="wa-card">
         <div class="wa-num">01</div>
-        <div class="wa-pillar">Operational Excellence</div>
-        <div class="wa-detail">IaC-only via Terraform · CloudWatch alarms · Auto-remediation via ASG · Runbooks documented</div>
+        <div class="wa-pillar" data-i18n="capstone-wa1-pillar">Operational Excellence</div>
+        <div class="wa-detail" data-i18n="capstone-wa1-detail">IaC-only via Terraform · CloudWatch alarms · Auto-remediation via ASG · Runbooks documented</div>
       </div>
       <div class="wa-card">
         <div class="wa-num">02</div>
-        <div class="wa-pillar">Security</div>
-        <div class="wa-detail">Layered security groups · No public DB exposure · S3 bucket policies · IAM least-privilege · Encryption at rest &amp; transit</div>
+        <div class="wa-pillar" data-i18n="capstone-wa2-pillar">Security</div>
+        <div class="wa-detail" data-i18n="capstone-wa2-detail">Layered security groups · No public DB exposure · S3 bucket policies · IAM least-privilege · Encryption at rest &amp; transit</div>
       </div>
       <div class="wa-card">
         <div class="wa-num">03</div>
-        <div class="wa-pillar">Reliability</div>
-        <div class="wa-detail">Multi-AZ deployment · RDS Multi-AZ failover · ASG health checks · Route53 health-check-based failover</div>
+        <div class="wa-pillar" data-i18n="capstone-wa3-pillar">Reliability</div>
+        <div class="wa-detail" data-i18n="capstone-wa3-detail">Multi-AZ deployment · RDS Multi-AZ failover · ASG health checks · Route53 health-check-based failover</div>
       </div>
       <div class="wa-card">
         <div class="wa-num">04</div>
-        <div class="wa-pillar">Performance</div>
-        <div class="wa-detail">CloudFront CDN for static assets · ALB with sticky sessions · RDS read replicas · EC2 instance type right-sizing</div>
+        <div class="wa-pillar" data-i18n="capstone-wa4-pillar">Performance</div>
+        <div class="wa-detail" data-i18n="capstone-wa4-detail">CloudFront CDN for static assets · ALB with sticky sessions · RDS read replicas · EC2 instance type right-sizing</div>
       </div>
       <div class="wa-card">
         <div class="wa-num">05</div>
-        <div class="wa-pillar">Cost Optimisation</div>
-        <div class="wa-detail">Reserved Instances for baseline · Spot for non-critical · S3 lifecycle policies · CloudFront cost vs. origin traffic analysis</div>
+        <div class="wa-pillar" data-i18n="capstone-wa5-pillar">Cost Optimisation</div>
+        <div class="wa-detail" data-i18n="capstone-wa5-detail">Reserved Instances for baseline · Spot for non-critical · S3 lifecycle policies · CloudFront cost vs. origin traffic analysis</div>
       </div>
     </div>
   </div>
 
   <div class="sb">
-    <p class="bl">Architecture Layers</p>
-    <h2 class="bt">Multi-tier design — every layer has a purpose</h2>
+    <p class="bl" data-i18n="capstone-s3-label">Architecture Layers</p>
+    <h2 class="bt" data-i18n="capstone-s3-title">Multi-tier design — every layer has a purpose</h2>
     <div class="arch-layers">
       <div class="layer">
-        <span class="layer-badge">DNS + CDN</span>
-        <div class="layer-title">Route53 + CloudFront</div>
-        <div class="layer-detail">Health-check-based DNS failover. CloudFront distributes static assets globally — reduces origin load and latency for EU users.</div>
+        <span class="layer-badge" data-i18n="capstone-layer1-badge">DNS + CDN</span>
+        <div class="layer-title" data-i18n="capstone-layer1-title">Route53 + CloudFront</div>
+        <div class="layer-detail" data-i18n="capstone-layer1-detail">Health-check-based DNS failover. CloudFront distributes static assets globally — reduces origin load and latency for EU users.</div>
       </div>
       <div class="layer">
-        <span class="layer-badge">Load Balancing</span>
-        <div class="layer-title">Application Load Balancer</div>
-        <div class="layer-detail">ALB in public subnets across 2 AZs. Path-based routing separates API traffic from frontend. Health checks gate all ASG instances before registration.</div>
+        <span class="layer-badge" data-i18n="capstone-layer2-badge">Load Balancing</span>
+        <div class="layer-title" data-i18n="capstone-layer2-title">Application Load Balancer</div>
+        <div class="layer-detail" data-i18n="capstone-layer2-detail">ALB in public subnets across 2 AZs. Path-based routing separates API traffic from frontend. Health checks gate all ASG instances before registration.</div>
       </div>
       <div class="layer">
-        <span class="layer-badge">Compute</span>
-        <div class="layer-title">EC2 Auto Scaling Group</div>
-        <div class="layer-detail">ASG in private subnets. Scales on CPU and custom CloudWatch metrics. Launch template with user data for bootstrapping. Min 2 / Max 6 instances.</div>
+        <span class="layer-badge" data-i18n="capstone-layer3-badge">Compute</span>
+        <div class="layer-title" data-i18n="capstone-layer3-title">EC2 Auto Scaling Group</div>
+        <div class="layer-detail" data-i18n="capstone-layer3-detail">ASG in private subnets. Scales on CPU and custom CloudWatch metrics. Launch template with user data for bootstrapping. Min 2 / Max 6 instances.</div>
       </div>
       <div class="layer">
-        <span class="layer-badge">Data</span>
-        <div class="layer-title">RDS Multi-AZ (PostgreSQL)</div>
-        <div class="layer-detail">Primary in AZ-a, standby in AZ-b. Automatic failover in &lt;60s. Encrypted at rest with KMS. No public accessibility. Security group allows only app tier.</div>
+        <span class="layer-badge" data-i18n="capstone-layer4-badge">Data</span>
+        <div class="layer-title" data-i18n="capstone-layer4-title">RDS Multi-AZ (PostgreSQL)</div>
+        <div class="layer-detail" data-i18n="capstone-layer4-detail">Primary in AZ-a, standby in AZ-b. Automatic failover in &lt;60s. Encrypted at rest with KMS. No public accessibility. Security group allows only app tier.</div>
       </div>
       <div class="layer">
-        <span class="layer-badge">Storage</span>
-        <div class="layer-title">S3 + Lifecycle Policies</div>
-        <div class="layer-detail">Static assets and backups. Versioning enabled. Lifecycle rules transition objects to Glacier after 90 days. Bucket policy blocks all public access.</div>
+        <span class="layer-badge" data-i18n="capstone-layer5-badge">Storage</span>
+        <div class="layer-title" data-i18n="capstone-layer5-title">S3 + Lifecycle Policies</div>
+        <div class="layer-detail" data-i18n="capstone-layer5-detail">Static assets and backups. Versioning enabled. Lifecycle rules transition objects to Glacier after 90 days. Bucket policy blocks all public access.</div>
       </div>
     </div>
   </div>
 
   <div class="sb">
-    <p class="bl">Implementation</p>
-    <h2 class="bt">Full Terraform implementation — not a click-through</h2>
+    <p class="bl" data-i18n="capstone-s4-label">Implementation</p>
+    <h2 class="bt" data-i18n="capstone-s4-title">Full Terraform implementation — not a click-through</h2>
     <div class="sop">
-      <div class="soph"><i data-lucide="file-code" style="width:16px;height:16px;color:var(--red);"></i> Key Terraform modules authored</div>
+      <div class="soph"><i data-lucide="file-code" style="width:16px;height:16px;color:var(--red);"></i> <span data-i18n="capstone-s4-sop-title">Key Terraform modules authored</span></div>
       <div class="sopb">
         <div class="step">
           <div class="sn">1</div>
           <div>
-            <div class="st">VPC + Networking</div>
-            <div class="sd">Custom VPC with public/private/database subnet tiers across 2 AZs. NAT Gateways for private subnet egress. VPC Flow Logs to S3 for security analysis.</div>
+            <div class="st" data-i18n="capstone-step1-title">VPC + Networking</div>
+            <div class="sd" data-i18n="capstone-step1-desc">Custom VPC with public/private/database subnet tiers across 2 AZs. NAT Gateways for private subnet egress. VPC Flow Logs to S3 for security analysis.</div>
             <div class="sc">module "vpc" {
   source  = "terraform-aws-modules/vpc/aws"
   cidr    = "10.0.0.0/16"
@@ -174,8 +177,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,
         <div class="step">
           <div class="sn">2</div>
           <div>
-            <div class="st">RDS Multi-AZ with automated failover</div>
-            <div class="sd">PostgreSQL RDS instance in Multi-AZ mode. Automated backups with 7-day retention. Parameter group tuned for application workload. Deletion protection enabled.</div>
+            <div class="st" data-i18n="capstone-step2-title">RDS Multi-AZ with automated failover</div>
+            <div class="sd" data-i18n="capstone-step2-desc">PostgreSQL RDS instance in Multi-AZ mode. Automated backups with 7-day retention. Parameter group tuned for application workload. Deletion protection enabled.</div>
             <div class="sc">resource "aws_db_instance" "main" {
   engine              = "postgres"
   engine_version      = "15.3"
@@ -192,15 +195,15 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,
         <div class="step">
           <div class="sn">3</div>
           <div>
-            <div class="st">Auto Scaling Group with CloudWatch scaling policies</div>
-            <div class="sd">ASG with launch template, target tracking scaling on CPU utilisation. Scale-in protection during deployments. Instance refresh for zero-downtime AMI updates.</div>
+            <div class="st" data-i18n="capstone-step3-title">Auto Scaling Group with CloudWatch scaling policies</div>
+            <div class="sd" data-i18n="capstone-step3-desc">ASG with launch template, target tracking scaling on CPU utilisation. Scale-in protection during deployments. Instance refresh for zero-downtime AMI updates.</div>
           </div>
         </div>
         <div class="step">
           <div class="sn">4</div>
           <div>
-            <div class="st">DR and failover testing</div>
-            <div class="sd">Documented and executed: AZ failure simulation (terminate all instances in one AZ), RDS failover test, ASG replacement under load. All scenarios recovered automatically within defined RTOs.</div>
+            <div class="st" data-i18n="capstone-step4-title">DR and failover testing</div>
+            <div class="sd" data-i18n="capstone-step4-desc">Documented and executed: AZ failure simulation (terminate all instances in one AZ), RDS failover test, ASG replacement under load. All scenarios recovered automatically within defined RTOs.</div>
           </div>
         </div>
       </div>
@@ -208,27 +211,28 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,
   </div>
 
   <div class="sb">
-    <p class="bl">Learning Outcomes</p>
-    <h2 class="bt">What building this proved</h2>
+    <p class="bl" data-i18n="capstone-s5-label">Learning Outcomes</p>
+    <h2 class="bt" data-i18n="capstone-s5-title">What building this proved</h2>
     <div class="og">
-      <div class="oc"><div class="oi"><i data-lucide="layers" style="width:18px;height:18px;"></i></div><div class="otit">Well-Architected depth</div><div class="od">Every design decision mapped to a pillar. Not just "what" but "why this and not that" — the consultant mindset Devoteam values.</div></div>
-      <div class="oc"><div class="oi"><i data-lucide="refresh-cw" style="width:18px;height:18px;"></i></div><div class="otit">HA validated by failure testing</div><div class="od">AZ failure and RDS failover tested manually. Architecture proved — not assumed — to be resilient.</div></div>
-      <div class="oc"><div class="oi"><i data-lucide="file-code" style="width:18px;height:18px;"></i></div><div class="otit">IaC from day one</div><div class="od">Zero console resources. Full Terraform. Reproducible in any account from a single terraform apply.</div></div>
-      <div class="oc"><div class="oi"><i data-lucide="trending-down" style="width:18px;height:18px;"></i></div><div class="otit">Cost modelled explicitly</div><div class="od">Reserved vs. On-Demand vs. Spot analysis. S3 lifecycle cost vs. storage savings. FinOps embedded in the design, not bolted on.</div></div>
+      <div class="oc"><div class="oi"><i data-lucide="layers" style="width:18px;height:18px;"></i></div><div class="otit" data-i18n="capstone-o1-title">Well-Architected depth</div><div class="od" data-i18n="capstone-o1-desc">Every design decision mapped to a pillar. Not just "what" but "why this and not that" — the consultant mindset Devoteam values.</div></div>
+      <div class="oc"><div class="oi"><i data-lucide="refresh-cw" style="width:18px;height:18px;"></i></div><div class="otit" data-i18n="capstone-o2-title">HA validated by failure testing</div><div class="od" data-i18n="capstone-o2-desc">AZ failure and RDS failover tested manually. Architecture proved — not assumed — to be resilient.</div></div>
+      <div class="oc"><div class="oi"><i data-lucide="file-code" style="width:18px;height:18px;"></i></div><div class="otit" data-i18n="capstone-o3-title">IaC from day one</div><div class="od" data-i18n="capstone-o3-desc">Zero console resources. Full Terraform. Reproducible in any account from a single terraform apply.</div></div>
+      <div class="oc"><div class="oi"><i data-lucide="trending-down" style="width:18px;height:18px;"></i></div><div class="otit" data-i18n="capstone-o4-title">Cost modelled explicitly</div><div class="od" data-i18n="capstone-o4-desc">Reserved vs. On-Demand vs. Spot analysis. S3 lifecycle cost vs. storage savings. FinOps embedded in the design, not bolted on.</div></div>
     </div>
   </div>
 
   <div class="ghb">
     <div>
-      <div class="gbt">Full Terraform implementation on GitHub</div>
-      <div class="gbs">VPC, RDS, ASG, ALB, CloudFront, S3 modules + architecture decision document.</div>
+      <div class="gbt" data-i18n="capstone-gh-title">Full Terraform implementation on GitHub</div>
+      <div class="gbs" data-i18n="capstone-gh-sub">VPC, RDS, ASG, ALB, CloudFront, S3 modules + architecture decision document.</div>
     </div>
     <a href="https://github.com/francesco2323" target="_blank" class="gbtn">
-      <i data-lucide="github" style="width:16px;height:16px;"></i> Open Repository
+      <i data-lucide="github" style="width:16px;height:16px;"></i> <span data-i18n="p-github-btn">Open Repository</span>
     </a>
   </div>
 
 </div>
+<script src="../js/i18n.js"></script>
 <script>lucide.createIcons();</script>
 </body>
 </html>
