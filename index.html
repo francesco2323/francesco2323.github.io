@@ -178,16 +178,17 @@ footer a:hover{text-decoration:underline;}
 <nav>
   <div class="nav-logo">Francesco Emanuele<span>.</span></div>
   <ul class="nav-links">
-    <li><a href="#offer">What I Offer</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#projects">Case Studies</a></li>
-    <li><a href="#experience">Experience</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#certifications">Certifications</a></li>
+      <li><a href="#offer" data-i18n="nav-offer">What I Offer</a></li>
+      <li><a href="#about" data-i18n="nav-about">About</a></li>
+      <li><a href="#projects" data-i18n="nav-projects">Case Studies</a></li>
+      <li><a href="#experience" data-i18n="nav-experience">Experience</a></li>
+      <li><a href="#skills" data-i18n="nav-skills">Skills</a></li>
+      <li><a href="#certifications" data-i18n="nav-certs">Certifications</a></li>
   </ul>
   <a href="mailto:francescoemanuele32@gmail.com" class="nav-cta">
     <i data-lucide="mail" style="width:14px;height:14px;"></i> Contact me
   </a>
+<button id="lang-toggle" class="nav-cta btn-outline" style="margin-left:10px;">DE</button>
 </nav>
 
 <!-- HERO -->
@@ -198,8 +199,8 @@ footer a:hover{text-decoration:underline;}
       <i data-lucide="map-pin" style="width:11px;height:11px;"></i>
       Berlin, Germany · Open to new roles
     </div>
-    <h1>Cloud &amp; <span class="accent">Platform</span><br>Engineer</h1>
-    <p class="hero-bio">
+    <h1 data-i18n="hero-title">Cloud <span class="accent">Platform</span><br>Engineer</h1>
+    <p class="hero-bio" data-i18n="hero-bio">
       I design and operate <strong>production-grade EKS platforms</strong> end-to-end — from cluster provisioning to observability, security, and compliance — with <strong>zero console/ClickOps drift</strong>. GitOps-native. IaC-first. SRE-minded.
     </p>
     <div class="hero-tags">
@@ -803,7 +804,44 @@ footer a:hover{text-decoration:underline;}
     <p style="font-size:12px;color:#374151;">IaC-first · GitOps-native · Zero ClickOps · &copy; 2025 Francesco Emanuele</p>
   </div>
 </footer>
-
+<script>
+const translations = {
+  en: {
+    'nav-offer': 'What I Offer',
+    'nav-about': 'About',
+    'nav-projects': 'Case Studies',
+    'nav-experience': 'Experience',
+    'nav-skills': 'Skills',
+    'nav-certs': 'Certifications',
+    'hero-title': 'Cloud <span class="accent">Platform</span><br>Engineer',
+    'hero-bio': 'I design and operate <strong>production-grade EKS platforms</strong> end-to-end — from cluster provisioning to observability, security, and compliance — with <strong>zero console/ClickOps drift</strong>. GitOps-native. IaC-first. SRE-minded.'
+  },
+  de: {
+    'nav-offer': 'Was ich anbiete',
+    'nav-about': 'Über mich',
+    'nav-projects': 'Fallstudien',
+    'nav-experience': 'Erfahrung',
+    'nav-skills': 'Fähigkeiten',
+    'nav-certs': 'Zertifikate',
+    'hero-title': 'Cloud <span class="accent">Plattform</span><br>Ingenieur',
+    'hero-bio': 'Ich entwerfe und betreibe <strong>produktionsreife EKS-Plattformen</strong> von Anfang bis Ende — vom Cluster-Provisioning über Beobachtbarkeit, Sicherheit und Compliance — mit <strong>keinem Console/ClickOps Drift</strong>. GitOps-nativ. IaC-first. SRE-orientiert.'
+  }
+};
+let currentLang = 'en';
+function setLanguage(lang) {
+  currentLang = lang;
+  const t = translations[lang];
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (t[key]) el.innerHTML = t[key];
+  });
+  document.getElementById('lang-toggle').innerText = lang === 'en' ? 'DE' : 'EN';
+}
+document.getElementById('lang-toggle').addEventListener('click', () => {
+  setLanguage(currentLang === 'en' ? 'de' : 'en');
+});
+setLanguage('en');
+</script>
 <script>lucide.createIcons();</script>
 </body>
 </html>
